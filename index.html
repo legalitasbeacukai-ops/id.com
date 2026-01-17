@@ -9,6 +9,7 @@
     :root {
       --bc-blue: #002B5C;
       --bc-gold: #D4AF37;
+      --gold-light: #e6c56b;
       --red: #C00000;
       --red-light: #ffe6e6;
       --gray-800: #333333;
@@ -23,44 +24,44 @@
       box-sizing: border-box;
     }
 
+    /* === SMOOTH SCROLL === */
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       color: var(--gray-800);
       line-height: 1.6;
-      background-color: var(--white);
+      background: linear-gradient(135deg, #f8fbff 0%, #ffffff 100%);
       padding: 16px;
       display: flex;
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
       position: relative;
+      overflow-x: hidden;
     }
 
-    /* === WATERMARK BARU DARI URL ANDA === */
-    .watermark-container {
+    /* === WATERMARK PARALLAX === */
+    #watermark-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -1;
-      pointer-events: none;
-      opacity: 0.05; /* Transparansi optimal */
-    }
-
-    .watermark-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      background-image: url('https://i.ibb.co.com/Xrp8qBy7/pm-1766605896438-cmp.jpg');
+      background-image: url('https://i.ibb.co.com/8LmgWrGz/IMG-20260117-110603.jpg');
       background-size: 300px;
       background-repeat: repeat;
-      background-position: center;
+      opacity: 0.05;
+      pointer-events: none;
+      z-index: -1;
+      transform: translateZ(0); /* Aktifkan hardware acceleration */
     }
 
-    /* Fallback teks jika gambar gagal */
+    /* Fallback teks */
     .watermark-fallback {
-      position: absolute;
+      position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) rotate(-35deg);
@@ -72,10 +73,11 @@
       opacity: 0.35;
       text-align: center;
       pointer-events: none;
+      z-index: -1;
     }
 
     @media print {
-      .watermark-container { display: none; }
+      #watermark-overlay, .watermark-fallback { display: none; }
     }
 
     .document {
@@ -84,21 +86,38 @@
       position: relative;
       padding: 32px;
       font-size: 15px;
-      box-shadow: 0 6px 24px rgba(0, 43, 92, 0.08);
+      box-shadow: 
+        0 12px 30px rgba(0, 43, 92, 0.12),
+        0 4px 6px rgba(212, 175, 55, 0.08);
       border: 1px solid var(--gray-300);
-      border-radius: 8px;
+      border-radius: 12px;
       overflow: hidden;
+      z-index: 1;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    /* === SISA STYLE SAMA SEPERTI VERSI PREMIUM === */
+    .document:hover {
+      transform: translateY(-3px);
+      box-shadow: 
+        0 16px 40px rgba(0, 43, 92, 0.18),
+        0 6px 10px rgba(212, 175, 55, 0.12);
+    }
+
+    /* === HEADER RESMI === */
     .header-resmi {
-      background-color: var(--bc-blue);
+      background: linear-gradient(135deg, var(--bc-blue) 0%, #001f45 100%);
       color: var(--white);
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 24px;
+      padding: 24px;
+      border-radius: 12px;
+      margin-bottom: 28px;
       text-align: center;
       position: relative;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.4s ease;
+    }
+
+    .header-resmi:hover {
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
     }
 
     .header-logos {
@@ -115,6 +134,11 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .logo-container:hover {
+      transform: scale(1.05);
     }
 
     .logo-container img {
@@ -149,11 +173,12 @@
 
     .title-main {
       font-family: 'Merriweather', serif;
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 700;
       color: var(--bc-blue);
       line-height: 1.3;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.8px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
     }
 
     .doc-meta {
@@ -162,7 +187,7 @@
       font-size: 14px;
       color: var(--gray-700);
       margin-bottom: 24px;
-      padding-bottom: 10px;
+      padding-bottom: 12px;
       border-bottom: 2px solid var(--bc-gold);
     }
 
@@ -171,9 +196,16 @@
       padding: 20px;
       border-left: 4px solid var(--bc-blue);
       background-color: #f8fafd;
-      border-radius: 0 6px 6px 0;
+      border-radius: 0 8px 8px 0;
+      transition: all 0.3s ease;
     }
 
+    .recipient-block:hover {
+      background-color: #edf4ff;
+      border-left: 4px solid var(--gold-light);
+    }
+
+    /* === SECTION TITLE ANIMATED === */
     .section-title {
       font-family: 'Merriweather', serif;
       font-size: 18px;
@@ -181,8 +213,17 @@
       color: var(--bc-blue);
       margin: 32px 0 18px;
       padding-bottom: 6px;
-      border-bottom: 2px solid var(--bc-gold);
       position: relative;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .section-title::after {
@@ -200,6 +241,20 @@
       border-collapse: collapse;
       margin: 16px 0;
       font-size: 14px;
+      opacity: 0;
+      transform: translateY(15px);
+      animation: fadeInTable 0.5s forwards;
+    }
+
+    table:nth-child(1) { animation-delay: 0.1s; }
+    table:nth-child(2) { animation-delay: 0.2s; }
+    table:nth-child(3) { animation-delay: 0.3s; }
+
+    @keyframes fadeInTable {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     th, td {
@@ -207,13 +262,18 @@
       text-align: left;
       border: 1px solid var(--gray-300);
       vertical-align: top;
+      transition: background-color 0.2s ease;
     }
 
     th {
-      background-color: #f2f7fe;
+      background: linear-gradient(to bottom, #f2f7fe, #e6effc);
       font-weight: 700;
       color: var(--bc-blue);
       font-size: 14px;
+    }
+
+    tr:hover td {
+      background-color: #f9fbff;
     }
 
     .numeric {
@@ -223,25 +283,37 @@
     }
 
     .consequence {
-      background: var(--red-light);
+      background: linear-gradient(to right, var(--red-light), #fff5f5);
       border-left: 4px solid var(--red);
       padding: 20px;
       margin: 24px 0;
       font-weight: 600;
       color: var(--red);
-      border-radius: 0 6px 6px 0;
+      border-radius: 0 8px 8px 0;
       line-height: 1.55;
+      transition: all 0.3s ease;
+    }
+
+    .consequence:hover {
+      background: linear-gradient(to right, #ffdada, #fff0f0);
+      transform: translateX(5px);
     }
 
     .note-box {
-      background: #f0f6ff;
+      background: linear-gradient(to right, #f0f6ff, #f8fbff);
       padding: 16px;
       margin: 24px 0;
       border-left: 4px solid var(--bc-blue);
-      border-radius: 0 6px 6px 0;
+      border-radius: 0 8px 8px 0;
       font-size: 14px;
       color: var(--gray-700);
       line-height: 1.55;
+      transition: all 0.3s ease;
+    }
+
+    .note-box:hover {
+      background: linear-gradient(to right, #e6f0ff, #f0f8ff);
+      border-left: 4px solid var(--gold-light);
     }
 
     .note-box strong {
@@ -252,9 +324,16 @@
       text-align: center;
       margin: 28px 0;
       padding: 16px;
-      background: #f9fbfd;
+      background: linear-gradient(135deg, #f9fbfd 0%, #f0f6ff 100%);
       border: 1px dashed var(--bc-blue);
-      border-radius: 8px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .qr-box:hover {
+      background: linear-gradient(135deg, #edf4ff 0%, #e6effc 100%);
+      border-color: var(--bc-gold);
+      transform: scale(1.02);
     }
 
     .qr-box img {
@@ -262,12 +341,18 @@
       height: auto;
       margin-top: 10px;
       border: 1px solid #eee;
-      border-radius: 4px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .qr-box img:hover {
+      transform: scale(1.05);
     }
 
     .checkmark {
       color: var(--bc-gold);
+      font-size: 18px;
     }
 
     .signature-section {
@@ -280,6 +365,11 @@
     .signature-box {
       text-align: center;
       min-width: 220px;
+      transition: transform 0.3s ease;
+    }
+
+    .signature-box:hover {
+      transform: translateY(-5px);
     }
 
     .signature-box p {
@@ -297,6 +387,7 @@
       max-width: 120px;
       height: auto;
       margin: 8px auto;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
     }
 
     .footer {
@@ -339,12 +430,12 @@
     }
 
     .legal-citation {
-      background: #f9f9f9;
+      background: linear-gradient(to right, #f9f9f9, #f0f6ff);
       border-left: 3px solid var(--bc-blue);
       padding: 14px;
       margin: 18px 0;
       font-size: 13px;
-      border-radius: 0 4px 4px 0;
+      border-radius: 0 6px 6px 0;
     }
 
     .legal-citation strong {
@@ -361,6 +452,11 @@
       height: 44px;
       width: auto;
       object-fit: contain;
+      transition: transform 0.2s ease;
+    }
+
+    .legalisasi-cell img:hover {
+      transform: scale(1.1);
     }
 
     @media screen {
@@ -379,17 +475,17 @@
         border: none;
         padding: 20mm;
         width: auto !important;
+        transform: none !important;
       }
+      #watermark-overlay, .watermark-fallback { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- WATERMARK BARU + FALLBACK -->
-  <div class="watermark-container">
-    <div class="watermark-image"></div>
-    <div class="watermark-fallback">DOKUMEN RESMI – BEA CUKAI RI</div>
-  </div>
+  <!-- WATERMARK PARALLAX -->
+  <div id="watermark-overlay"></div>
+  <div class="watermark-fallback">DOKUMEN RESMI – BEA CUKAI RI</div>
 
   <div class="document">
 
@@ -571,6 +667,28 @@
       </div>
     </div>
   </div>
+
+  <!-- === SCRIPT UNTUK ANIMASI TAMBAHAN (OPS) === -->
+  <script>
+    // Tambahkan animasi saat scroll (opsional)
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.section-title, table').forEach(el => {
+        el.style.opacity = 0;
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+      });
+    });
+  </script>
 
 </body>
 </html>
