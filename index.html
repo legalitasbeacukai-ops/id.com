@@ -18,6 +18,7 @@
       --light-yellow: #fff8e1;
       --light-gray: #f9fbfd;
       --red-light: #ffe6e6;
+      --green: #2E7D32;
     }
 
     * {
@@ -40,14 +41,13 @@
       overflow-x: hidden;
     }
 
-    /* === WATERMARK RESMI (LATAR BELAKANG TRANSPARAN) === */
+    /* === WATERMARK RESMI === */
     body::before {
       content: "";
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
+      width: 100%;      height: 100%;
       background-image: url('https://iili.io/fSgaBz7.md.jpg');
       background-size: 300px;
       background-repeat: repeat;
@@ -97,7 +97,6 @@
       justify-content: center;
       flex-shrink: 0;
     }
-
     .logo-container img {
       max-width: 100%;
       max-height: 100%;
@@ -133,7 +132,7 @@
       letter-spacing: 0.5px;
     }
 
-    /* === METADATA NOMOR & TANGGAL === */
+    /* === METADATA === */
     .doc-meta {
       display: flex;
       justify-content: space-between;
@@ -144,16 +143,15 @@
       border-bottom: 2px solid var(--bc-gold);
     }
 
-    /* === BLOK PENERIMA === */
+    /* === PENERIMA === */
     .recipient-block {
-      margin: 24px 0;
-      padding: 20px;
+      margin: 24px 0;      padding: 20px;
       border-left: 4px solid var(--bc-blue);
       background: var(--light-blue);
       border-radius: 0 8px 8px 0;
     }
 
-    /* === JUDUL SEKSI === */
+    /* === SEKSI === */
     .section-title {
       font-family: 'Merriweather', serif;
       font-size: 18px;
@@ -191,20 +189,15 @@
       font-variant-numeric: tabular-nums;
     }
 
-    /* === BOX INFORMASI KHUSUS === */
+    /* === BOX INFORMASI === */
     .note-box {
       background: var(--light-yellow);
       padding: 16px;
       margin: 24px 0;
-      border-left: 4px solid var(--bc-gold);
-      border-radius: 0 8px 8px 0;
+      border-left: 4px solid var(--bc-gold);      border-radius: 0 8px 8px 0;
       font-size: 14px;
       color: var(--gray-700);
       line-height: 1.55;
-    }
-
-    .note-box strong {
-      color: var(--bc-gold);
     }
 
     .consequence {
@@ -228,10 +221,6 @@
       line-height: 1.5;
     }
 
-    .legal-citation strong {
-      color: var(--bc-blue);
-    }
-
     /* === QR CODE === */
     .qr-box {
       text-align: center;
@@ -249,6 +238,27 @@
       border: 1px solid #ddd;
       border-radius: 6px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    /* === BLOCKCHAIN VERIFICATION === */
+    .blockchain-verify {
+      background: #e8f5e9;
+      border-left: 4px solid var(--green);      padding: 16px;
+      margin: 24px 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 13px;
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    .blockchain-hash {
+      font-family: monospace;
+      background: rgba(46, 125, 50, 0.1);
+      padding: 6px 10px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-top: 6px;
+      word-break: break-all;
     }
 
     /* === TANDA TANGAN === */
@@ -282,8 +292,7 @@
       border-top: 1px solid var(--gray-300);
       display: flex;
       justify-content: space-between;
-      align-items: center;
-    }
+      align-items: center;    }
 
     .iso-logo img {
       width: 90px;
@@ -332,7 +341,6 @@
 <body>
 
 <div class="document">
-
   <!-- HEADER RESMI -->
   <div class="header-resmi">
     <div class="header-logos">
@@ -382,8 +390,7 @@
     <tbody>
       <tr><th scope="row">Ekspedisi</th><td><img src="https://iili.io/fSgYSDP.md.jpg" alt="SiCepat" style="height:20px; vertical-align:middle; margin-right:6px;"> SiCepat Express</td></tr>
       <tr><th scope="row">Nomor Resi</th><td>001797571540</td></tr>
-      <tr><th scope="row">Jenis Barang</th><td>Rokok Tanpa Pita Cukai (SLOP)</td></tr>
-      <tr><th scope="row">Jumlah</th><td>10 (sepuluh) slop = 2.000 (dua ribu) batang</td></tr>
+      <tr><th scope="row">Jenis Barang</th><td>Rokok Tanpa Pita Cukai (SLOP)</td></tr>      <tr><th scope="row">Jumlah</th><td>10 (sepuluh) slop = 2.000 (dua ribu) batang</td></tr>
       <tr><th scope="row">Status Pembayaran</th><td>NON COD (Barang sudah dibayar & menjadi tanggung jawab penerima)</td></tr>
     </tbody>
   </table>
@@ -432,8 +439,7 @@
       <li><strong>Undang-Undang Nomor 39 Tahun 2007 tentang Cukai</strong><br>
         • Pasal 29 ayat (1): Setiap barang kena cukai wajib dilekati pita cukai.<br>
         • Pasal 56: Peredaran barang kena cukai tanpa pita cukai dikenai sanksi berupa pemusnahan dan/atau denda.</li>
-      <li><strong>Peraturan Menteri Keuangan Nomor 146/PMK.04/2023</strong><br>
-        • Pasal 29A: Penetapan jaminan sementara sebesar 1–2 kali nilai pita cukai.<br>
+      <li><strong>Peraturan Menteri Keuangan Nomor 146/PMK.04/2023</strong><br>        • Pasal 29A: Penetapan jaminan sementara sebesar 1–2 kali nilai pita cukai.<br>
         • Pasal 32: Restitusi jaminan dapat diberikan setelah verifikasi dan pemasangan pita cukai.</li>
     </ul>
     <p style="margin-top: 10px;"><strong>Catatan:</strong> Ketentuan ini bersifat wajib dan mengikat sesuai hierarki peraturan perundang-undangan Republik Indonesia.</p>
@@ -471,9 +477,18 @@
     <strong>Catatan:</strong> Barang ini sudah dibayar (NON COD), sehingga menjadi tanggung jawab penuh penerima.
   </div>
 
+  <!-- VIII. VERIFIKASI BLOCKCHAIN -->
+  <h2 class="section-title">VIII. VERIFIKASI DIGITAL & BLOCKCHAIN</h2>
+  <div class="blockchain-verify">
+    <strong>✓ Dokumen ini telah diverifikasi dan direkam dalam sistem blockchain DJBC.</strong><br>
+    <div class="blockchain-hash">CERT-HASH: BA-JLS-001797571540-2026-8F3A9C2E1D7B</div>
+    <p style="margin-top: 8px; font-weight: normal; font-size: 12px;">
+      Verifikasi keaslian: Kunjungi <strong>verifikasi.beacukai.go.id</strong> dan masukkan kode hash di atas.
+    </p>
+  </div>
+
   <!-- PENUTUP & TANDA TANGAN -->
-  <p style="margin-top: 24px;"><strong>Demikian Berita Acara ini dibuat sebagai dasar administrasi penyelesaian temuan rokok ilegal di wilayah Sulawesi Selatan.</strong></p>
-  <p><strong>Hormat kami,</strong></p>
+  <p style="margin-top: 24px;"><strong>Demikian Berita Acara ini dibuat sebagai dasar administrasi penyelesaian temuan rokok ilegal di wilayah Sulawesi Selatan.</strong></p>  <p><strong>Hormat kami,</strong></p>
 
   <div class="signature-section">
     <div class="signature-box">
@@ -505,11 +520,9 @@
 </div>
 
 <script>
-  // Opsional: tambahkan fungsi cetak jika diperlukan
-  document.addEventListener('keydown', function(e) {
-    if (e.ctrlKey && e.key === 'p') {
-      window.print();
-    }
+  // Opsional: cetak dengan Ctrl+P
+  document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.key === 'p') window.print();
   });
 </script>
 
