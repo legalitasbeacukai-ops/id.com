@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=920, initial-scale=1.0" />
   <title>Berita Acara Jaminan Legalitas Sementara - Direktorat Jenderal Bea dan Cukai</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     :root {
       --bc-blue: #002B5C;
       --bc-gold: #D4AF37;
-      --gold-light: #e6c56b;
       --red: #C00000;
-      --red-light: #ffe6e6;
       --gray-800: #333333;
       --gray-700: #4D4D4D;
       --gray-300: #d5d9e0;
@@ -24,16 +24,11 @@
       box-sizing: border-box;
     }
 
-    /* === SMOOTH SCROLL === */
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       color: var(--gray-800);
       line-height: 1.6;
-      background: linear-gradient(135deg, #f8fbff 0%, #ffffff 100%);
+      background: linear-gradient(135deg, #f8fafc 0%, #eef2f7 100%);
       padding: 16px;
       display: flex;
       flex-direction: column;
@@ -41,11 +36,22 @@
       min-height: 100vh;
       position: relative;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
 
-    /* === WATERMARK PARALLAX === */
-    #watermark-overlay {
+    /* === WATERMARK RESMI DARI GAMBAR ANDA === */
+    .watermark-container {
       position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .watermark-image {
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
@@ -53,31 +59,11 @@
       background-image: url('https://i.ibb.co.com/8LmgWrGz/IMG-20260117-110603.jpg');
       background-size: 300px;
       background-repeat: repeat;
-      opacity: 0.05;
-      pointer-events: none;
-      z-index: -1;
-      transform: translateZ(0); /* Aktifkan hardware acceleration */
-    }
-
-    /* Fallback teks */
-    .watermark-fallback {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(-35deg);
-      font-size: 38px;
-      font-weight: bold;
-      color: rgba(0, 43, 92, 0.06);
-      white-space: nowrap;
-      letter-spacing: 4px;
-      opacity: 0.35;
-      text-align: center;
-      pointer-events: none;
-      z-index: -1;
+      opacity: 0.04;
     }
 
     @media print {
-      #watermark-overlay, .watermark-fallback { display: none; }
+      .watermark-container { display: none; }
     }
 
     .document {
@@ -87,23 +73,21 @@
       padding: 32px;
       font-size: 15px;
       box-shadow: 
-        0 12px 30px rgba(0, 43, 92, 0.12),
-        0 4px 6px rgba(212, 175, 55, 0.08);
-      border: 1px solid var(--gray-300);
+        0 20px 50px rgba(0, 43, 92, 0.15),
+        0 0 0 1px rgba(0, 43, 92, 0.05);
       border-radius: 12px;
       overflow: hidden;
-      z-index: 1;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     }
 
     .document:hover {
-      transform: translateY(-3px);
+      transform: translateY(-5px);
       box-shadow: 
-        0 16px 40px rgba(0, 43, 92, 0.18),
-        0 6px 10px rgba(212, 175, 55, 0.12);
+        0 30px 70px rgba(0, 43, 92, 0.25),
+        0 0 0 1px rgba(212, 175, 55, 0.2);
     }
 
-    /* === HEADER RESMI === */
+    /* === HEADER RESMI DENGAN ANIMASI ENTRANCE === */
     .header-resmi {
       background: linear-gradient(135deg, var(--bc-blue) 0%, #001f45 100%);
       color: var(--white);
@@ -112,12 +96,19 @@
       margin-bottom: 28px;
       text-align: center;
       position: relative;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      transition: all 0.4s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      animation: fadeInDown 1s ease-out;
     }
 
-    .header-resmi:hover {
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .header-logos {
@@ -179,6 +170,12 @@
       line-height: 1.3;
       letter-spacing: 0.8px;
       text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+      animation: pulseTitle 2s infinite;
+    }
+
+    @keyframes pulseTitle {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.95; }
     }
 
     .doc-meta {
@@ -202,7 +199,7 @@
 
     .recipient-block:hover {
       background-color: #edf4ff;
-      border-left: 4px solid var(--gold-light);
+      border-left: 4px solid var(--bc-gold);
     }
 
     /* === SECTION TITLE ANIMATED === */
@@ -216,6 +213,9 @@
       position: relative;
       opacity: 0;
       transform: translateY(20px);
+    }
+
+    .section-title.appear {
       animation: fadeInUp 0.6s forwards;
     }
 
@@ -243,12 +243,11 @@
       font-size: 14px;
       opacity: 0;
       transform: translateY(15px);
-      animation: fadeInTable 0.5s forwards;
     }
 
-    table:nth-child(1) { animation-delay: 0.1s; }
-    table:nth-child(2) { animation-delay: 0.2s; }
-    table:nth-child(3) { animation-delay: 0.3s; }
+    table.appear {
+      animation: fadeInTable 0.5s forwards;
+    }
 
     @keyframes fadeInTable {
       to {
@@ -283,7 +282,7 @@
     }
 
     .consequence {
-      background: linear-gradient(to right, var(--red-light), #fff5f5);
+      background: linear-gradient(to right, #ffe6e6, #fff5f5);
       border-left: 4px solid var(--red);
       padding: 20px;
       margin: 24px 0;
@@ -313,7 +312,7 @@
 
     .note-box:hover {
       background: linear-gradient(to right, #e6f0ff, #f0f8ff);
-      border-left: 4px solid var(--gold-light);
+      border-left: 4px solid var(--bc-gold);
     }
 
     .note-box strong {
@@ -477,15 +476,16 @@
         width: auto !important;
         transform: none !important;
       }
-      #watermark-overlay, .watermark-fallback { display: none; }
+      .watermark-container { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- WATERMARK PARALLAX -->
-  <div id="watermark-overlay"></div>
-  <div class="watermark-fallback">DOKUMEN RESMI – BEA CUKAI RI</div>
+  <!-- WATERMARK RESMI -->
+  <div class="watermark-container">
+    <div class="watermark-image"></div>
+  </div>
 
   <div class="document">
 
@@ -493,7 +493,7 @@
     <div class="header-resmi">
       <div class="header-logos">
         <div class="logo-container">
-          <img src="https://i.ibb.co/G35pk0Vj/IMG-20260103-143555-444.jpg" alt="Logo Direktorat Jenderal Bea dan Cukai">
+          <img src="https://upload.wikimedia.org/wikipedia/id/thumb/d/d3/Logo_Bea_Cukai.png/480px-Logo_Bea_Cukai.png" alt="Logo Direktorat Jenderal Bea dan Cukai">
         </div>
         <div class="kop-text">
           <div class="kop-bold">KEMENTERIAN KEUANGAN REPUBLIK INDONESIA</div>
@@ -504,7 +504,7 @@
           <div>Telepon: (0411) 876543 | Email: kppbc.makassar@djbc.go.id</div>
         </div>
         <div class="logo-container">
-          <img src="https://i.ibb.co/VnpQ314/IMG-20260103-142950-699.jpg" alt="Logo Kementerian Keuangan RI">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Logo_Kementerian_Keuangan_Republik_Indonesia.png/600px-Logo_Kementerian_Keuangan_Republik_Indonesia.png" alt="Logo Kementerian Keuangan RI">
         </div>
       </div>
     </div>
@@ -597,11 +597,11 @@
         <li><strong>Undang-Undang Nomor 17 Tahun 2006 tentang Kepabeanan</strong><br>
           • Pasal 73 ayat (1): Setiap orang yang mengimpor atau mengekspor barang wajib memenuhi ketentuan kepabeanan.<br>
           • Pasal 102A: Barang yang tidak memenuhi ketentuan dapat ditahan dan dikenai sanksi administratif.</li>
-        
+      
         <li><strong>Undang-Undang Nomor 39 Tahun 2007 tentang Cukai</strong><br>
           • Pasal 29 ayat (1): Setiap barang kena cukai wajib dilekati pita cukai.<br>
           • Pasal 56: Peredaran barang kena cukai tanpa pita cukai dikenai sanksi berupa pemusnahan dan/atau denda.</li>
-        
+      
         <li><strong>Peraturan Menteri Keuangan Nomor 146/PMK.04/2023</strong><br>
           • Pasal 29A: Penetapan jaminan sementara sebesar 1–2 kali nilai pita cukai untuk barang temuan tanpa pita cukai.<br>
           • Pasal 32: Restitusi jaminan dapat diberikan setelah verifikasi dan pemasangan pita cukai.</li>
@@ -668,27 +668,30 @@
     </div>
   </div>
 
-  <!-- === SCRIPT UNTUK ANIMASI TAMBAHAN (OPS) === -->
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    // Tambahkan animasi saat scroll (opsional)
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', function() {
+      // Inisialisasi AOS
+      AOS.init({
+        once: true,
+        duration: 1000,
+        easing: 'ease-out-cubic'
+      });
+
+      // Animasi manual untuk section title & tabel
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.style.opacity = 1;
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('appear');
           }
         });
       }, { threshold: 0.1 });
 
       document.querySelectorAll('.section-title, table').forEach(el => {
-        el.style.opacity = 0;
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
       });
     });
   </script>
-
 </body>
 </html>
