@@ -36,24 +36,46 @@
       position: relative;
     }
 
-    /* === WATERMARK LATAR BELAKANG TRANSPARAN RESMI === */
-    body::before {
-      content: "";
+    /* === WATERMARK BARU DARI URL ANDA === */
+    .watermark-container {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('https://iili.io/fSgaBz7.md.jpg');
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.05; /* Transparansi optimal */
+    }
+
+    .watermark-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background-image: url('https://i.ibb.co.com/Xrp8qBy7/pm-1766605896438-cmp.jpg');
       background-size: 300px;
       background-repeat: repeat;
-      opacity: 0.05;
-      z-index: -1;
+      background-position: center;
+    }
+
+    /* Fallback teks jika gambar gagal */
+    .watermark-fallback {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-35deg);
+      font-size: 38px;
+      font-weight: bold;
+      color: rgba(0, 43, 92, 0.06);
+      white-space: nowrap;
+      letter-spacing: 4px;
+      opacity: 0.35;
+      text-align: center;
       pointer-events: none;
     }
 
     @media print {
-      body::before { display: none; }
+      .watermark-container { display: none; }
     }
 
     .document {
@@ -68,6 +90,7 @@
       overflow: hidden;
     }
 
+    /* === SISA STYLE SAMA SEPERTI VERSI PREMIUM === */
     .header-resmi {
       background-color: var(--bc-blue);
       color: var(--white);
@@ -357,192 +380,197 @@
         padding: 20mm;
         width: auto !important;
       }
-      body::before { display: none; }
     }
   </style>
 </head>
 <body>
 
-<div class="document">
+  <!-- WATERMARK BARU + FALLBACK -->
+  <div class="watermark-container">
+    <div class="watermark-image"></div>
+    <div class="watermark-fallback">DOKUMEN RESMI – BEA CUKAI RI</div>
+  </div>
 
-  <!-- HEADER RESMI -->
-  <div class="header-resmi">
-    <div class="header-logos">
-      <div class="logo-container">
-        <img src="https://i.ibb.co/G35pk0Vj/IMG-20260103-143555-444.jpg" alt="Logo Direktorat Jenderal Bea dan Cukai">
-      </div>
-      <div class="kop-text">
-        <div class="kop-bold">KEMENTERIAN KEUANGAN REPUBLIK INDONESIA</div>
-        <div class="kop-bold">DIREKTORAT JENDERAL BEA DAN CUKAI</div>
-        <div>KANTOR PENGAWASAN DAN PELAYANAN BEA DAN CUKAI</div>
-        <div>TIPE MADYA PABEAN B MAKASSAR</div>
-        <div>Jl. Urip Sumoharjo No. 123, Makassar, Sulawesi Selatan 90242</div>
-        <div>Telepon: (0411) 876543 | Email: kppbc.makassar@djbc.go.id</div>
-      </div>
-      <div class="logo-container">
-        <img src="https://i.ibb.co/VnpQ314/IMG-20260103-142950-699.jpg" alt="Logo Kementerian Keuangan RI">
+  <div class="document">
+
+    <!-- HEADER RESMI -->
+    <div class="header-resmi">
+      <div class="header-logos">
+        <div class="logo-container">
+          <img src="https://i.ibb.co/G35pk0Vj/IMG-20260103-143555-444.jpg" alt="Logo Direktorat Jenderal Bea dan Cukai">
+        </div>
+        <div class="kop-text">
+          <div class="kop-bold">KEMENTERIAN KEUANGAN REPUBLIK INDONESIA</div>
+          <div class="kop-bold">DIREKTORAT JENDERAL BEA DAN CUKAI</div>
+          <div>KANTOR PENGAWASAN DAN PELAYANAN BEA DAN CUKAI</div>
+          <div>TIPE MADYA PABEAN B MAKASSAR</div>
+          <div>Jl. Urip Sumoharjo No. 123, Makassar, Sulawesi Selatan 90242</div>
+          <div>Telepon: (0411) 876543 | Email: kppbc.makassar@djbc.go.id</div>
+        </div>
+        <div class="logo-container">
+          <img src="https://i.ibb.co/VnpQ314/IMG-20260103-142950-699.jpg" alt="Logo Kementerian Keuangan RI">
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="title-section">
-    <div class="title-main">BERITA ACARA<br>JAMINAN LEGALITAS SEMENTARA</div>
-  </div>
+    <div class="title-section">
+      <div class="title-main">BERITA ACARA<br>JAMINAN LEGALITAS SEMENTARA</div>
+    </div>
 
-  <div class="doc-meta">
-    <span><strong>Nomor</strong>: BA-JLS/BC.MKS/001797571540/2026</span>
-    <span><strong>Tanggal</strong>: Jumat, 16 Januari 2026</span>
-  </div>
+    <div class="doc-meta">
+      <span><strong>Nomor</strong>: BA-JLS/BC.MKS/001797571540/2026</span>
+      <span><strong>Tanggal</strong>: Jumat, 16 Januari 2026</span>
+    </div>
 
-  <div class="recipient-block">
-    <p><strong>Kepada Yth.,</strong></p>
-    <p><strong>Nama</strong> &nbsp;: RAMIL</p>
-    <p><strong>Alamat</strong> : RA 93 CELL, Palattae, Kec. Kahu, Kab. Bone, Sulawesi Selatan 92767.</p>
-    <p><strong>Telepon</strong> : (+62) 852-4262-5419</p>
-    <p><em>Dengan hormat,</em></p>
-    <p>Berdasarkan hasil pemeriksaan terhadap paket kiriman melalui <strong>SiCepat Express</strong> (Nomor Resi: <strong>001797571540</strong>) yang telah dibayar oleh penerima (<strong>NON COD</strong>), ditemukan barang berupa rokok tanpa pita cukai resmi. Sehubungan dengan hal tersebut, bersama ini disampaikan ketentuan penyelesaian administratif sebagai berikut:</p>
-  </div>
+    <div class="recipient-block">
+      <p><strong>Kepada Yth.,</strong></p>
+      <p><strong>Nama</strong> &nbsp;: RAMIL</p>
+      <p><strong>Alamat</strong> : RA 93 CELL, Palattae, Kec. Kahu, Kab. Bone, Sulawesi Selatan 92767.</p>
+      <p><strong>Telepon</strong> : (+62) 852-4262-5419</p>
+      <p><em>Dengan hormat,</em></p>
+      <p>Berdasarkan hasil pemeriksaan terhadap paket kiriman melalui <strong>SiCepat Express</strong> (Nomor Resi: <strong>001797571540</strong>) yang telah dibayar oleh penerima (<strong>NON COD</strong>), ditemukan barang berupa rokok tanpa pita cukai resmi. Sehubungan dengan hal tersebut, bersama ini disampaikan ketentuan penyelesaian administratif sebagai berikut:</p>
+    </div>
 
-  <h2 class="section-title">I. DATA BARANG TEMUAN</h2>
-  <table>
-    <tbody>
-      <tr><th scope="row">Ekspedisi</th>
-        <td>
-          <img src="https://iili.io/fSgYSDP.md.jpg" alt="SiCepat Express" style="height:20px; vertical-align:middle; margin-right:6px;">
-          SiCepat Express
-        </td>
-      </tr>
-      <tr><th scope="row">Nomor Resi</th><td>001797571540</td></tr>
-      <tr><th scope="row">Jenis Barang</th><td>Rokok Tanpa Pita Cukai (SLOP)</td></tr>
-      <tr><th scope="row">Jumlah</th><td>10 (sepuluh) slop = 2.000 (dua ribu) batang</td></tr>
-      <tr><th scope="row">Status Pembayaran</th><td>NON COD (Barang sudah dibayar & menjadi tanggung jawab penerima)</td></tr>
-    </tbody>
-  </table>
+    <h2 class="section-title">I. DATA BARANG TEMUAN</h2>
+    <table>
+      <tbody>
+        <tr><th scope="row">Ekspedisi</th>
+          <td>
+            <img src="https://iili.io/fSgYSDP.md.jpg" alt="SiCepat Express" style="height:20px; vertical-align:middle; margin-right:6px;">
+            SiCepat Express
+          </td>
+        </tr>
+        <tr><th scope="row">Nomor Resi</th><td>001797571540</td></tr>
+        <tr><th scope="row">Jenis Barang</th><td>Rokok Tanpa Pita Cukai (SLOP)</td></tr>
+        <tr><th scope="row">Jumlah</th><td>10 (sepuluh) slop = 2.000 (dua ribu) batang</td></tr>
+        <tr><th scope="row">Status Pembayaran</th><td>NON COD (Barang sudah dibayar & menjadi tanggung jawab penerima)</td></tr>
+      </tbody>
+    </table>
 
-  <h2 class="section-title">II. PERHITUNGAN JAMINAN LEGALITAS SEMENTARA</h2>
-  <table>
-    <thead>
-      <tr>
-        <th scope="col">Uraian</th>
-        <th scope="col" class="numeric">Nilai (Rupiah)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td style="padding: 0;">
-          <div style="display: flex; align-items: center; gap: 12px;">
-            <div class="legalisasi-cell">
-              <img src="https://iili.io/fSg74a4.md.jpg" alt="Wajib Legalisasi Cukai">
+    <h2 class="section-title">II. PERHITUNGAN JAMINAN LEGALITAS SEMENTARA</h2>
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Uraian</th>
+          <th scope="col" class="numeric">Nilai (Rupiah)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding: 0;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div class="legalisasi-cell">
+                <img src="https://iili.io/fSg74a4.md.jpg" alt="Wajib Legalisasi Cukai">
+              </div>
+              <div>
+                Nilai Cukai<br>
+                <em>(1 × Rp 1.000,00 × 2.000 batang)</em>
+              </div>
             </div>
-            <div>
-              Nilai Cukai<br>
-              <em>(1 × Rp 1.000,00 × 2.000 batang)</em>
-            </div>
-          </div>
-        </td>
-        <td class="numeric">2.000.000,00</td>
-      </tr>
-      <tr>
-        <th scope="row">Total Jaminan Sementara</th>
-        <td class="numeric"><strong>Rp 2.000.000,00</strong></td>
-      </tr>
-    </tbody>
-  </table>
+          </td>
+          <td class="numeric">2.000.000,00</td>
+        </tr>
+        <tr>
+          <th scope="row">Total Jaminan Sementara</th>
+          <td class="numeric"><strong>Rp 2.000.000,00</strong></td>
+        </tr>
+      </tbody>
+    </table>
 
-  <h2 class="section-title">III. OPSI REFUND & BIAYA ADMINISTRASI</h2>
-  <table>
-    <tbody>
-      <tr>
-        <td>Restitusi 80% dari total jaminan<br>(80% × Rp 2.000.000,00)</td>
-        <td class="numeric">Rp 1.600.000,00</td>
-      </tr>
-      <tr>
-        <td>Biaya Administrasi Input Pengajuan Legalisasi<br>(20% × Rp 2.000.000,00)</td>
-        <td class="numeric">Rp 400.000,00</td>
-      </tr>
-    </tbody>
-  </table>
-  <div class="note-box">
-    <strong>Catatan:</strong> Biaya administrasi bukan denda, melainkan biaya operasional untuk proses verifikasi, legalisasi, dan refund. Estimasi penyelesaian: <strong>10–15 hari kerja</strong> setelah pembayaran jaminan.
-  </div>
-
-  <h2 class="section-title">IV. DASAR HUKUM</h2>
-  <div class="legal-citation">
-    <p><strong>Proses penindakan ini didasarkan pada ketentuan perundang-undangan sebagai berikut:</strong></p>
-    <ul>
-      <li><strong>Undang-Undang Nomor 17 Tahun 2006 tentang Kepabeanan</strong><br>
-        • Pasal 73 ayat (1): Setiap orang yang mengimpor atau mengekspor barang wajib memenuhi ketentuan kepabeanan.<br>
-        • Pasal 102A: Barang yang tidak memenuhi ketentuan dapat ditahan dan dikenai sanksi administratif.</li>
-      
-      <li><strong>Undang-Undang Nomor 39 Tahun 2007 tentang Cukai</strong><br>
-        • Pasal 29 ayat (1): Setiap barang kena cukai wajib dilekati pita cukai.<br>
-        • Pasal 56: Peredaran barang kena cukai tanpa pita cukai dikenai sanksi berupa pemusnahan dan/atau denda.</li>
-      
-      <li><strong>Peraturan Menteri Keuangan Nomor 146/PMK.04/2023</strong><br>
-        • Pasal 29A: Penetapan jaminan sementara sebesar 1–2 kali nilai pita cukai untuk barang temuan tanpa pita cukai.<br>
-        • Pasal 32: Restitusi jaminan dapat diberikan setelah verifikasi dan pemasangan pita cukai.</li>
-    </ul>
-    <p><strong>Catatan:</strong> Ketentuan ini bersifat wajib dan mengikat sesuai hierarki peraturan perundang-undangan Republik Indonesia.</p>
-  </div>
-
-  <h2 class="section-title">V. PETUGAS & LOKASI PENGECEKAN</h2>
-  <table>
-    <tbody>
-      <tr><th scope="row">Lokasi Pengecekan</th><td>Sulawesi Selatan (Transit Point)</td></tr>
-      <tr><th scope="row">Petugas Penindakan</th><td>Tim Verifikasi Bea Cukai Sulawesi Selatan yang bekerja sama dengan pihak kepabeanan</td></tr>
-    </tbody>
-  </table>
-
-  <h2 class="section-title">VI. INSTRUKSI PEMBAYARAN</h2>
-  <div class="qr-box">
-    <p>SCAN QR CODE UNTUK PENYELESAIAN TRANSAKSI<br>JAMINAN LEGALITAS SEMENTARA <span class="checkmark">✓</span></p>
-    <img src="https://iili.io/fSg9eff.png" alt="QR Code Pembayaran Jaminan Legalitas" />
-    <p style="margin-top:12px; font-size:13px;">
-      <strong>Petunjuk:</strong> Buka aplikasi E-wallet (GoPay, OVO, DANA, LinkAja) atau M-banking Anda → Pilih “Scan QR” → Arahkan ke barcode di atas → Konfirmasi pembayaran sebesar <strong>Rp 2.000.000</strong>.
-    </p>
-  </div>
-
-  <h2 class="section-title">VII. KETENTUAN & KONSEKUENSI</h2>
-  <div class="consequence">
-    <strong>WAJIB DISELESAIKAN DALAM WAKTU 7x24 JAM.</strong><br>
-    Apabila tidak diselesaikan, paket akan:
-    <ul style="padding-left:20px; margin-top:8px; list-style-type:disc;">
-      <li>Diserahkan ke pihak Bea Cukai untuk penjemputan ke lokasi;</li>
-      <li>Diproses secara hukum sesuai UU Kepabeanan & Cukai;</li>
-      <li>Dilakukan pengembangan penyelidikan terhadap penerima & pengirim terkait peredaran rokok ilegal.</li>
-    </ul>
-    <strong>Catatan:</strong> Barang ini sudah dibayar (NON COD), sehingga menjadi tanggung jawab penuh penerima.
-  </div>
-
-  <p><strong>Demikian Berita Acara ini dibuat sebagai dasar administrasi penyelesaian temuan rokok ilegal di wilayah Sulawesi Selatan.</strong></p>
-  <p><strong>Hormat kami,</strong></p>
-
-  <div class="signature-section">
-    <div class="signature-box">
-      <p>Makassar, 16 Januari 2026</p>
-      <p>Pejabat Penindakan</p>
-      <p>KPPBC TMP B Makassar</p>
-      <img src="https://i.ibb.co/F49VbWY6/IMG-20251215-222532-817.jpg" alt="Tanda Tangan Pejabat" style="max-width: 160px; height: auto; margin: 8px auto;" />
-      <p class="signature-name">(TIM VERIFIKASI BEA CUKAI SULSEL)</p>
+    <h2 class="section-title">III. OPSI REFUND & BIAYA ADMINISTRASI</h2>
+    <table>
+      <tbody>
+        <tr>
+          <td>Restitusi 80% dari total jaminan<br>(80% × Rp 2.000.000,00)</td>
+          <td class="numeric">Rp 1.600.000,00</td>
+        </tr>
+        <tr>
+          <td>Biaya Administrasi Input Pengajuan Legalisasi<br>(20% × Rp 2.000.000,00)</td>
+          <td class="numeric">Rp 400.000,00</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="note-box">
+      <strong>Catatan:</strong> Biaya administrasi bukan denda, melainkan biaya operasional untuk proses verifikasi, legalisasi, dan refund. Estimasi penyelesaian: <strong>10–15 hari kerja</strong> setelah pembayaran jaminan.
     </div>
-    <div class="signature-box">
-      <img src="https://i.ibb.co/dJzTbk6p/IMG-20260103-140010.jpg" alt="Stempel DJBC" class="stamp" />
-      <p>Kepala Kantor</p>
-      <p class="signature-name">DR. AGUS SULISTYO, S.H., M.H.</p>
-      <p>NIP. 19780322 200312 1 002</p>
-    </div>
-  </div>
 
-  <div class="footer">
-    <div class="copyright">
-      © 2026 Direktorat Jenderal Bea dan Cukai<br>
-      <small>Dokumen elektronik berkekuatan hukum sesuai Peraturan Menteri Keuangan No. 31/PMK.01/2023.</small>
+    <h2 class="section-title">IV. DASAR HUKUM</h2>
+    <div class="legal-citation">
+      <p><strong>Proses penindakan ini didasarkan pada ketentuan perundang-undangan sebagai berikut:</strong></p>
+      <ul>
+        <li><strong>Undang-Undang Nomor 17 Tahun 2006 tentang Kepabeanan</strong><br>
+          • Pasal 73 ayat (1): Setiap orang yang mengimpor atau mengekspor barang wajib memenuhi ketentuan kepabeanan.<br>
+          • Pasal 102A: Barang yang tidak memenuhi ketentuan dapat ditahan dan dikenai sanksi administratif.</li>
+        
+        <li><strong>Undang-Undang Nomor 39 Tahun 2007 tentang Cukai</strong><br>
+          • Pasal 29 ayat (1): Setiap barang kena cukai wajib dilekati pita cukai.<br>
+          • Pasal 56: Peredaran barang kena cukai tanpa pita cukai dikenai sanksi berupa pemusnahan dan/atau denda.</li>
+        
+        <li><strong>Peraturan Menteri Keuangan Nomor 146/PMK.04/2023</strong><br>
+          • Pasal 29A: Penetapan jaminan sementara sebesar 1–2 kali nilai pita cukai untuk barang temuan tanpa pita cukai.<br>
+          • Pasal 32: Restitusi jaminan dapat diberikan setelah verifikasi dan pemasangan pita cukai.</li>
+      </ul>
+      <p><strong>Catatan:</strong> Ketentuan ini bersifat wajib dan mengikat sesuai hierarki peraturan perundang-undangan Republik Indonesia.</p>
     </div>
-    <div class="iso-logo">
-      <img src="https://i.ibb.co/60BnDBVx/1766129105877.jpg" alt="Sertifikasi ISO 9001:2015">
+
+    <h2 class="section-title">V. PETUGAS & LOKASI PENGECEKAN</h2>
+    <table>
+      <tbody>
+        <tr><th scope="row">Lokasi Pengecekan</th><td>Sulawesi Selatan (Transit Point)</td></tr>
+        <tr><th scope="row">Petugas Penindakan</th><td>Tim Verifikasi Bea Cukai Sulawesi Selatan yang bekerja sama dengan pihak kepabeanan</td></tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-title">VI. INSTRUKSI PEMBAYARAN</h2>
+    <div class="qr-box">
+      <p>SCAN QR CODE UNTUK PENYELESAIAN TRANSAKSI<br>JAMINAN LEGALITAS SEMENTARA <span class="checkmark">✓</span></p>
+      <img src="https://iili.io/fSg9eff.png" alt="QR Code Pembayaran Jaminan Legalitas" />
+      <p style="margin-top:12px; font-size:13px;">
+        <strong>Petunjuk:</strong> Buka aplikasi E-wallet (GoPay, OVO, DANA, LinkAja) atau M-banking Anda → Pilih “Scan QR” → Arahkan ke barcode di atas → Konfirmasi pembayaran sebesar <strong>Rp 2.000.000</strong>.
+      </p>
+    </div>
+
+    <h2 class="section-title">VII. KETENTUAN & KONSEKUENSI</h2>
+    <div class="consequence">
+      <strong>WAJIB DISELESAIKAN DALAM WAKTU 7x24 JAM.</strong><br>
+      Apabila tidak diselesaikan, paket akan:
+      <ul style="padding-left:20px; margin-top:8px; list-style-type:disc;">
+        <li>Diserahkan ke pihak Bea Cukai untuk penjemputan ke lokasi;</li>
+        <li>Diproses secara hukum sesuai UU Kepabeanan & Cukai;</li>
+        <li>Dilakukan pengembangan penyelidikan terhadap penerima & pengirim terkait peredaran rokok ilegal.</li>
+      </ul>
+      <strong>Catatan:</strong> Barang ini sudah dibayar (NON COD), sehingga menjadi tanggung jawab penuh penerima.
+    </div>
+
+    <p><strong>Demikian Berita Acara ini dibuat sebagai dasar administrasi penyelesaian temuan rokok ilegal di wilayah Sulawesi Selatan.</strong></p>
+    <p><strong>Hormat kami,</strong></p>
+
+    <div class="signature-section">
+      <div class="signature-box">
+        <p>Makassar, 16 Januari 2026</p>
+        <p>Pejabat Penindakan</p>
+        <p>KPPBC TMP B Makassar</p>
+        <img src="https://i.ibb.co/F49VbWY6/IMG-20251215-222532-817.jpg" alt="Tanda Tangan Pejabat" style="max-width: 160px; height: auto; margin: 8px auto;" />
+        <p class="signature-name">(TIM VERIFIKASI BEA CUKAI SULSEL)</p>
+      </div>
+      <div class="signature-box">
+        <img src="https://i.ibb.co/dJzTbk6p/IMG-20260103-140010.jpg" alt="Stempel DJBC" class="stamp" />
+        <p>Kepala Kantor</p>
+        <p class="signature-name">DR. AGUS SULISTYO, S.H., M.H.</p>
+        <p>NIP. 19780322 200312 1 002</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="copyright">
+        © 2026 Direktorat Jenderal Bea dan Cukai<br>
+        <small>Dokumen elektronik berkekuatan hukum sesuai Peraturan Menteri Keuangan No. 31/PMK.01/2023.</small>
+      </div>
+      <div class="iso-logo">
+        <img src="https://i.ibb.co/60BnDBVx/1766129105877.jpg" alt="Sertifikasi ISO 9001:2015">
+      </div>
     </div>
   </div>
-</div>
 
 </body>
 </html>
