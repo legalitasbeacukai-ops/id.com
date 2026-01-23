@@ -3,15 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- === META UNTUK THUMBNAIL PREVIEW === -->
+  <meta property="og:title" content="Berita Acara Jaminan Legalitas Sementara - DJBC" />
+  <meta property="og:description" content="Dokumen resmi Direktorat Jenderal Bea dan Cukai terkait penyelesaian administratif temuan rokok ilegal. WAJIB diselesaikan dalam 7x24 jam." />
+  <meta property="og:image" content="https://i.ibb.co.com/Kpxptc6n/IMG-20260117-110547.jpg" />
+  <meta property="og:url" content="https://beacukai.go.id/jaminan-legalitas.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Direktorat Jenderal Bea dan Cukai" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Berita Acara Jaminan Legalitas Sementara - DJBC" />
+  <meta name="twitter:description" content="Dokumen resmi penyelesaian administratif temuan rokok ilegal. WAJIB diselesaikan dalam 7x24 jam." />
+  <meta name="twitter:image" content="https://i.ibb.co.com/Kpxptc6n/IMG-20260117-110547.jpg" />
+
   <title>Berita Acara - Direktorat Jenderal Bea dan Cukai</title>
   <style>
     :root {
       --primary-blue: #002B5C;
-      --accent-gold: #D4AF37;
+      --text-white: #ffffff;
       --text-black: #000000;
       --text-dark: #333333;
       --paper-white: #ffffff;
-      --border-gray: #cccccc;
       --font-header: 'Arial', 'Helvetica', sans-serif;
       --font-body: 'Times New Roman', Times, serif;
     }
@@ -23,14 +36,31 @@
     }
 
     body {
-      background-color: #f0f2f5;
+      background-color: var(--paper-white); /* Latar putih bersih */
       font-family: var(--font-body);
       color: var(--text-dark);
-      line-height: 1.5;
+      line-height: 1.6;
       display: flex;
       justify-content: center;
       min-height: 100vh;
       padding: 20px;
+      position: relative;
+    }
+
+    /* === WATERMARK GAMBAR LATAR BELAKANG === */
+    .watermark-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://i.ibb.co.com/b5MMmF03/pm-1766605896438-cmp.jpg');
+      background-size: 300px;
+      background-repeat: repeat;
+      background-position: center;
+      opacity: 0.03;
+      pointer-events: none;
+      z-index: 0;
     }
 
     .page-container {
@@ -38,24 +68,15 @@
       max-width: 210mm;
       min-height: 297mm;
       background: var(--paper-white);
-      padding: 25mm;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      padding: 25mm 25mm 30mm 25mm;
       position: relative;
+      font-size: 12pt;
+      z-index: 1;
     }
 
-    .watermark {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(-45deg);
-      font-size: 8rem;
-      font-weight: bold;
-      color: rgba(0, 43, 92, 0.03);
-      white-space: nowrap;
-      pointer-events: none;
-      z-index: 0;
-      font-family: Arial, sans-serif;
-      text-transform: uppercase;
+    /* === HEADER BIRU TUA === */
+    header {
+      margin-bottom: 25px;
     }
 
     .kop-surat {
@@ -63,61 +84,61 @@
       align-items: center;
       justify-content: center;
       gap: 20px;
-      margin-bottom: 5px;
-      position: relative;
-      z-index: 1;
+      background-color: var(--primary-blue);
+      padding: 16px;
+      border-radius: 4px;
     }
 
     .logo-img {
-      width: 80px;
-      height: auto;
+      height: 65px;
       object-fit: contain;
     }
 
     .kop-text {
       text-align: center;
       font-family: var(--font-header);
-      text-transform: uppercase;
-      color: var(--text-black);
+      color: var(--text-white);
     }
 
     .kop-text h2 {
       font-size: 14pt;
       font-weight: bold;
       margin-bottom: 2px;
+      letter-spacing: 0.5px;
     }
 
     .kop-text h1 {
       font-size: 16pt;
       font-weight: bold;
-      margin-bottom: 2px;
+      margin-bottom: 3px;
+      letter-spacing: 1px;
     }
 
     .kop-text p {
       font-size: 10pt;
-      text-transform: none;
-      margin-bottom: 0;
+      margin: 1px 0;
+      line-height: 1.3;
     }
 
     .garis-kop {
-      border-top: 3px solid var(--text-black);
-      border-bottom: 1px solid var(--text-black);
-      height: 3px;
-      margin-bottom: 30px;
+      height: 0;
+      border-top: 2px solid var(--primary-blue);
+      margin: 12px 0 25px 0;
     }
 
     .judul-surat {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
       font-family: var(--font-header);
     }
 
     .judul-surat h3 {
-      text-decoration: underline;
       font-size: 14pt;
       font-weight: bold;
       text-transform: uppercase;
-      margin-bottom: 5px;
+      text-decoration: underline;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
     }
 
     .nomor-surat {
@@ -125,74 +146,126 @@
     }
 
     .section {
-      margin-bottom: 20px;
-      font-size: 12pt;
+      margin-bottom: 22px;
       text-align: justify;
+      text-indent: 36pt;
+      hyphens: auto;
+    }
+
+    .section:first-of-type {
+      text-indent: 0;
     }
 
     .data-table {
       width: 100%;
       border-collapse: collapse;
-      margin: 15px 0;
+      margin: 18px 0 20px 0;
+      font-family: var(--font-header);
+      font-size: 11pt;
+    }
+
+    .data-table th,
+    .data-table td {
+      border: 1px solid var(--text-black);
+      padding: 10px 12px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .data-table th {
+      background-color: #f8f8f8;
+      font-weight: bold;
+      width: 35%;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+
+    .text-right {
+      text-align: right;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .info-box {
+      border: 1px solid var(--primary-blue);
+      background-color: #f0f7ff;
+      padding: 16px;
+      margin: 24px 0;
       font-size: 11pt;
       font-family: var(--font-header);
     }
 
-    .data-table th, .data-table td {
-      border: 1px solid var(--text-black);
-      padding: 8px 12px;
-      vertical-align: top;
-    }
-
-    .data-table th {
-      background-color: #f0f0f0;
-      font-weight: bold;
-      text-align: left;
-      width: 35%;
-    }
-
-    .text-right { text-align: right; }
-    .text-center { text-align: center; }
-    .bold { font-weight: bold; }
-
-    .info-box {
-      border: 1px solid var(--primary-blue);
-      background-color: #eef6ff;
-      padding: 15px;
-      border-radius: 4px;
-      margin: 15px 0;
-      font-size: 11pt;
-    }
-
-    .qr-payment {
-      text-align: center;
-      margin: 15px 0;
-    }
-
-    .qr-payment img {
-      max-width: 180px;
-      height: auto;
-      border: 1px solid #ccc;
-      padding: 4px;
-      background: white;
+    .info-box strong {
+      color: var(--primary-blue);
     }
 
     .signature-container {
-      margin-top: 50px;
+      margin-top: 30px;
       display: flex;
       justify-content: space-between;
       page-break-inside: avoid;
     }
 
     .ttd-box {
-      width: 40%;
+      width: 45%;
       text-align: center;
+      font-family: var(--font-header);
     }
 
-    .ttd-box p { margin-bottom: 5px; }
-    .nama-terang {
-      font-weight: bold;
-      text-decoration: underline;
+    .ttd-box p {
+      margin: 6px 0;
+    }
+
+    .ttd-image {
+      height: 80px;
+      margin: 0 auto 8px;
+      object-fit: contain;
+    }
+
+    .materai-box {
+      position: relative;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .materai-img {
+      height: 60px;
+      object-fit: contain;
+    }
+
+    .barcode-section {
+      text-align: center;
+      margin: 25px 0;
+    }
+
+    .barcode-img {
+      height: 60px;
+      object-fit: contain;
+      margin: 10px auto;
+      border: 1px solid #ddd;
+      padding: 4px;
+      background: white;
+    }
+
+    .legalisasi-box {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .legalisasi-img {
+      height: 30px;
+      object-fit: contain;
+    }
+
+    .centang-biru {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 6px;
+      height: 18px;
     }
 
     @media screen and (max-width: 768px) {
@@ -201,9 +274,8 @@
         width: 100%;
         height: auto;
       }
-      .kop-text h1 { font-size: 12pt; }
-      .kop-text h2 { font-size: 11pt; }
-      .watermark { font-size: 4rem; }
+      .kop-text h1 { font-size: 13pt; }
+      .kop-text h2 { font-size: 12pt; }
       .signature-container {
         flex-direction: column;
         gap: 30px;
@@ -214,87 +286,96 @@
 
     @media print {
       body {
-        background: none;
+        background: var(--paper-white);
         padding: 0;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+      }
+      .watermark-bg {
+        opacity: 0.03 !important;
       }
       .page-container {
         box-shadow: none;
         width: 100%;
         height: auto;
-        padding: 0;
+        padding: 25mm 25mm 30mm 25mm;
       }
-      @page { margin: 2cm; }
+      @page {
+        margin: 2cm;
+        size: A4;
+      }
     }
   </style>
 </head>
 <body>
 
-<div class="page-container">
-  <div class="watermark">DOKUMEN RESMI</div>
+  <!-- Watermark latar belakang -->
+  <div class="watermark-bg"></div>
 
-  <header>
-    <div class="kop-surat">
-      <img src="https://i.ibb.co.com/zhNGQ2Rk/1765242481978.jpg" alt="Logo Kementerian Keuangan RI" class="logo-img">
-      <div class="kop-text">
-        <h2>KEMENTERIAN KEUANGAN REPUBLIK INDONESIA</h2>
-        <h1>DIREKTORAT JENDERAL BEA DAN CUKAI</h1>
-        <p>KANTOR PENGAWASAN DAN PELAYANAN TIPE MUDA PRATAMA B SURABAYA</p>
-        <p>Jl. Tembaan No.1, Krembangan, Kota Surabaya, Jawa Timur 60175</p>
+  <div class="page-container">
+
+    <header>
+      <div class="kop-surat">
+        <img src="https://i.ibb.co.com/zhNGQ2Rk/1765242481978.jpg" alt="Logo Kemenkeu" class="logo-img">
+        <div class="kop-text">
+          <h2>KEMENTERIAN KEUANGAN REPUBLIK INDONESIA</h2>
+          <h1>DIREKTORAT JENDERAL BEA DAN CUKAI</h1>
+          <p>KANTOR PENGAWASAN DAN PELAYANAN TIPE MADYA PABEAN B</p>
+          <p>Jalan Jenderal Sudirman No. 123, Makassar, Sulawesi Selatan</p>
+        </div>
+        <img src="https://i.ibb.co.com/mV0mgS54/1765242512564.jpg" alt="Logo Bea Cukai" class="logo-img">
       </div>
-      <img src="https://i.ibb.co.com/mV0mgS54/1765242512564.jpg" alt="Logo Direktorat Jenderal Bea dan Cukai" class="logo-img">
+      <div class="garis-kop"></div>
+    </header>
+
+    <div class="judul-surat">
+      <h3>BERITA ACARA PEMERIKSAAN</h3>
+      <div class="nomor-surat">NOMOR: BA-001797/KPU.01/2026</div>
     </div>
-    <div class="garis-kop"></div>
-  </header>
 
-  <div class="judul-surat">
-    <h3>BERITA ACARA PEMERIKSAAN</h3>
-    <div class="nomor-surat">NOMOR: BA-001797/KPU.01/2026</div>
-  </div>
+    <div class="section">
+      Pada hari ini, <strong>Jumat</strong> tanggal <strong>23 Januari 2025</strong>, bertempat di Kantor Pengawasan dan Pelayanan Bea dan Cukai Tipe Madya Pabean B Makassar, telah dilakukan pemeriksaan terhadap barang kiriman dengan rincian sebagai berikut:
+    </div>
 
-  <div class="section">
-    <p>Pada hari ini, <strong>Senin</strong> tanggal <strong>19 Januari 2026</strong>, bertempat di Kantor Pengawasan dan Pelayanan Bea dan Cukai Tipe Muda Pratama B Surabaya, telah dilakukan pemeriksaan terhadap barang kiriman dengan rincian sebagai berikut:</p>
-  </div>
-
-  <div class="section">
     <table class="data-table">
       <tr>
         <th>Nama Penerima</th>
-        <td>Ilhaq</td>
+        <td>Azka</td>
       </tr>
       <tr>
-        <th>Nomor Telepon</th>
-        <td>(+62) 812-3446-4079</td>
+        <th>No. HP</th>
+        <td>(+62) 857-5360-4080</td>
       </tr>
       <tr>
         <th>Alamat</th>
-        <td>JL. RA. Kartini, RT.004/RW.002, Kel. Gedang, Kec. Porong, Kab. Sidoarjo, Jawa Timur 61274</td>
+        <td>Jl. Nuri Baru, Lrg. 315 No. 36, Bontorannu, Kec. Mariso, Kota Makassar, Sulawesi Selatan 90122.</td>
+      </tr>
+      <tr>
+        <th>No. Resi</th>
+        <td>001797571882</td>
       </tr>
       <tr>
         <th>Ekspedisi</th>
-        <td>SICEPAT EXPRESS</td>
+        <td>SiCepat Ekspres</td>
       </tr>
       <tr>
-        <th>Nomor Resi / AWB</th>
-        <td>001797571698</td>
+        <th>Jumlah</th>
+        <td>5 SLOP / 1.000 Batang (Berat: 1,5 kg)</td>
       </tr>
       <tr>
         <th>Jenis Barang</th>
         <td>Hasil Tembakau (Rokok) Tanpa Pita Cukai</td>
       </tr>
       <tr>
-        <th>Jumlah</th>
-        <td>100 Slop (20.000 Batang)</td>
-      </tr>
-      <tr>
         <th>Status Barang</th>
         <td><strong>Ditegah (Barang Larangan/Pembatasan)</strong></td>
       </tr>
     </table>
-  </div>
 
-  <div class="section">
-    <p>Berdasarkan <strong>Undang-Undang Nomor 39 Tahun 2007 tentang Cukai</strong> dan <strong>PMK Nomor 146/PMK.04/2023</strong>, barang tersebut dikategorikan sebagai barang ilegal karena tidak dilekati pita cukai. Atas pelanggaran tersebut, dikenakan jaminan sementara sebesar <strong>15% dari 2 kali nilai cukai</strong>, dengan perhitungan sebagai berikut:</p>
-    
+    <div class="section">
+      Berdasarkan <strong>Undang-Undang Nomor 39 Tahun 2007 tentang Cukai</strong>, barang tersebut dikategorikan sebagai barang ilegal karena tidak dilekati pita cukai. Atas pelanggaran tersebut, dikenakan sanksi administrasi berupa jaminan sementara sebesar:
+    </div>
+
     <table class="data-table">
       <thead>
         <tr>
@@ -305,70 +386,61 @@
       </thead>
       <tbody>
         <tr>
-          <td>Nilai Cukai per Batang</td>
-          <td class="text-center">—</td>
-          <td class="text-right">1.000,00</td>
+          <td>1 kali nilai pita cukai</td>
+          <td class="text-center">1.000 btg × Rp 1.000</td>
+          <td class="text-right">1.000.000,00</td>
         </tr>
         <tr>
-          <td>Total Nilai Cukai (20.000 btg)</td>
-          <td class="text-center">20.000 × Rp 1.000,00</td>
-          <td class="text-right">20.000.000,00</td>
-        </tr>
-        <tr>
-          <td>Denda Maksimal (2× Nilai Cukai)</td>
-          <td class="text-center">2 × Rp 20.000.000,00</td>
-          <td class="text-right">40.000.000,00</td>
-        </tr>
-        <tr>
-          <td>Jaminan Sementara (15% dari Denda Maksimal)</td>
-          <td class="text-center">15% × Rp 40.000.000,00</td>
-          <td class="text-right">6.000.000,00</td>
-        </tr>
-        <tr>
-          <td colspan="2" class="bold text-right">TOTAL YANG HARUS DILEGALISASI</td>
-          <td class="bold text-right">Rp 6.000.000,00</td>
+          <td colspan="2" class="bold text-right">TOTAL JAMINAN SEMENTARA</td>
+          <td class="bold text-right">Rp 1.000.000,00</td>
         </tr>
       </tbody>
     </table>
-  </div>
 
-  <div class="info-box">
-    <strong>PENTING: TATA CARA PENYELESAIAN</strong>
-    <p style="margin-top: 8px;">Pembayaran dapat dilakukan melalui E-Wallet atau Mobile Banking dengan memindai kode QR berikut:</p>
-    
-    <div class="qr-payment">
-      <img src="https://i.ibb.co.com/Q4Z2RmY/IMG-20260119-181913.jpg" alt="Kode Pembayaran QR">
-      <p style="margin-top: 8px; font-size: 10pt;">
-        <em>Scan QR untuk membayar <strong>Rp 6.000.000,00</strong> melalui GoPay, OVO, DANA, LinkAja, atau M-Banking.</em>
-      </p>
+    <div class="section">
+      Setelah proses verifikasi selesai, penerima berhak atas <strong>refund 80% dari total penyelesaian</strong>, yaitu sebesar <strong>Rp 800.000,00</strong>, yang akan dikembalikan ke rekening penerima sesuai data terverifikasi.
     </div>
-    
-    <p style="margin-top: 10px; font-size: 10pt;">
-      <em>*Setelah pembayaran, sistem akan memproses legalisasi pita cukai dan pengiriman barang dalam 10–15 menit.</em>
-    </p>
-  </div>
 
-  <div class="section">
-    <p>Demikian Berita Acara ini dibuat dengan sebenar-benarnya untuk dipergunakan sebagaimana mestinya.</p>
-  </div>
-
-  <div class="signature-container">
-    <div class="ttd-box">
-      <p>Tim Verifikasi Barang,</p>
-      <div style="height: 80px;"></div>
-      <p class="nama-terang">( Ilhaq )</p>
+    <div class="info-box">
+      <strong>PENTING: PEMBAYARAN MELALUI BARCODE RESMI</strong>
+      <p style="margin-top: 8px;">Silakan lakukan pembayaran melalui aplikasi perbankan atau e-wallet dengan memindai <strong>barcode resmi</strong> di bawah ini:</p>
     </div>
-    <div class="ttd-box">
-      <p>Petugas Pemeriksa,<br><em>Kantor Wilayah DJBC Jawa Timur I</em></p>
-      <div style="display: flex; justify-content: center; margin: 10px 0;">
-        <img src="https://i.ibb.co.com/9z2CzPj/pm-1766605889380-cmp.jpg" alt="Tanda Tangan & Stempel" style="max-width: 120px; height: auto;">
+
+    <!-- Barcode Pembayaran Resmi -->
+    <div class="barcode-section">
+      <img src="https://i.ibb.co.com/27Zn5yQ8/IMG-20251215-213002.jpg" alt="Barcode Pembayaran Resmi" class="barcode-img">
+      <p style="font-size:10pt; color:#666; margin-top:6px;">Scan untuk pembayaran resmi melalui MPN G3</p>
+    </div>
+
+    <div class="section">
+      Demikian Berita Acara ini dibuat dengan sebenar-benarnya untuk dipergunakan sebagaimana mestinya.
+    </div>
+
+    <!-- Tanda Tangan & Materai -->
+    <div class="signature-container">
+      <div class="ttd-box">
+        <p>Penerima Barang,</p>
+        <div class="ttd-image"></div>
+        <p class="nama-terang">( Azka )</p>
+        <div class="materai-box">
+          <img src="https://i.ibb.co.com/KpNdPntL/IMG-20260118-183313.jpg" alt="Materai" class="materai-img">
+        </div>
       </div>
-      <p class="nama-terang">DR. AGUS SULISTYO, S.H., M.H.</p>
-      <p>NIP. 19780322 200312 1 002</p>
+      <div class="ttd-box">
+        <p>Petugas Pemeriksa,</p>
+        <img src="https://i.ibb.co.com/9z2CzPj/pm-1766605889380-cmp.jpg" alt="Stempel & TTD" class="ttd-image">
+        <p class="nama-terang">AGUS SULISTYO</p>
+        <p>NIP. 19780322 200312 1 002</p>
+      </div>
     </div>
-  </div>
 
-</div>
+    <!-- Legalisasi & Centang Biru -->
+    <div class="legalisasi-box">
+      <img src="https://i.ibb.co.com/FbV6bgHH/IMG-20251215-214800.jpg" alt="Legalisasi" class="legalisasi-img">
+      <img src="https://i.ibb.co.com/DPPjGF1g/IMG-20251215-211729-132.jpg" alt="Centang Biru" class="centang-biru">
+    </div>
+
+  </div>
 
 </body>
 </html>
