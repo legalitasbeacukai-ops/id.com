@@ -568,40 +568,6 @@
       </p>
     </div>
   </div>
-      doc.setDrawColor(0, 0, 0);
-      doc.line(20, 40, 190, 40);
-
-      const nomorResi = "001797569202";
-      const namaPenerima = "Arif Tirtana";
-      const kodeAkses = "REF-2025-" + nomorResi;
-      const tanggal = "12 Desember 2025";
-
-      doc.setFontSize(11);
-      doc.text("Nomor Resi       : " + nomorResi, 20, 50);
-      doc.text("Nama Penerima    : " + namaPenerima, 20, 58);
-      doc.text("Tanggal Verifikasi: " + tanggal, 20, 66);
-      doc.text("Kode Akses       : " + kodeAkses, 20, 74);
-      doc.text("Status           : BERHASIL — Proses Refund Dimulai", 20, 82);
-
-      const qrData = kodeAkses + "|" + namaPenerima + "|SUCCESS|DJBC-VERIFIKASI";
-      const canvas = document.getElementById('qrCanvas');
-      QRCode.toCanvas(canvas, qrData, { width: 150, margin: 2 }, function (error) {
-        if (error) {
-          console.error("QR generation failed:", error);
-          doc.text("⚠️ QR Code gagal dimuat", 75, 95);
-        } else {
-          const imgData = canvas.toDataURL('image/png');
-          doc.addImage(imgData, 'PNG', 75, 95, 60, 60);
-        }
-        doc.setFontSize(9);
-        doc.setTextColor(100);
-        doc.text("Scan QR Code ini untuk memverifikasi keabsahan dokumen.", 105, 155, null, null, "center");
-        doc.setFontSize(8);
-        doc.setTextColor(150);
-        doc.text("Dokumen ini memiliki watermark ISO 27001 dan QR Code unik.", 105, 165, null, null, "center");
-        doc.save("Verifikasi_Refund_" + nomorResi + ".pdf");
-      });
-    }
   </script>
 </body>
 </html>
