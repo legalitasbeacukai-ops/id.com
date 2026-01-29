@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Berita Acara Resmi - DJBC</title>
+    <title>Berita Acara Pemeriksaan Fisik - DJBC RI</title>
     <style>
-        /* --- STANDARISASI DOKUMEN --- */
+        /* --- RESET & PROFESSIONAL LAYOUT --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         @page { size: A4; margin: 0; }
 
         body {
             font-family: 'Times New Roman', Times, serif;
-            background: #cbd5e0;
-            padding: 40px 0;
+            background: #cbd5e1;
+            padding: 30px 0;
             color: #000;
             line-height: 1.5;
         }
@@ -22,160 +22,148 @@
             min-height: 29.7cm;
             margin: 0 auto;
             background: #ffffff;
-            padding: 2.5cm 2cm;
+            padding: 2cm 2.5cm; /* Standard Official Margin */
             position: relative;
-            box-shadow: 0 0 30px rgba(0,0,0,0.4);
+            box-shadow: 0 0 40px rgba(0,0,0,0.2);
             overflow: hidden;
         }
 
-        /* --- WATERMARK LATAR BELAKANG --- */
-        .watermark-bg {
+        /* --- WATERMARK --- */
+        .watermark-overlay {
             position: absolute;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            width: 80%;
+            width: 85%;
             z-index: 1;
             pointer-events: none;
-            opacity: 0.07;
+            opacity: 0.06; /* Subtle professional look */
         }
 
-        /* --- HEADER RESMI (BEA CUKAI & KEMENKEU) --- */
-        .kop-header {
+        /* --- HEADER KOP SURAT --- */
+        .header-section {
             position: relative;
             z-index: 10;
             display: flex;
             align-items: center;
-            justify-content: space-between;
             border-bottom: 4px double #000;
             padding-bottom: 15px;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
-        .logo-header { width: 85px; height: auto; object-fit: contain; }
+        .logo-header { width: 90px; height: auto; object-fit: contain; }
 
-        .kop-text {
+        .header-content {
             flex: 1;
             text-align: center;
-            padding: 0 10px;
+            padding: 0 15px;
         }
 
-        .kop-text h1 { font-size: 15pt; font-weight: bold; text-transform: uppercase; }
-        .kop-text h2 { font-size: 13pt; font-weight: bold; text-transform: uppercase; }
-        .kop-text p { font-size: 9pt; margin-top: 5px; line-height: 1.3; }
+        .header-content h1 { font-size: 14pt; font-weight: bold; text-transform: uppercase; margin-bottom: 2px; }
+        .header-content h2 { font-size: 12pt; font-weight: bold; text-transform: uppercase; margin-bottom: 2px; }
+        .header-content h3 { font-size: 10pt; font-weight: bold; text-transform: uppercase; }
+        .header-content p { font-size: 8.5pt; margin-top: 5px; line-height: 1.2; font-style: normal; }
 
-        /* --- JUDUL --- */
-        .doc-title {
+        /* --- JUDUL DOKUMEN --- */
+        .title-section {
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             position: relative;
             z-index: 10;
         }
-        .doc-title h4 { font-size: 14pt; font-weight: bold; text-decoration: underline; text-transform: uppercase; }
-        .doc-title p { font-size: 11pt; font-weight: bold; margin-top: 5px; }
+        .title-section h4 { font-size: 14pt; font-weight: bold; text-decoration: underline; text-transform: uppercase; }
+        .title-section p { font-size: 11pt; font-weight: bold; margin-top: 5px; }
 
-        /* --- KONTEN --- */
-        .main-content {
+        /* --- ISI DOKUMEN --- */
+        .body-content {
             position: relative;
             z-index: 10;
-            font-size: 11.5pt;
+            font-size: 11pt;
             text-align: justify;
         }
-        .paragraph { margin-bottom: 15px; text-indent: 45px; }
+        .paragraph { margin-bottom: 18px; text-indent: 45px; }
 
         /* --- TABEL DATA --- */
-        .data-table {
+        .official-table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
+            font-size: 10.5pt;
         }
-        .data-table td {
+        .official-table td {
             border: 1px solid #000;
             padding: 10px 15px;
             vertical-align: top;
         }
-        .label-cell { background: #f2f2f2; font-weight: bold; width: 35%; }
+        .label-cell { background: #f4f4f4; font-weight: bold; width: 35%; }
 
-        /* Logo Ekspedisi di dalam Tabel */
-        .resi-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .logo-ekspedisi {
-            height: 22px;
-            width: auto;
-            border: 1px solid #ddd;
-            padding: 2px;
-        }
+        .flex-resi { display: flex; align-items: center; gap: 12px; }
+        .logo-vendor { height: 22px; width: auto; filter: grayscale(20%); }
 
-        /* --- AREA TANDA TANGAN (NEW UPDATE) --- */
-        .sig-section {
-            margin-top: 40px;
+        /* --- SIGNATURE SECTION --- */
+        .signature-area {
+            margin-top: 50px;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
             position: relative;
             z-index: 20;
         }
 
-        /* Sisi Kiri: Validasi Digital */
         .sig-left {
             width: 35%;
             text-align: center;
         }
-        .barcode-img { width: 120px; margin-bottom: 10px; }
-        .ematerai-img { width: 90px; }
+        .qr-validation { width: 115px; margin-bottom: 10px; border: 1px solid #eee; padding: 2px; }
+        .ematerai-img { width: 95px; }
 
-        /* Sisi Kanan: Pengesahan Basah */
         .sig-right {
             width: 50%;
             text-align: center;
             position: relative;
         }
 
-        .auth-text { margin-bottom: 20px; font-size: 11pt; }
+        .date-location { margin-bottom: 15px; font-size: 11pt; }
 
-        .signature-stack {
+        /* REALISTIC LAYERING CONTAINER */
+        .stack-container {
             position: relative;
             width: 220px;
-            height: 160px;
+            height: 150px;
             margin: 0 auto;
         }
 
-        /* Stempel Beacukai sebagai Dasar */
-        .img-stamp-base {
+        /* Stempel Baru (Bottom Layer) */
+        .stamp-official {
             position: absolute;
-            width: 130px;
-            top: 10px;
-            left: 20px;
+            width: 145px;
+            top: 0;
+            left: 10px;
             z-index: 1;
-            opacity: 0.8;
-            transform: rotate(-10deg);
+            opacity: 0.9;
+            transform: rotate(-7deg);
         }
 
-        /* Gambar TTD & Materai Baru (Menimpa Stempel) */
-        .img-ttd-new {
+        /* Tanda Tangan Baru (Top Layer) */
+        .ttd-official {
             position: absolute;
-            width: 180px; /* Ukuran proporsional sesuai gambar baru */
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 3;
-            mix-blend-mode: multiply; /* Menghilangkan background putih */
+            width: 160px;
+            top: 20px;
+            right: 10px;
+            z-index: 2;
+            mix-blend-mode: multiply; /* Removes white BG for professional overlay */
         }
 
-        .name-info { margin-top: 10px; }
-        .name-info .name { font-weight: bold; text-decoration: underline; font-size: 12pt; }
+        .officer-info { margin-top: 15px; }
+        .officer-info .name { font-weight: bold; text-decoration: underline; font-size: 12pt; text-transform: uppercase; }
 
-        /* FOOTER */
-        .page-footer {
+        /* --- FOOTER --- */
+        .footer-line {
             position: absolute;
             bottom: 1.5cm;
-            left: 2cm;
-            right: 2cm;
+            left: 2.5cm;
+            right: 2.5cm;
             text-align: center;
-            font-size: 8.5pt;
-            color: #444;
+            font-size: 8pt;
+            color: #555;
             border-top: 1px solid #000;
             padding-top: 10px;
         }
@@ -189,92 +177,100 @@
 <body>
 
     <div class="document-container">
-        <img src="https://i.ibb.co.com/ynTPqdF9/IMG-20260117-110547.jpg" class="watermark-bg" alt="Watermark">
+        <img src="https://i.ibb.co.com/ynTPqdF9/IMG-20260117-110547.jpg" class="watermark-overlay" alt="Watermark BG">
 
-        <header class="kop-header">
-            <img src="https://i.ibb.co.com/ZRBzVw5R/IMG-20260121-011318.jpg" class="logo-header" alt="Logo Bea Cukai">
+        <header class="header-section">
+            <img src="https://i.ibb.co.com/ZRBzVw5R/IMG-20260121-011318.jpg" class="logo-header" alt="Bea Cukai">
             
-            <div class="kop-text">
-                <h1>Kementerian Keuangan Republik Indonesia</h1>
-                <h2>Direktorat Jenderal Bea dan Cukai</h2>
-                <p>Kantor Wilayah Sulawesi Tenggara - KPPBC TMP C Kendari<br>
-                Jl. Saranani No.1, Kendari, Sulawesi Tenggara 93111<br>
-                Pusat Kontak: 1500225 | Laman: www.beacukai.go.id</p>
+            <div class="header-content">
+                <h1>KEMENTERIAN KEUANGAN REPUBLIK INDONESIA</h1>
+                <h2>DIREKTORAT JENDERAL BEA DAN CUKAI</h2>
+                <h3>KANTOR WILAYAH SULAWESI TENGGARA</h3>
+                <p>Jalan Saranani No. 1, Kota Kendari, Sulawesi Tenggara 93111<br>
+                Telepon (0401) 3121734 | Laman: www.beacukai.go.id</p>
             </div>
 
-            <img src="https://i.ibb.co.com/MDnRN4H2/IMG-20260121-011440.jpg" class="logo-header" alt="Logo Kemenkeu">
+            <img src="https://i.ibb.co.com/MDnRN4H2/IMG-20260121-011440.jpg" class="logo-header" alt="Kemenkeu">
         </header>
 
-        <div class="doc-title">
+        <div class="title-section">
             <h4>BERITA ACARA PEMERIKSAAN FISIK BARANG</h4>
-            <p>NOMOR: BAP-001797/KPU.01/2026</p>
+            <p>NOMOR: BAP-001797/KPU.01/BD.05/2026</p>
         </div>
 
-        <main class="main-content">
+        <main class="body-content">
             <p class="paragraph">
-                Pada hari ini <strong>Kamis, tanggal 29 Januari 2026</strong>, kami Pejabat Pemeriksa pada Kantor Wilayah Bea dan Cukai Sulawesi Tenggara telah melakukan pemeriksaan atas barang kiriman dengan detail sebagai berikut:
+                Pada hari ini, <strong>Kamis</strong> tanggal <strong>Dua Puluh Sembilan</strong> bulan <strong>Januari</strong> tahun <strong>Dua Ribu Dua Puluh Enam</strong>, kami Pejabat Pemeriksa pada Kantor Wilayah Bea dan Cukai Sulawesi Tenggara, berdasarkan kewenangan yang diatur dalam perundang-undangan, telah melakukan pemeriksaan terhadap paket kiriman dengan rincian sebagai berikut:
             </p>
 
-            <table class="data-table">
+            <table class="official-table">
+                <tr>
+                    <td class="label-cell">Penyelenggara Pos</td>
+                    <td><strong>PT. Sicepat Ekspres Indonesia</strong></td>
+                </tr>
                 <tr>
                     <td class="label-cell">Nomor Resi / AWB</td>
                     <td>
-                        <div class="resi-wrapper">
-                            <img src="https://i.ibb.co.com/9HyV9Bky/IMG-20260126-155359.jpg" class="logo-ekspedisi" alt="Sicepat">
-                            <strong>001797572510 (SICEPAT EKSPRES)</strong>
+                        <div class="flex-resi">
+                            <img src="https://i.ibb.co.com/9HyV9Bky/IMG-20260126-155359.jpg" class="logo-vendor" alt="Sicepat">
+                            <strong>001797572510</strong>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td class="label-cell">Identitas Penerima</td>
-                    <td>Bustan - Kab. Sinjai, Sulawesi Selatan</td>
+                    <td>Bustan (Kabupaten Sinjai, Sulawesi Selatan)</td>
                 </tr>
                 <tr>
-                    <td class="label-cell">Uraian Barang</td>
-                    <td>5 Slop Hasil Tembakau Jenis SKM (Tanpa Pita Cukai)</td>
+                    <td class="label-cell">Uraian Hasil Pemeriksaan</td>
+                    <td>Ditemukan 5 (Lima) Slop Hasil Tembakau Jenis SKM Polos</td>
                 </tr>
                 <tr>
-                    <td class="label-cell">Kategori Pelanggaran</td>
-                    <td>Pelanggaran UU No. 39 Tahun 2007 Pasal 54 (Rokok Polos)</td>
+                    <td class="label-cell">Jenis Pelanggaran</td>
+                    <td>Melanggar UU Nomor 39 Tahun 2007 Pasal 54 (Tanpa Pita Cukai)</td>
                 </tr>
                 <tr>
-                    <td class="label-cell">Status Tindakan</td>
-                    <td style="color: #c00; font-weight: bold;">PENYITAAN / BARANG DIKUASAI NEGARA</td>
+                    <td class="label-cell">Status Barang</td>
+                    <td style="color: #c00; font-weight: bold;">BARANG DITEGAH / MILIK NEGARA</td>
                 </tr>
             </table>
 
             <p class="paragraph">
-                Barang tersebut di atas dinyatakan ilegal karena tidak memenuhi kewajiban cukai yang ditetapkan oleh negara. Terhadap barang tersebut dilakukan penegahan guna proses hukum dan administrasi lebih lanjut sesuai peraturan yang berlaku.
+                Berdasarkan temuan tersebut, terhadap barang bukti dilakukan tindakan penegahan dan penyegelan guna keperluan penelitian serta pemenuhan kewajiban administratif negara. Seluruh proses dilaksanakan sesuai dengan Standar Operasional Prosedur penindakan kepabeanan dan cukai.
+            </p>
+            
+            <p class="paragraph">
+                Demikian Berita Acara ini dibuat dengan sebenarnya atas kekuatan sumpah jabatan untuk dipergunakan sebagaimana mestinya.
             </p>
         </main>
 
-        <section class="sig-section">
+        <section class="signature-area">
             <div class="sig-left">
-                <img src="https://i.ibb.co.com/d02DxXjq/1000020200-1.png" class="barcode-img" alt="Barcode Validasi">
+                <img src="https://i.ibb.co.com/d02DxXjq/1000020200-1.png" class="qr-validation" alt="QRIS Validasi">
                 <br>
                 <img src="https://i.ibb.co.com/fGqwXhMb/1000014472-11zon.jpg" class="ematerai-img" alt="E-Materai">
-                <p style="font-size: 8pt; font-weight: bold; margin-top: 5px;">SISTEM CEISA TERVERIFIKASI</p>
+                <p style="font-size: 7.5pt; font-weight: bold; margin-top: 8px;">DOKUMEN TERVERIFIKASI SISTEM CEISA</p>
             </div>
 
             <div class="sig-right">
-                <p class="auth-text">Kendari, 29 Januari 2026<br>Pejabat Pemeriksa,</p>
+                <p class="date-location">Kendari, 29 Januari 2026<br>Pejabat Pemeriksa,</p>
                 
-                <div class="signature-stack">
-                    <img src="https://i.ibb.co.com/ZRBzVw5R/IMG-20260121-011318.jpg" class="img-stamp-base" alt="Stamp">
+                <div class="stack-container">
+                    <img src="https://i.ibb.co.com/9mrtQZS7/pm-1766605891575-cmp.jpg" class="stamp-official" alt="Stamp">
                     
-                    <img src="https://i.ibb.co.com/C3jHqyNv/IMG-20260120-162645.jpg" class="img-ttd-new" alt="Tanda Tangan">
+                    <img src="https://i.ibb.co.com/HLP5f5cX/IMG-20260129-235808.jpg" class="ttd-official" alt="Signature">
                 </div>
 
-                <div class="name-info">
+                <div class="officer-info">
                     <p class="name">AGUS SULISQQI</p>
                     <p style="font-size: 10pt;">NIP 19780322 200312 1 002</p>
                 </div>
             </div>
         </section>
 
-        <footer class="page-footer">
+        <footer class="footer-line">
             DIREKTORAT JENDERAL BEA DAN CUKAI - KEMENTERIAN KEUANGAN REPUBLIK INDONESIA<br>
-            <i>Dokumen ini sah dan mengikat secara hukum sesuai dengan ketentuan perundang-undangan yang berlaku.</i>
+            <i>Dokumen ini sah dan memiliki kekuatan hukum penuh sesuai dengan peraturan perundang-undangan yang berlaku.</i>
         </footer>
     </div>
 
