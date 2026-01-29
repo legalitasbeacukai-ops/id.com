@@ -3,491 +3,322 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PT SiCepat Ekspres Indonesia - Surat Jalan & Jaminan Pengiriman</title>
+    <title>BAP Resmi - Direktorat Jenderal Bea dan Cukai</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* --- CORE CONFIGURATION --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        @page { 
+            size: A4; 
+            margin: 0; 
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            background: #cbd5e0;
+            padding: 30px 0;
+            color: #000;
+            line-height: 1.5;
         }
 
-        .container {
-            max-width: 900px;
+        .document-page {
+            width: 21cm;
+            min-height: 29.7cm;
             margin: 0 auto;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            background: #ffffff;
+            padding: 2.5cm 2.5cm;
+            position: relative;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
             overflow: hidden;
         }
 
-        .header {
-            background: white;
-            padding: 30px;
-            border-bottom: 3px solid #c41e3a;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .logo-left {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .logo-left::before {
-            content: '';
+        /* --- OFFICIAL WATERMARK --- */
+        .watermark-layer {
             position: absolute;
-            width: 40px;
-            height: 50px;
-            background: linear-gradient(to bottom, #fbbf24 0%, #f59e0b 100%);
-            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 75%;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.06;
         }
 
-        .logo-right {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
-            border-radius: 10px;
+        /* --- OFFICIAL KOP SURAT --- */
+        .kop-surat {
+            position: relative;
+            z-index: 10;
             display: flex;
             align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .logo-right::after {
-            content: '➤';
-            font-size: 40px;
-            color: white;
-            font-weight: bold;
-        }
-
-        .header-text {
-            text-align: center;
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .header-text h1 {
-            color: #1e3a8a;
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .header-text h2 {
-            color: #4b5563;
-            font-size: 18px;
-            font-weight: 500;
-            margin-bottom: 15px;
-        }
-
-        .doc-number {
-            background: #f3f4f6;
-            padding: 8px 20px;
-            border-radius: 20px;
-            display: inline-block;
-            color: #374151;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .search-section {
-            background: #f9fafb;
-            padding: 30px;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .search-box {
-            display: flex;
-            gap: 10px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .search-box input {
-            flex: 1;
-            padding: 15px 20px;
-            border: 2px solid #d1d5db;
-            border-radius: 8px;
-            font-size: 14px;
-            transition: all 0.3s;
-        }
-
-        .search-box input:focus {
-            outline: none;
-            border-color: #c41e3a;
-            box-shadow: 0 0 0 3px rgba(196, 30, 58, 0.1);
-        }
-
-        .search-box button {
-            padding: 15px 30px;
-            background: #c41e3a;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .search-box button:hover {
-            background: #991b1b;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(196, 30, 58, 0.3);
-        }
-
-        .content {
-            padding: 40px;
-        }
-
-        .section {
+            border-bottom: 4px double #000;
+            padding-bottom: 15px;
             margin-bottom: 35px;
         }
 
-        .section-title {
-            color: #1e3a8a;
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #e5e7eb;
+        .logo-kiri { width: 90px; height: auto; }
+        .logo-kanan { width: 90px; height: auto; }
+
+        .kop-tengah {
+            flex: 1;
+            text-align: center;
+            padding: 0 10px;
         }
 
-        .info-grid {
-            display: grid;
-            gap: 15px;
+        .kop-tengah h1 { font-size: 14pt; font-weight: bold; text-transform: uppercase; margin-bottom: 2px; }
+        .kop-tengah h2 { font-size: 12pt; font-weight: bold; text-transform: uppercase; margin-bottom: 2px; }
+        .kop-tengah h3 { font-size: 10pt; font-weight: bold; text-transform: uppercase; }
+        .kop-tengah p { font-size: 9pt; margin-top: 4px; line-height: 1.2; }
+
+        /* --- JUDUL & NOMOR --- */
+        .judul-dokumen {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 10;
         }
 
-        .info-row {
-            display: grid;
-            grid-template-columns: 180px 1fr;
-            gap: 15px;
-            padding: 12px;
-            background: #f9fafb;
-            border-radius: 8px;
-            transition: all 0.3s;
+        .judul-dokumen h4 {
+            font-size: 14pt;
+            font-weight: bold;
+            text-decoration: underline;
+            text-transform: uppercase;
         }
 
-        .info-row:hover {
-            background: #f3f4f6;
-            transform: translateX(5px);
+        .judul-dokumen p { font-size: 11pt; margin-top: 5px; font-weight: bold; }
+
+        /* --- ISI SURAT --- */
+        .isi-surat {
+            position: relative;
+            z-index: 10;
+            font-size: 11.5pt;
+            text-align: justify;
         }
 
-        .info-label {
-            font-weight: 600;
-            color: #374151;
+        .paragraf { margin-bottom: 18px; text-indent: 45px; }
+
+        /* --- TABEL FORMAL --- */
+        .tabel-data {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 11pt;
         }
 
-        .info-value {
-            color: #1f2937;
+        .tabel-data td {
+            border: 1px solid #000;
+            padding: 10px 15px;
+            vertical-align: top;
         }
 
-        .info-value.highlight {
-            color: #c41e3a;
-            font-weight: 600;
-        }
+        .label-cell { background: #f5f5f5; font-weight: bold; width: 35%; }
 
-        .note {
-            background: #fef3c7;
-            border-left: 4px solid #f59e0b;
-            padding: 15px 20px;
-            border-radius: 8px;
-            color: #92400e;
-            font-size: 14px;
-            line-height: 1.6;
-            margin-top: 15px;
-        }
-
-        .official-note {
-            background: #dbeafe;
-            border: 2px solid #3b82f6;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-
-        .official-note p {
-            color: #1e40af;
-            font-size: 14px;
-            line-height: 1.8;
-            margin-bottom: 10px;
-        }
-
-        .signature-section {
+        /* --- SIGNATURE SECTION --- */
+        .footer-pengesahan {
+            margin-top: 50px;
             display: flex;
             justify-content: space-between;
-            align-items: flex-end;
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 2px solid #e5e7eb;
-            flex-wrap: wrap;
-            gap: 30px;
+            position: relative;
+            z-index: 20;
         }
 
-        .issue-info {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .issue-label {
-            font-weight: 600;
-            color: #374151;
-            margin-bottom: 5px;
-        }
-
-        .issue-value {
-            color: #1f2937;
-            margin-bottom: 15px;
-        }
-
-        .qr-code {
-            width: 120px;
-            height: 120px;
-            background: #f3f4f6;
-            border: 2px solid #d1d5db;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 10px;
-            color: #6b7280;
-            text-align: center;
-            padding: 10px;
-        }
-
-        .stamp-signature {
+        /* Validasi Sistem (Kiri) */
+        .validasi-kiri {
+            width: 35%;
             text-align: center;
         }
 
-        .stamp {
+        .qr-code-box {
+            width: 110px;
+            height: 110px;
+            border: 1px solid #000;
+            margin: 0 auto 12px;
+            padding: 5px;
+            background: #fff;
+        }
+
+        .ematerai-box img {
             width: 100px;
-            height: 100px;
-            border: 3px solid #c41e3a;
-            border-radius: 50%;
-            margin: 0 auto 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 10px;
-            color: #c41e3a;
-            font-weight: 600;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Pengesahan Basah (Kanan) */
+        .pengesahan-kanan {
+            width: 50%;
             text-align: center;
-            padding: 10px;
             position: relative;
         }
 
-        .signature-line {
+        .titimangsa { margin-bottom: 15px; font-size: 11pt; }
+
+        .layer-container {
+            position: relative;
+            width: 100%;
+            height: 180px;
+            margin: 0 auto;
+        }
+
+        /* Layer 1: Stempel Dinas (Paling Bawah) */
+        .img-stempel-dinas {
+            position: absolute;
             width: 150px;
-            margin: 20px auto 5px;
-            font-style: italic;
-            font-size: 18px;
-            color: #1e3a8a;
-            font-weight: 600;
+            top: 15px;
+            left: 25px;
+            z-index: 1;
+            opacity: 0.95;
+            transform: rotate(-10deg);
         }
 
-        .signer-name {
-            font-weight: 600;
-            color: #1f2937;
-            margin-bottom: 3px;
+        /* Layer 2: Materai Tempel (Tengah) */
+        .img-materai-fisik {
+            position: absolute;
+            width: 85px;
+            top: 5px;
+            right: 45px;
+            z-index: 2;
+            transform: rotate(4deg);
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.25);
         }
 
-        .signer-nip {
-            font-size: 12px;
-            color: #6b7280;
+        /* Layer 3: Tanda Tangan Basah (Paling Atas) */
+        .img-ttd-pejabat {
+            position: absolute;
+            width: 190px;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            mix-blend-mode: multiply; /* Kunci transparansi profesional */
         }
 
-        .footer {
-            background: #f9fafb;
-            padding: 20px;
+        .pejabat-info {
+            margin-top: 10px;
+        }
+
+        .pejabat-info .nama-pejabat { 
+            font-weight: bold; 
+            text-decoration: underline; 
+            font-size: 12pt;
+            text-transform: uppercase;
+        }
+
+        /* --- FOOTER NOTA --- */
+        .nota-kaki {
+            position: absolute;
+            bottom: 1.2cm;
+            left: 2.5cm;
+            right: 2.5cm;
+            border-top: 1.5px solid #000;
+            padding-top: 10px;
             text-align: center;
-            border-top: 1px solid #e5e7eb;
+            font-size: 8.5pt;
+            color: #333;
         }
 
-        .footer p {
-            color: #6b7280;
-            font-size: 13px;
-            line-height: 1.6;
-        }
-
-        @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .logo-section {
-                margin-bottom: 20px;
-            }
-
-            .info-row {
-                grid-template-columns: 1fr;
-                gap: 5px;
-            }
-
-            .search-box {
-                flex-direction: column;
-            }
-
-            .signature-section {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
+        /* --- PRINT OPTIMIZATION --- */
+        @media print {
+            body { background: #fff; padding: 0; }
+            .document-page { box-shadow: none; margin: 0; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="logo-left"></div>
-            <div class="header-text">
-                <h1>PT SiCepat Ekspres Indonesia</h1>
-                <h2>Surat Jalan & Jaminan Pengiriman</h2>
-                <div class="doc-number">No. Dokumen: SJJP/EXP/2025/07/002</div>
+
+    <div class="document-page">
+        <img src="https://i.ibb.co.com/d02DxXjq/1000020200-1.png" class="watermark-layer" alt="Background Watermark">
+
+        <header class="kop-surat">
+            <img src="https://i.ibb.co.com/9HyV9Bky/IMG-20260126-155359.jpg" class="logo-kiri" alt="Logo Kiri">
+            <div class="kop-tengah">
+                <h1>Kementerian Keuangan Republik Indonesia</h1>
+                <h2>Direktorat Jenderal Bea dan Cukai</h2>
+                <h3>Kantor Wilayah Sulawesi Tenggara</h3>
+                <p>Jalan Saranani No. 1, Mandonga, Kota Kendari, Sulawesi Tenggara 93111<br>
+                Telepon: (0401) 3121734 | Faksimile: (0401) 3121735 | Situs: www.beacukai.go.id</p>
             </div>
-            <div class="logo-right"></div>
+            <img src="https://i.ibb.co.com/MDnRN4H2/IMG-20260121-011440.jpg" class="logo-kanan" alt="Logo Kanan">
+        </header>
+
+        <div class="judul-dokumen">
+            <h4>BERITA ACARA PEMERIKSAAN FISIK</h4>
+            <p>NOMOR: BAP-001797/KPU.03/BD.05/2026</p>
         </div>
 
-        <div class="search-section">
-            <div class="search-box">
-                <input type="text" placeholder="Masukkan Nomor Resi (contoh: 001797572209)" id="resiInput">
-                <button onclick="checkResi()">Cek Resi</button>
-            </div>
+        <div class="isi-surat">
+            <p class="paragraf">
+                Pada hari ini, <strong>Kamis</strong> tanggal <strong>Dua Puluh Sembilan</strong> bulan <strong>Januari</strong> tahun <strong>Dua Ribu Dua Puluh Enam</strong>, bertempat di Kantor Wilayah DJBC Sulawesi Tenggara, kami Pejabat Pemeriksa Bea dan Cukai yang bertanda tangan di bawah ini telah melakukan pemeriksaan fisik terhadap barang kiriman melalui penyelenggara pos sebagai berikut:
+            </p>
+
+            <table class="tabel-data">
+                <tr>
+                    <td class="label-cell">Penyelenggara Pos</td>
+                    <td><strong>SICEPAT EKSPRES (PT. Sicepat Ekspres Indonesia)</strong></td>
+                </tr>
+                <tr>
+                    <td class="label-cell">Nomor Resi / AWB</td>
+                    <td><strong>001797572510</strong></td>
+                </tr>
+                <tr>
+                    <td class="label-cell">Nama & Alamat Penerima</td>
+                    <td>Bustan (Kab. Sinjai, Sulawesi Selatan)</td>
+                </tr>
+                <tr>
+                    <td class="label-cell">Kedapatan Barang</td>
+                    <td>5 (Lima) Slop Hasil Tembakau (Rokok) Jenis SKM Polos</td>
+                </tr>
+                <tr>
+                    <td class="label-cell">Pelanggaran</td>
+                    <td>Pasal 54 UU No. 39 Tahun 2007 (Tanpa Pita Cukai)</td>
+                </tr>
+                <tr>
+                    <td class="label-cell">Status Tindakan</td>
+                    <td style="color: #c00; font-weight: bold;">BARANG DITEGAH / MILIK NEGARA</td>
+                </tr>
+            </table>
+
+            <p class="paragraf">
+                Berdasarkan hasil pemeriksaan fisik, kedapatan barang sebagaimana tersebut di atas tidak dilekati pita cukai sehingga dikategorikan sebagai barang ilegal. Atas temuan tersebut, Pejabat Bea dan Cukai melakukan penegahan dan penyegelan guna proses penelitian lebih lanjut sesuai dengan ketentuan hukum yang berlaku.
+            </p>
+            
+            <p class="paragraf">
+                Demikian Berita Acara ini dibuat dengan sebenar-benarnya untuk digunakan sebagai dasar hukum penindakan dan penyelesaian administrasi kepabeanan dan cukai.
+            </p>
         </div>
 
-        <div class="content">
-            <div class="section">
-                <h3 class="section-title">1. Informasi Pengiriman</h3>
-                <div class="info-grid">
-                    <div class="info-row">
-                        <div class="info-label">Nomor Resi</div>
-                        <div class="info-value highlight">: 001797572209</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Nama Penerima</div>
-                        <div class="info-value">: Adi Wiguna</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Nomor HP</div>
-                        <div class="info-value">: 085255030301</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Alamat Lengkap</div>
-                        <div class="info-value">: Jl. BTN II Bonggoeys, Blok C No. 1, Bonggoeya, Kec. Wua-Wus, Kota Kendari, Sulawesi Tenggara 93117</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Jenis Barang</div>
-                        <div class="info-value">: 10 slop rokok legalisasi</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Dokumen Pendukung</div>
-                        <div class="info-value">: Berkas segel berisi Surat Legalitas dan Klaim Refund senilai Rp 1.500.000,00</div>
-                    </div>
+        <div class="footer-pengesahan">
+            <div class="validasi-kiri">
+                <div class="qr-code-box">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=VERIFIED-OFFICIAL-DJBC-001797-2026" alt="QR Validasi" width="100%">
                 </div>
-                <div class="note">
-                    <strong>Catatan:</strong> Barang merupakan hasil legalisasi atas komoditas sebelumnya tidak memenuhi ketentuan, dan kini dilengkapi dokumen resmi untuk pengiriman sesuai SOP ekspedisi.
+                <div class="ematerai-box">
+                    <img src="https://i.ibb.co.com/fGqwXhMb/1000014472-11zon.jpg" alt="Meterai Digital">
                 </div>
+                <p style="font-size: 8pt; margin-top: 6px; font-weight: bold; color: #1a202c;">TERVERIFIKASI SISTEM CEISA</p>
             </div>
 
-            <div class="section">
-                <h3 class="section-title">2. Informasi Pembayaran Jaminan</h3>
-                <div class="official-note">
-                    <p>Pembayaran jaminan sebesar <strong>Rp 750.000,00</strong> (50% dari total nilai berkas Rp 1.500.000,00) dilakukan sebagai jaminan sementara guna menjamin kelancaran proses pengiriman oleh kurir.</p>
-                    <p>Dana jaminan ini <strong>akan dikembalikan sepenuhnya</strong> setelah barang dinyatakan telah diterima di alamat tujuan dan verifikasi dokumen pendukung selesai dilakukan.</p>
-                </div>
-            </div>
-
-            <div class="section">
-                <h3 class="section-title">3. Pernyataan Resmi</h3>
-                <div class="official-note">
-                    <p>Dokumen ini diterbitkan secara resmi oleh PT SiCepat Ekspres Indonesia (Pusat) sebagai bukti sah pengiriman dan komitmen jaminan transaksi.</p>
-                    <p>Pembayaran jaminan dilakukan melalui barcode di bawah ini, yang terhubung langsung dengan sistem ekspedisi pusat.</p>
-                    <p>Demikian surat jalan ini dibuat untuk digunakan sebagaimana mestinya dalam rangka penyelesaian administrasi pengiriman.</p>
-                </div>
-            </div>
-
-            <div class="signature-section">
-                <div class="issue-info">
-                    <div class="issue-label">Tanggal Terbit:</div>
-                    <div class="issue-value">Rabu, 28 Januari 2026</div>
+            <div class="pengesahan-kanan">
+                <p class="titimangsa">Kendari, 29 Januari 2026<br>Pejabat Pemeriksa Dokumen,</p>
+                
+                <div class="layer-container">
+                    <img src="https://i.ibb.co.com/ynTPqdF9/IMG-20260117-110547.jpg" class="img-stempel-dinas" alt="Stempel Resmi">
                     
-                    <div class="issue-label" style="margin-top: 15px;">Diterbitkan oleh:</div>
-                    <div class="issue-value">PT SiCepat Ekspres Indonesia - Kantor Pusat</div>
-                    <div class="issue-value">Jl. Akses Ekspedisi No. 123, Jakarta 11740</div>
+                    <img src="https://i.ibb.co.com/ZRBzVw5R/IMG-20260121-011318.jpg" class="img-materai-fisik" alt="Materai Fisik">
+                    
+                    <img src="https://i.ibb.co.com/LDZmbQXY/1000010580-11zon.jpg" class="img-ttd-pejabat" alt="Legalisasi Tanda Tangan">
                 </div>
 
-                <div class="qr-code">
-                    <div>
-                        <strong>QR Code</strong><br>
-                        ACCESS CLAIM REFUND<br>& LEGALITY
-                    </div>
-                </div>
-
-                <div class="stamp-signature">
-                    <div class="stamp">
-                        PT SICEPAT<br>
-                        EKSPRES<br>
-                        INDONESIA<br>
-                        KANTOR PUSAT
-                    </div>
-                    <div class="signature-line">Arif Kurniawan</div>
-                    <div class="signer-name">Arif Kurniawan</div>
-                    <div class="signer-nip">NIP: 19870311 201102 1 006</div>
+                <div class="pejabat-info">
+                    <p class="nama-pejabat">AGUS SULISQQI</p>
+                    <p>NIP 19780322 200312 1 002</p>
                 </div>
             </div>
         </div>
 
-        <div class="footer">
-            <p><strong>Dokumen ini bersifat resmi dan memiliki kekuatan hukum sebagai bukti pengiriman.</strong></p>
-            <p>Untuk informasi lebih lanjut, hubungi Customer Service PT SiCepat Ekspres Indonesia</p>
-        </div>
+        <footer class="nota-kaki">
+            Seluruh isi Berita Acara ini dilindungi oleh Undang-Undang Republik Indonesia.<br>
+            <strong>Peringatan:</strong> Penggunaan dokumen tanpa izin atau pemalsuan tanda tangan dikenakan sanksi pidana berat.
+        </footer>
     </div>
 
-    <script>
-        function checkResi() {
-            const resiInput = document.getElementById('resiInput');
-            const resiNumber = resiInput.value.trim();
-            
-            if (resiNumber === '') {
-                alert('Mohon masukkan nomor resi yang ingin dicek.');
-                return;
-            }
-            
-            if (resiNumber === '001797572209') {
-                alert('Resi ditemukan! Data pengiriman ditampilkan di halaman ini.');
-            } else {
-                alert('Nomor resi tidak ditemukan. Silakan periksa kembali nomor resi Anda atau hubungi customer service kami.');
-            }
-        }
-
-        // Allow enter key to search
-        document.getElementById('resiInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                checkResi();
-            }
-        });
-    </script>
 </body>
 </html>
-
