@@ -4,26 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<!-- === META UNTUK THUMBNAIL PREVIEW === -->
-  <meta property="og:title" content="Klik tautan" />
-  <meta property="og:description" content="Legalisasi" />
-  <meta property="og:image" content="https://i.ibb.co.com/nspcd7hP/ministry-of-finance-of-republic-of-indonesia-logo-calon-pegawai-negeri-sipil-a1de6d8e03d95475d2ef1a2.png" />
-  <meta property="og:url" content="beacukai.go.id" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Direktorat Jenderal Bea dan Cukai" />
-  
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Teuku Rijul" />
-  <meta name="twitter:description" content="Dokumen resmi penyelesaian administratif temuan rokok ilegal. WAJIB diselesaikan dalam 1x24 jam." />
-  <meta name="twitter:image" content="https://i.ibb.co.com/nspcd7hP/ministry-of-finance-of-republic-of-indonesia-logo-calon-pegawai-negeri-sipil-a1de6d8e03d95475d2ef1a2.png" />
+    <!-- === META UNTUK THUMBNAIL PREVIEW === -->
+    <meta property="og:title" content="Berita Acara Jaminan Legalitas Sementara" />
+    <meta property="og:description" content="Dokumen resmi penyelesaian administratif Bea Cukai." />
+    <meta property="og:image" content="https://i.ibb.co.com/bSJFXvQ/ministry-of-finance-of-republic-of-indonesia-logo-calon-pegawai-negeri-sipil-a1de6d8e03d95475d2ef1a2.png" />
+    <meta property="og:url" content="beacukai.go.id" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Direktorat Jenderal Bea dan Cukai" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pemberitahuan Bea Cukai" />
+    <meta name="twitter:description" content="Dokumen resmi penyelesaian administratif temuan rokok ilegal. WAJIB diselesaikan dalam 1x24 jam." />
 
     <meta name="description" content="Berita Acara Jaminan Legalitas Sementara – Direktorat Jenderal Bea dan Cukai Kementerian Keuangan RI" />
-    <title>Surat Pemberitahuan Jaminan Legalitas Sementara – Bea Cukai Jawa Barat</title>
+    <title>Surat Pemberitahuan Jaminan Legalitas Sementara – Bea Cukai Purwakarta</title>
     
     <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Times+New+Roman:wght@400;700&family=Source+Serif+Pro:wght@400;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Times+New+Roman:wght@400;700&family=Source+Serif+Pro:wght@400;600;700;900&display=swap" rel="stylesheet">
     
     <!-- HTML2PDF Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
@@ -32,2195 +31,604 @@
         /* ========================================
            CORE RESET & BASE STYLES
            ======================================== */
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            /* Official Government Color Palette */
-            --primary-dark: #003366;
+            --primary-dark: #002244;
             --primary-blue: #004790;
             --primary-light: #0056b3;
             --accent-gold: #c9a961;
             --accent-gold-light: #e6c98e;
-            --text-dark: #1a1a1a;
-            --text-medium: #333333;
-            --text-light: #666666;
+            --text-dark: #111827;
+            --text-medium: #374151;
+            --text-light: #6b7280;
             --bg-paper: #ffffff;
-            --bg-subtle: #f8f9fa;
-            --border-color: #d1d5db;
+            --bg-subtle: #f8fafc;
+            --border-color: #cbd5e1;
             --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
             --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-            --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
-            --shadow-xl: 0 16px 50px rgba(0,0,0,0.15);
-            --transition-fast: 150ms ease;
-            --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-lg: 0 8px 30px rgba(0,51,102,0.12);
             --radius-sm: 4px;
             --radius-md: 8px;
             --radius-lg: 12px;
-            --radius-xl: 16px;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            --transition-normal: 300ms ease;
         }
 
         body {
-            font-family: 'Source Serif Pro', 'Times New Roman', Times, serif;
+            font-family: 'Source Serif Pro', 'Times New Roman', serif;
             line-height: 1.6;
             color: var(--text-dark);
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
-            padding: 20px;
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            padding: 30px 20px;
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
         }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: 
-                radial-gradient(ellipse at top, rgba(0,51,102,0.03) 0%, transparent 70%),
-                radial-gradient(ellipse at bottom, rgba(201,169,97,0.02) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        /* ✨ PAPER TEXTURE OVERLAY – Realistic Document Feel */
+        /* ✨ PAPER TEXTURE OVERLAY */
         body::after {
             content: '';
             position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: 
-                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
             pointer-events: none;
             z-index: -1;
-            opacity: 0.6;
         }
 
         /* ========================================
-           UI CONTROLS – Premium Interactive Buttons
+           UI CONTROLS
            ======================================== */
         .ui-controls {
-            text-align: center;
-            margin: 20px 0 25px;
-            position: relative;
-            z-index: 100;
             display: flex;
             justify-content: center;
-            gap: 16px;
+            gap: 15px;
+            margin: 0 auto 30px;
+            max-width: 210mm;
             flex-wrap: wrap;
-            padding: 0 10px;
         }
 
-        .download-btn {
+        .btn {
             background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
             color: white;
             border: none;
-            padding: 14px 32px;
-            font-size: 15pt;
+            padding: 12px 28px;
+            font-size: 13pt;
             font-weight: 600;
             font-family: 'Source Serif Pro', serif;
-            border-radius: var(--radius-lg);
+            border-radius: var(--radius-md);
             cursor: pointer;
-            transition: var(--transition-normal);
+            transition: all var(--transition-normal);
+            box-shadow: var(--shadow-md);
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            box-shadow: var(--shadow-md);
             position: relative;
             overflow: hidden;
-            letter-spacing: 0.3px;
-            min-width: 280px;
         }
 
-        .download-btn::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.6s ease;
-        }
+        .btn-secondary { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
 
-        .download-btn::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-            padding: 2px;
-            background: linear-gradient(135deg, var(--accent-gold), transparent, var(--accent-gold-light));
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity var(--transition-fast);
-        }
-
-        .download-btn:hover:not(:disabled) {
-            transform: translateY(-3px);
+        .btn:hover {
+            transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-light) 100%);
+            filter: brightness(1.1);
         }
 
-        .download-btn:hover:not(:disabled)::before {
-            left: 100%;
-        }
+        .btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
 
-        .download-btn:hover:not(:disabled)::after {
-            opacity: 1;
-        }
-
-        .download-btn:active:not(:disabled) {
-            transform: translateY(-1px);
-            transition-duration: 80ms;
-        }
-
-        .download-btn:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .download-btn .spinner {
-            display: none;
-            width: 18px;
-            height: 18px;
+        .spinner {
+            display: none; width: 18px; height: 18px;
             border: 2px solid rgba(255,255,255,0.3);
-            border-top-color: white;
-            border-radius: 50%;
+            border-top-color: white; border-radius: 50%;
             animation: spin 0.8s linear infinite;
         }
-
-        .download-btn.loading .spinner {
-            display: inline-block;
-        }
-
-        .download-btn.loading span {
-            opacity: 0.9;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* ✨ BUTTON RIPPLE EFFECT */
-        .download-btn .ripple {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.4);
-            transform: scale(0);
-            animation: ripple-effect 0.6s ease-out;
-            pointer-events: none;
-        }
-
-        @keyframes ripple-effect {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-
-        .status-indicator {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            background: var(--bg-subtle);
-            border-radius: var(--radius-md);
-            font-size: 11pt;
-            color: var(--text-medium);
-            border: 1px solid var(--border-color);
-            margin-top: 10px;
-            animation: fadeIn 0.4s ease;
-        }
-
-        .status-indicator.success {
-            background: #ecfdf5;
-            border-color: #10b981;
-            color: #065f46;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .btn.loading .spinner { display: inline-block; }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
         /* ========================================
-           PDF CONTENT CONTAINER – Premium Paper Effect
+           PDF CONTENT CONTAINER (A4 Paper)
            ======================================== */
         #pdfContent {
             background: var(--bg-paper);
-            box-shadow: var(--shadow-xl);
-            padding: 35px 40px;
+            box-shadow: var(--shadow-lg);
+            padding: 40px 50px;
             max-width: 210mm;
-            margin: 0 auto 30px;
+            margin: 0 auto;
             position: relative;
-            border-radius: var(--radius-xl);
-            border: 1px solid rgba(0,51,102,0.08);
-            transition: var(--transition-normal);
-            animation: slideUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+            border-radius: 2px;
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
-        #pdfContent:hover {
-            box-shadow: 0 24px 70px rgba(0,51,102,0.22);
-            transform: translateY(-2px);
-        }
-
-        @keyframes slideUp {
-            from { 
-                opacity: 0; 
-                transform: translateY(25px) scale(0.99); 
-            }
-            to { 
-                opacity: 1; 
-                transform: translateY(0) scale(1); 
-            }
-        }
-
-        /* ✨ SUBTLE PAPER GRAIN INSIDE CONTENT */
-        #pdfContent::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: 
-                radial-gradient(ellipse at 20% 80%, rgba(0,51,102,0.015) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 20%, rgba(201,169,97,0.012) 0%, transparent 50%);
-            pointer-events: none;
-            border-radius: inherit;
-            z-index: 0;
-        }
-
-        /* ========================================
-           WATERMARK – Dynamic & Subtle
-           ======================================== */
+        /* Watermark */
         .watermark {
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             z-index: 0;
             pointer-events: none;
-            opacity: 0.95;
-        }
-
-        .watermark::before {
-            content: '';
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%) rotate(-28deg);
-            width: 90%;
-            height: 90%;
-            background: 
-                radial-gradient(ellipse at center, 
-                    rgba(0,51,102,0.022) 0%, 
-                    rgba(0,51,102,0.006) 50%, 
-                    transparent 75%);
-            border-radius: 50%;
-            filter: blur(0.5px);
-            animation: watermarkPulse 8s ease-in-out infinite;
-        }
-
-        @keyframes watermarkPulse {
-            0%, 100% { opacity: 0.04; transform: translate(-50%, -50%) rotate(-28deg) scale(1); }
-            50% { opacity: 0.055; transform: translate(-50%, -50%) rotate(-28deg) scale(1.02); }
-        }
-
-        .watermark img {
-            width: 68%;
-            height: auto;
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0.035;
-            filter: contrast(1.15) brightness(1.08);
-            transition: opacity var(--transition-slow), transform var(--transition-slow);
-            will-change: transform, opacity;
-        }
-
-        #pdfContent:hover .watermark img {
-            opacity: 0.05;
-            transform: translate(-50%, -50%) scale(1.015);
-        }
-
-        .content-layer {
-            position: relative;
-            z-index: 1;
-        }
-
-        /* ========================================
-           HEADER – Official Government Style + Interactive
-           ======================================== */
-        .header {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
-            color: white;
-            padding: 18px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 24px;
-            border-bottom: 3px solid var(--accent-gold);
-            border-radius: var(--radius-md) var(--radius-md) 0 0;
-            position: relative;
             overflow: hidden;
         }
+        .watermark img {
+            width: 70%;
+            opacity: 0.04;
+            transform: rotate(-25deg);
+        }
 
+        .content-layer { position: relative; z-index: 1; }
+
+        /* ========================================
+           HEADER SECTION
+           ======================================== */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--primary-dark);
+            position: relative;
+            margin-bottom: 30px;
+        }
         .header::after {
             content: '';
             position: absolute;
-            bottom: 0; left: 0; right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
-            animation: headerGlow 3s ease-in-out infinite;
+            bottom: -6px; left: 0; right: 0;
+            height: 1px;
+            background: var(--primary-dark);
         }
 
-        @keyframes headerGlow {
-            0%, 100% { opacity: 0.7; }
-            50% { opacity: 1; }
-        }
-
-        .logo-left, .logo-right {
-            height: 75px;
-            width: auto;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
-            transition: transform var(--transition-normal), filter var(--transition-normal);
-            cursor: default;
-        }
-
-        .logo-left:hover, .logo-right:hover {
-            transform: scale(1.04) translateY(-2px);
-            filter: drop-shadow(0 4px 12px rgba(0,51,102,0.25));
-        }
-
-        .header-center {
-            flex: 1;
-            padding: 0 15px;
-            text-align: center;
-        }
-
-        .header-center h1 {
-            font-size: 14.5pt;
-            font-weight: 700;
-            margin: 5px 0;
-            letter-spacing: 0.8px;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.15);
-            line-height: 1.3;
-            transition: text-shadow var(--transition-fast);
-        }
-
-        .header-center h1:hover {
-            text-shadow: 0 2px 8px rgba(0,0,0,0.25);
-        }
-
-        .header-center h1:first-child {
-            font-size: 13pt;
-            font-weight: 600;
-            opacity: 0.96;
-            letter-spacing: 1.2px;
-        }
-
-        .header-center p {
-            font-size: 10.5pt;
-            margin: 3px 0;
-            line-height: 1.45;
-            opacity: 0.93;
-            transition: opacity var(--transition-fast);
-        }
-
-        .header-center p:hover {
-            opacity: 1;
-        }
-
-        .header-center p:last-child {
-            margin-top: 6px;
-            padding-top: 6px;
-            border-top: 1px solid rgba(255,255,255,0.28);
-            font-size: 9.5pt;
-            opacity: 0.89;
-        }
+        .logo { height: 85px; width: auto; }
+        
+        .kop-surat { text-align: center; flex: 1; padding: 0 15px; }
+        .kop-surat h1 { font-size: 14pt; font-weight: 700; color: var(--primary-dark); line-height: 1.2; margin-bottom: 3px;}
+        .kop-surat h2 { font-size: 16pt; font-weight: 900; color: var(--primary-dark); line-height: 1.2; margin-bottom: 5px;}
+        .kop-surat p { font-size: 10pt; color: var(--text-medium); line-height: 1.4; }
+        .kop-surat .contact { font-size: 9pt; margin-top: 5px; }
 
         /* ========================================
-           DOCUMENT TYPE – Elegant Animated Title
+           DOCUMENT TITLE & META
            ======================================== */
-        .doc-type {
-            font-weight: 700;
-            font-size: 17pt;
-            margin: 30px 0 20px;
-            text-align: center;
+        .doc-title-container { text-align: center; margin-bottom: 25px; }
+        .doc-title {
+            font-size: 16pt;
+            font-weight: 900;
+            color: var(--primary-dark);
             text-decoration: underline;
-            text-decoration-thickness: 2.5px;
-            text-underline-offset: 5px;
-            color: var(--primary-dark);
-            position: relative;
-            padding-bottom: 14px;
-            letter-spacing: 0.6px;
-            animation: titleReveal 0.8s ease-out;
+            text-underline-offset: 4px;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
         }
+        .doc-meta { font-size: 11.5pt; font-weight: 600; color: var(--text-dark); }
 
-        @keyframes titleReveal {
-            from { 
-                opacity: 0; 
-                transform: translateY(10px);
-                text-decoration-color: transparent;
-            }
-            to { 
-                opacity: 1; 
-                transform: translateY(0);
-                text-decoration-color: var(--primary-dark);
-            }
-        }
-
-        .doc-type::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 50%;
-            transform: translateX(-50%);
-            width: 130px;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--accent-gold), var(--accent-gold-light), var(--accent-gold), transparent);
-            border-radius: 2px;
-            animation: goldLine 2.5s ease-in-out infinite;
-        }
-
-        @keyframes goldLine {
-            0%, 100% { opacity: 0.8; width: 120px; }
-            50% { opacity: 1; width: 140px; }
-        }
-
-        /* ========================================
-           DOCUMENT METADATA & RECIPIENT – Interactive Cards
-           ======================================== */
-        .doc-meta, .recipient {
-            margin: 18px 0;
-            padding: 16px 22px;
-            background: var(--bg-subtle);
-            border-radius: var(--radius-md);
-            border-left: 4px solid var(--primary-blue);
-            transition: var(--transition-normal);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .doc-meta::before, .recipient::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.6) 50%, transparent 100%);
-            transform: translateX(-100%);
-            transition: transform 0.6s ease;
-            pointer-events: none;
-        }
-
-        .doc-meta:hover::before, .recipient:hover::before {
-            transform: translateX(100%);
-        }
-
-        .doc-meta:hover, .recipient:hover {
-            background: linear-gradient(135deg, #f1f5f9 0%, #ffffff 100%);
-            transform: translateX(4px);
-            box-shadow: var(--shadow-sm);
-            border-left-color: var(--accent-gold);
-        }
-
-        .doc-meta p, .recipient p {
-            margin: 7px 0;
-            font-size: 12pt;
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            transition: transform var(--transition-fast);
-        }
-
-        .doc-meta p:hover, .recipient p:hover {
-            transform: translateX(3px);
-        }
-
-        .doc-meta p strong, .recipient p strong {
-            min-width: 95px;
-            display: inline-block;
-            color: var(--primary-dark);
-            font-weight: 700;
-            position: relative;
-        }
-
-        .doc-meta p strong::after, .recipient p strong::after {
-            content: '';
-            position: absolute;
-            bottom: 2px; left: 0;
-            width: 0;
-            height: 1.5px;
-            background: var(--accent-gold);
-            transition: width var(--transition-fast);
-        }
-
-        .doc-meta p:hover strong::after, .recipient p:hover strong::after {
-            width: 100%;
-        }
-
-        .recipient {
-            border-left-color: var(--accent-gold);
-            background: linear-gradient(135deg, rgba(201,169,97,0.09) 0%, rgba(255,255,255,0.7) 100%);
-        }
-
-        /* ========================================
-           GREETING & SECTIONS – Professional Typography + Animations
-           ======================================== */
-        .greeting p, .section p {
-            margin: 9px 0;
-            font-size: 12pt;
-            text-align: justify;
-            text-justify: inter-word;
-            line-height: 1.72;
-            color: var(--text-medium);
-            position: relative;
-        }
-
-        .greeting p::first-letter, .section p::first-letter {
-            font-weight: 700;
-            color: var(--primary-dark);
-        }
-
-        .greeting ul, .section ul, .section ol {
-            margin: 14px 0 14px 30px;
-            padding-left: 5px;
-        }
-
-        .greeting li, .section li {
-            margin: 7px 0;
+        .recipient-box {
+            margin-bottom: 20px;
             font-size: 11.5pt;
-            line-height: 1.68;
-            color: var(--text-medium);
-            position: relative;
-            padding-left: 10px;
-            transition: color var(--transition-fast), transform var(--transition-fast);
-            cursor: default;
         }
+        .recipient-box table { width: 100%; }
+        .recipient-box td { vertical-align: top; padding: 2px 0; }
+        .recipient-box td:first-child { width: 80px; font-weight: 600; }
 
-        .greeting li:hover, .section li:hover {
-            color: var(--primary-dark);
-            transform: translateX(4px);
-        }
-
-        .greeting li::marker, .section li::marker {
-            color: var(--primary-blue);
-            font-weight: 700;
-        }
-
+        /* ========================================
+           TYPOGRAPHY & CONTENT
+           ======================================== */
+        p { font-size: 11.5pt; text-align: justify; margin-bottom: 12px; }
+        ul, ol { margin: 10px 0 15px 30px; font-size: 11.5pt; text-align: justify; }
+        li { margin-bottom: 6px; }
+        
         .section-title {
             font-weight: 700;
-            margin: 26px 0 15px;
-            padding-bottom: 9px;
-            border-bottom: 2.5px solid var(--primary-light);
-            font-size: 13.5pt;
-            color: var(--primary-dark);
-            position: relative;
-            display: inline-block;
-            transition: all var(--transition-normal);
-            cursor: default;
-        }
-
-        .section-title:hover {
-            color: var(--primary-blue);
-            border-bottom-color: var(--accent-gold);
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -2.5px; left: 0;
-            width: 65px;
-            height: 2.5px;
-            background: linear-gradient(90deg, var(--accent-gold), var(--accent-gold-light));
-            border-radius: 2px;
-            transition: width var(--transition-normal);
-        }
-
-        .section-title:hover::after {
-            width: 85px;
-        }
-
-        /* ========================================
-           TABLES – Premium Interactive Data Presentation
-           ======================================== */
-        .info-table, .calculation-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            margin: 20px 0;
-            font-size: 11.5pt;
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-color);
-            transition: box-shadow var(--transition-normal), transform var(--transition-normal);
-        }
-
-        .info-table:hover, .calculation-table:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-1px);
-        }
-
-        .info-table th, .info-table td,
-        .calculation-table th, .calculation-table td {
-            padding: 12px 15px;
-            vertical-align: top;
-            border-bottom: 1px solid var(--border-color);
-            border-right: 1px solid var(--border-color);
-            transition: background var(--transition-fast), transform var(--transition-fast);
-            position: relative;
-        }
-
-        .info-table th::after, .calculation-table th::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent-gold-light), transparent);
-            opacity: 0;
-            transition: opacity var(--transition-fast);
-        }
-
-        .info-table th:hover::after, .calculation-table th:hover::after {
-            opacity: 1;
-        }
-
-        .info-table th, .calculation-table th {
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
-            color: white;
-            text-align: left;
-            font-size: 11pt;
-            letter-spacing: 0.4px;
-            cursor: default;
-        }
-
-        .info-table tr:last-child td,
-        .calculation-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .info-table tr:hover td,
-        .calculation-table tr:hover td {
-            background: linear-gradient(135deg, rgba(0,71,144,0.06) 0%, rgba(201,169,97,0.04) 100%);
-            transform: translateX(2px);
-        }
-
-        .info-table td:first-child,
-        .calculation-table td:first-child {
-            font-weight: 600;
-            color: var(--primary-dark);
-            width: 35%;
-            background: rgba(248,250,252,0.7);
-            transition: background var(--transition-fast), color var(--transition-fast);
-        }
-
-        .info-table tr:hover td:first-child,
-        .calculation-table tr:hover td:first-child {
-            background: rgba(0,71,144,0.08);
-            color: var(--primary-blue);
-        }
-
-        .calculation-table .label {
-            text-align: left;
-            font-weight: 600;
-        }
-
-        .calculation-table tr:last-child {
-            background: linear-gradient(135deg, rgba(0,51,102,0.1) 0%, rgba(201,169,97,0.1) 100%);
-            font-weight: 700;
             font-size: 12pt;
+            color: var(--primary-dark);
+            margin: 25px 0 10px;
         }
 
-        .calculation-table tr:last-child td {
-            border-bottom: 2.5px solid var(--primary-dark);
-        }
-
-        .bold { font-weight: 700; color: var(--text-dark); }
-        .underline { text-decoration: underline; text-decoration-thickness: 2px; }
-
-        .expedisi-logo {
-            height: 26px;
-            vertical-align: middle;
-            margin-right: 10px;
-            border-radius: 5px;
-            box-shadow: var(--shadow-sm);
-            transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-            cursor: pointer;
-        }
-
-        .expedisi-logo:hover {
-            transform: scale(1.08) rotate(1deg);
-            box-shadow: var(--shadow-md);
-        }
+        .highlight { font-weight: 700; background: rgba(201,169,97,0.15); padding: 0 4px; border-radius: 2px; }
 
         /* ========================================
-           CONTENT WITH BADGE – Visual Hierarchy + Animation
+           TABLES
            ======================================== */
-        .content-with-badge {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 35px;
-            margin: 32px 0;
-            padding: 22px;
-            background: linear-gradient(135deg, rgba(248,250,252,0.8) 0%, rgba(255,255,255,0.95) 100%);
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-color);
-            position: relative;
-            overflow: hidden;
-            transition: var(--transition-normal);
-        }
-
-        .content-with-badge::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-dark), var(--accent-gold), var(--accent-gold-light), var(--primary-blue));
-            animation: gradientFlow 4s linear infinite;
-            background-size: 300% 100%;
-        }
-
-        @keyframes gradientFlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .content-with-badge:hover {
-            background: linear-gradient(135deg, rgba(248,250,252,0.95) 0%, rgba(255,255,255,1) 100%);
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-        }
-
-        .content-main {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .legalization-badge {
-            height: 92px;
-            width: auto;
-            margin-top: 10px;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-md);
-            transition: transform var(--transition-normal), box-shadow var(--transition-normal), filter var(--transition-normal);
-            border: 2.5px solid var(--accent-gold-light);
-            cursor: pointer;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-        }
-
-        .legalization-badge:hover {
-            transform: scale(1.05) rotate(-1deg);
-            box-shadow: var(--shadow-lg);
-            filter: drop-shadow(0 6px 16px rgba(201,169,97,0.3));
-        }
-
-        /* ========================================
-           ✨ SIGNATURE SECTION – NATURAL INTEGRATION (NO BOX) ✨
-           ======================================== */
-        .footer-signature {
-            margin-top: 58px;
-            display: flex;
-            justify-content: space-between;
-            gap: 65px;
-            padding-top: 28px;
-            border-top: 2.5px dashed var(--border-color);
-            position: relative;
-        }
-
-        .footer-signature::before {
-            content: '';
-            position: absolute;
-            top: -1px; left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: var(--accent-gold);
-            border-radius: 2px;
-            animation: dashPulse 2s ease-in-out infinite;
-        }
-
-        @keyframes dashPulse {
-            0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
-            50% { opacity: 1; transform: translateX(-50%) scale(1.1); }
-        }
-
-        .signature-box {
-            width: 46%;
-            text-align: center;
-            padding: 10px 5px;
-            border-radius: var(--radius-md);
-            transition: var(--transition-fast);
-            position: relative;
-        }
-
-        .signature-box:hover {
-            background: rgba(0,71,144,0.025);
-        }
-
-        .signature-box p {
-            margin: 5px 0;
-            font-size: 11.5pt;
-            line-height: 1.48;
-            transition: color var(--transition-fast);
-        }
-
-        .signature-box p:first-child {
-            font-weight: 600;
-            color: var(--primary-dark);
-            margin-bottom: 14px;
-        }
-
-        .signature-box:hover p {
-            color: var(--primary-blue);
-        }
-
-        /* ✨ NATURAL SIGNATURE CONTAINER – NO BOX, ORGANIC BLEND */
-        .signature-natural {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2px; /* ✨ Ultra-minimal gap for natural flow */
-            margin: 10px 0 8px;
-            position: relative;
-            padding: 8px 2px;
-        }
-
-        /* ✨ SUBTLE INK BLOTCH EFFECT behind signature */
-        .signature-natural::before {
-            content: '';
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -45%);
-            width: 180px;
-            height: 70px;
-            background: radial-gradient(ellipse at center, 
-                rgba(0,51,102,0.04) 0%, 
-                rgba(0,51,102,0.01) 40%, 
-                transparent 70%);
-            border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
-            filter: blur(8px);
-            opacity: 0;
-            transition: opacity var(--transition-slow);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .signature-natural:hover::before {
-            opacity: 1;
-            animation: inkSpread 1.2s ease-out;
-        }
-
-        @keyframes inkSpread {
-            0% { transform: translate(-50%, -45%) scale(0.8); opacity: 0; }
-            30% { opacity: 0.6; }
-            100% { transform: translate(-50%, -45%) scale(1); opacity: 0.4; }
-        }
-
-        /* ✨ SIGNATURE IMAGE – NATURAL, NO BORDER/BOX */
-        .signature-img {
-            max-width: 170px;
-            height: auto;
-            margin: 0;
-            /* ✨ NO shadow, NO border – pure natural look */
-            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.08));
-            transition: filter var(--transition-normal), transform var(--transition-normal);
-            position: relative;
-            z-index: 1;
-            /* ✨ Slight organic tilt for handwritten feel */
-            transform: rotate(-0.8deg);
-            transform-origin: center bottom;
-        }
-
-        .signature-img:hover {
-            /* ✨ Subtle lift + enhanced shadow on hover */
-            transform: rotate(-0.8deg) scale(1.03) translateY(-2px);
-            filter: drop-shadow(0 4px 12px rgba(0,51,102,0.18));
-        }
-
-        /* ✨ SIGNATURE NAME – Seamless Integration */
-        .signature-name {
-            font-weight: 700;
-            font-size: 12.5pt;
-            color: var(--primary-dark);
-            margin: 0 !important;
-            padding: 3px 8px 2px;
-            position: relative;
-            z-index: 1;
-            letter-spacing: 0.4px;
-            transition: all var(--transition-fast);
-            /* ✨ Subtle underline animation */
-            background: linear-gradient(to bottom, transparent 70%, rgba(201,169,97,0.25) 70%, rgba(201,169,97,0.25) 100%, transparent 100%);
-            background-size: 0% 100%;
-            background-repeat: no-repeat;
-            background-position: left bottom;
-        }
-
-        .signature-name:hover {
-            color: var(--primary-blue);
-            background-size: 100% 100%;
-            transform: translateY(-1px);
-        }
-
-        .signature-nip {
-            font-size: 10.5pt;
-            color: var(--text-light);
-            margin-top: 4px !important;
-            opacity: 0.94;
-            transition: opacity var(--transition-fast), color var(--transition-fast);
-        }
-
-        .signature-box:hover .signature-nip {
-            opacity: 1;
-            color: var(--primary-dark);
-        }
-
-        /* ✨ STAMP – Natural Seal Effect */
-        .stamp {
-            width: 160px;
-            height: auto;
-            margin: 8px auto 6px;
-            /* ✨ Natural stamp look: subtle shadow, no harsh border */
-            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.12)) contrast(1.05);
-            transition: filter var(--transition-normal), transform var(--transition-normal);
-            position: relative;
-            z-index: 1;
-            /* ✨ Slight rotation for authentic stamped feel */
-            transform: rotate(1.2deg);
-            transform-origin: center;
-        }
-
-        .stamp:hover {
-            transform: rotate(1.2deg) scale(1.04);
-            filter: drop-shadow(0 5px 15px rgba(0,51,102,0.22)) contrast(1.1);
-        }
-
-        /* ✨ STAMP INK BLEED EFFECT on hover */
-        .stamp::after {
-            content: '';
-            position: absolute;
-            inset: -8px;
-            background: radial-gradient(ellipse at center, 
-                rgba(139,0,0,0.08) 0%, 
-                transparent 70%);
-            border-radius: 50%;
-            opacity: 0;
-            transition: opacity var(--transition-slow);
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .stamp:hover::after {
-            opacity: 1;
-            animation: inkBleed 1.5s ease-out;
-        }
-
-        @keyframes inkBleed {
-            0% { transform: scale(0.8); opacity: 0; }
-            50% { opacity: 0.6; }
-            100% { transform: scale(1.3); opacity: 0; }
-        }
-
-        /* ========================================
-           QR BOX – Interactive Verification + Animation
-           ======================================== */
-        .qr-box {
-            margin: 32px auto;
-            text-align: center;
+        table.data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
             font-size: 11pt;
-            font-style: italic;
-            padding: 24px;
-            background: linear-gradient(135deg, rgba(0,51,102,0.07) 0%, rgba(201,169,97,0.07) 100%);
-            border-radius: var(--radius-lg);
-            border: 1.5px solid var(--border-color);
-            position: relative;
-            overflow: hidden;
-            max-width: 330px;
-            transition: var(--transition-normal);
-            cursor: pointer;
         }
-
-        .qr-box::before {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%;
-            width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
-            animation: pulse 4.5s ease-in-out infinite;
-            pointer-events: none;
+        table.data-table th, table.data-table td {
+            border: 1px solid var(--border-color);
+            padding: 8px 12px;
+            vertical-align: top;
         }
+        table.data-table th { background: var(--bg-subtle); font-weight: 700; color: var(--primary-dark); text-align: left;}
+        table.data-table td:first-child { width: 35%; font-weight: 600; background: var(--bg-subtle); }
+        
+        .table-total { font-weight: 900; background: rgba(201,169,97,0.1) !important; color: var(--primary-dark); }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(0.75); opacity: 0.25; }
-            50% { transform: scale(1.25); opacity: 0.08; }
-        }
+        .expedisi-logo { height: 20px; vertical-align: middle; margin-right: 8px; border-radius: 3px; }
 
-        .qr-box:hover {
-            background: linear-gradient(135deg, rgba(0,51,102,0.12) 0%, rgba(201,169,97,0.12) 100%);
-            border-color: var(--accent-gold);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .qr-box p {
-            font-weight: 700;
-            color: var(--primary-dark);
-            margin-bottom: 16px;
-            font-style: normal;
-            font-size: 11.5pt;
-            position: relative;
-            z-index: 1;
-            line-height: 1.45;
-            transition: color var(--transition-fast);
-        }
-
-        .qr-box:hover p {
-            color: var(--primary-blue);
-        }
-
-        .qr-box img {
-            width: 245px;
-            height: auto;
-            margin-top: 14px;
-            border: 2.5px solid var(--primary-light);
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-md);
-            transition: var(--transition-normal);
-            position: relative;
-            z-index: 1;
-            background: white;
-            padding: 10px;
-        }
-
-        .qr-box:hover img {
-            transform: scale(1.06);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--accent-gold);
-        }
-
-        /* ✨ QR SCAN LINE ANIMATION */
-        .qr-box img::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
-            animation: scanLine 3s ease-in-out infinite;
-            opacity: 0;
-            border-radius: 2px;
-        }
-
-        .qr-box:hover img::after {
-            opacity: 1;
-        }
-
-        @keyframes scanLine {
-            0% { top: 0; opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { top: 100%; opacity: 0; }
-        }
-
-        .checkmark {
-            display: inline-flex;
+        /* ========================================
+           VERIFICATION BOX & BADGE
+           ======================================== */
+        .verification-wrapper {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            width: 24px;
-            height: 24px;
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
-            color: white;
+            margin: 30px 0;
+            gap: 20px;
+        }
+        
+        .qr-box {
             text-align: center;
-            line-height: 1;
-            border-radius: 50%;
-            font-weight: 700;
-            margin-left: 7px;
-            font-size: 13pt;
-            box-shadow: 0 3px 8px rgba(0,51,102,0.3);
-            animation: bounce 2.2s ease infinite;
-            position: relative;
-            overflow: hidden;
+            padding: 15px;
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-md);
+            background: var(--bg-paper);
+            max-width: 220px;
+        }
+        .qr-box p { font-size: 9.5pt; font-weight: 700; text-align: center; margin-bottom: 10px; color: var(--primary-dark); line-height: 1.3;}
+        .qr-box img { width: 100%; height: auto; border: 1px solid #eee; }
+        
+        .legalization-badge {
+            height: 90px;
+            border: 2px solid var(--accent-gold);
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
         }
 
-        .checkmark::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4), transparent 60%);
+        /* ========================================
+           ✨ LAYERED SIGNATURE SYSTEM
+           ======================================== */
+        .signature-section {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .auth-qr {
+            text-align: center;
             opacity: 0.6;
         }
+        .auth-qr img { width: 80px; height: 80px; border: 2px solid #ccc; padding: 4px; margin-bottom: 5px;}
+        .auth-qr p { font-size: 7.5pt; font-weight: 900; letter-spacing: 1px; margin: 0; }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0) scale(1); }
-            40% { transform: translateY(-5px) scale(1.05); }
-            60% { transform: translateY(-3px) scale(1.02); }
+        .signature-block {
+            width: 320px;
+            text-align: right;
+        }
+        
+        .signature-date { font-size: 11pt; margin-bottom: 2px; }
+        .signature-role { font-size: 11.5pt; font-weight: 700; margin-bottom: 10px; }
+
+        /* Canvas for Stamps and Signatures */
+        .auth-canvas {
+            position: relative;
+            height: 110px;
+            width: 100%;
+            margin: 5px 0;
         }
 
-        /* ========================================
-           FOOTER & COPYRIGHT – Professional Closing
-           ======================================== */
-        .footer-logo {
-            margin: 32px 0 22px;
-            text-align: center;
+        /* Layering magic */
+        .layer { position: absolute; pointer-events: none; }
+        .layer-materai {
+            width: 70px;
+            right: 140px;
+            bottom: 0px;
+            z-index: 1;
+        }
+        .layer-stempel {
+            width: 120px;
+            right: 80px;
+            bottom: 5px;
+            z-index: 2;
+            mix-blend-mode: multiply; /* Natural ink effect */
+            opacity: 0.85;
+            transform: rotate(-3deg);
+        }
+        .layer-ttd {
+            width: 160px;
+            right: 0px;
+            bottom: 10px;
+            z-index: 3;
+            mix-blend-mode: multiply; /* Natural ink effect */
         }
 
-        .footer-logo img {
-            height: 58px;
-            width: auto;
-            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.14));
-            transition: transform var(--transition-normal), filter var(--transition-normal);
-            cursor: pointer;
+        .signature-name {
+            font-size: 12pt;
+            font-weight: 900;
+            text-decoration: underline;
+            color: var(--primary-dark);
+            margin: 0;
+            line-height: 1.2;
         }
-
-        .footer-logo img:hover {
-            transform: scale(1.07) translateY(-2px);
-            filter: drop-shadow(0 8px 20px rgba(0,51,102,0.22));
-        }
-
-        .copyright {
+        .signature-nip {
             font-size: 10.5pt;
-            margin-top: 32px;
-            text-align: center;
             color: var(--text-medium);
-            padding-top: 22px;
-            border-top: 2.5px solid var(--border-color);
-            line-height: 1.65;
-            position: relative;
-        }
-
-        .copyright::before {
-            content: '';
-            position: absolute;
-            top: -2.5px; left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
-            border-radius: 2px;
-        }
-
-        .copyright p:first-child {
-            font-weight: 700;
-            color: var(--primary-dark);
-            margin-bottom: 7px;
-        }
-
-        .copyright p:last-child {
-            font-style: italic;
-            opacity: 0.92;
-            margin-top: 10px;
-            padding-top: 14px;
-            border-top: 1.5px dashed var(--border-color);
-        }
-
-        .copyright p:hover {
-            color: var(--primary-blue);
-            transition: color var(--transition-fast);
+            margin: 0;
         }
 
         /* ========================================
-           ANIMATIONS & INTERACTIONS – Enhanced
+           FOOTER
            ======================================== */
-        .fade-in {
-            animation: fadeInUp 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-            opacity: 0;
-            transform: translateY(18px);
+        .footer {
+            margin-top: 40px;
+            padding-top: 15px;
+            border-top: 2px solid var(--border-color);
+            text-align: center;
         }
+        .footer-logo { height: 45px; margin-bottom: 10px; }
+        .footer p { font-size: 9.5pt; color: var(--text-light); margin: 0; line-height: 1.5; }
+        .footer strong { color: var(--primary-dark); }
 
-        .fade-in:nth-child(1) { animation-delay: 0.1s; }
-        .fade-in:nth-child(2) { animation-delay: 0.18s; }
-        .fade-in:nth-child(3) { animation-delay: 0.26s; }
-        .fade-in:nth-child(4) { animation-delay: 0.34s; }
-        .fade-in:nth-child(5) { animation-delay: 0.42s; }
-        .fade-in:nth-child(6) { animation-delay: 0.5s; }
-        .fade-in:nth-child(7) { animation-delay: 0.58s; }
-        .fade-in:nth-child(8) { animation-delay: 0.66s; }
-
-        @keyframes fadeInUp {
-            to { 
-                opacity: 1; 
-                transform: translateY(0); 
-            }
+        /* ========================================
+           TOAST NOTIFICATION
+           ======================================== */
+        .toast {
+            position: fixed; bottom: 30px; right: 30px;
+            background: white; padding: 15px 25px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            border-left: 5px solid #10b981;
+            z-index: 2000; display: flex; align-items: center; gap: 15px;
+            transform: translateX(150%); transition: transform 0.4s ease;
+            font-weight: 600; font-size: 11pt;
         }
-
-        /* ✨ STAGGERED TABLE ROW ANIMATION */
-        .info-table tr, .calculation-table tr {
-            opacity: 0;
-            transform: translateX(-15px);
-            animation: slideInRow 0.4s ease forwards;
-        }
-
-        .info-table tr:nth-child(1), .calculation-table tr:nth-child(1) { animation-delay: 0.1s; }
-        .info-table tr:nth-child(2), .calculation-table tr:nth-child(2) { animation-delay: 0.15s; }
-        .info-table tr:nth-child(3), .calculation-table tr:nth-child(3) { animation-delay: 0.2s; }
-        .info-table tr:nth-child(4), .calculation-table tr:nth-child(4) { animation-delay: 0.25s; }
-        .info-table tr:nth-child(5), .calculation-table tr:nth-child(5) { animation-delay: 0.3s; }
-        .info-table tr:nth-child(6), .calculation-table tr:nth-child(6) { animation-delay: 0.35s; }
-        .info-table tr:nth-child(7), .calculation-table tr:nth-child(7) { animation-delay: 0.4s; }
-        .info-table tr:nth-child(8), .calculation-table tr:nth-child(8) { animation-delay: 0.45s; }
-
-        @keyframes slideInRow {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .highlight-on-hover {
-            transition: var(--transition-fast);
-            border-radius: var(--radius-sm);
-            padding: 2px 5px;
-            position: relative;
-            cursor: default;
-        }
-
-        .highlight-on-hover::after {
-            content: '';
-            position: absolute;
-            bottom: 1px; left: 2px; right: 2px;
-            height: 1.5px;
-            background: var(--accent-gold);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform var(--transition-fast);
-            border-radius: 1px;
-        }
-
-        .highlight-on-hover:hover {
-            background: rgba(201,169,97,0.18);
-            color: var(--primary-dark);
-            font-weight: 600;
-        }
-
-        .highlight-on-hover:hover::after {
-            transform: scaleX(1);
-        }
-
-        /* ✨ TEXT HIGHLIGHT ANIMATION */
-        .text-highlight {
-            position: relative;
-            display: inline;
-            background: linear-gradient(120deg, transparent 0%, rgba(201,169,97,0.25) 50%, transparent 100%);
-            background-size: 200% 100%;
-            background-position: 100%;
-            transition: background-position 0.4s ease;
-        }
-
-        .text-highlight:hover {
-            background-position: 0%;
+        .toast.show { transform: translateX(0); }
+        .toast-icon {
+            background: #10b981; color: white; width: 28px; height: 28px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;
         }
 
         /* ========================================
-           PRINT OPTIMIZATION – Pixel Perfect Output
+           PRINT OPTIMIZATION
            ======================================== */
         @media print {
-            @page {
-                margin: 15mm 18mm;
-                size: A4 portrait;
+            @page { margin: 10mm; size: A4 portrait; }
+            body { background: white; padding: 0; }
+            .ui-controls, .toast { display: none !important; }
+            #pdfContent { 
+                box-shadow: none !important; border: none !important; 
+                padding: 10mm 15mm !important; margin: 0 !important; max-width: none;
             }
-            
-            body {
-                background: white;
-                padding: 0;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            
-            .ui-controls {
-                display: none !important;
-            }
-            
-            #pdfContent {
-                padding: 22mm 18mm !important;
-                box-shadow: none !important;
-                max-width: none !important;
-                width: 210mm !important;
-                min-height: 297mm !important;
-                margin: 0 !important;
-                border-radius: 0 !important;
-                border: none !important;
-                animation: none !important;
-                transform: none !important;
-            }
-            
-            .header, .footer-signature, .content-with-badge {
-                flex-direction: row !important;
-            }
-            
-            .signature-box {
-                width: 45% !important;
-            }
-            
-            .content-with-badge > div:first-child {
-                flex: 1 !important;
-            }
-            
-            .watermark img {
-                opacity: 0.04 !important;
-            }
-            
-            .watermark::before {
-                opacity: 0.025 !important;
-                animation: none !important;
-            }
-            
-            .qr-box img {
-                width: 225px !important;
-            }
-            
-            /* ✨ Print: Natural signature stays compact */
-            .signature-natural {
-                gap: 1px !important;
-                margin: 8px 0 5px !important;
-                padding: 4px 0 !important;
-            }
-            
-            .signature-natural::before {
-                display: none !important;
-            }
-            
-            .signature-img {
-                max-width: 158px !important;
-                transform: rotate(-0.5deg) !important;
-                filter: drop-shadow(0 1px 2px rgba(0,0,0,0.06)) !important;
-            }
-            
-            .stamp {
-                transform: rotate(0.8deg) !important;
-                filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)) contrast(1.03) !important;
-            }
-            
-            .stamp::after {
-                display: none !important;
-            }
-            
-            /* Disable all animations for print */
-            * {
-                animation: none !important;
-                transition: none !important;
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-            }
+            .watermark img { opacity: 0.05 !important; }
+            .layer-stempel, .layer-ttd { mix-blend-mode: normal !important; } /* Fix for some PDF engines */
         }
 
-        /* ========================================
-           RESPONSIVE DESIGN – Mobile Optimized
-           ======================================== */
         @media (max-width: 768px) {
-            body {
-                padding: 12px;
-            }
-            
-            #pdfContent {
-                padding: 26px 23px;
-                border-radius: var(--radius-lg);
-            }
-            
-            .header {
-                flex-direction: column;
-                text-align: center;
-                padding: 17px 16px;
-                gap: 18px;
-            }
-            
-            .logo-left, .logo-right {
-                height: 62px;
-            }
-            
-            .header-center h1 {
-                font-size: 13pt;
-            }
-            
-            .header-center p {
-                font-size: 9.5pt;
-            }
-            
-            .doc-type {
-                font-size: 15.5pt;
-                margin: 24px 0 18px;
-            }
-            
-            .footer-signature, .content-with-badge {
-                flex-direction: column !important;
-                gap: 28px !important;
-            }
-            
-            .signature-box, .content-with-badge > div:first-child {
-                width: 100% !important;
-            }
-            
-            .qr-box {
-                max-width: 100%;
-            }
-            
-            .qr-box img {
-                width: 215px;
-            }
-            
-            .download-btn {
-                min-width: 245px;
-                padding: 13px 26px;
-                font-size: 14pt;
-            }
-            
-            .expedisi-logo {
-                height: 23px;
-            }
-            
-            .legalization-badge {
-                height: 78px;
-            }
-            
-            /* ✨ Mobile: Natural signature compact */
-            .signature-img {
-                max-width: 152px;
-            }
-            
-            .signature-name {
-                font-size: 12pt;
-            }
-            
-            .stamp {
-                width: 148px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            #pdfContent {
-                padding: 21px 19px;
-            }
-            
-            .header-center h1 {
-                font-size: 12pt;
-            }
-            
-            .doc-type {
-                font-size: 14.5pt;
-            }
-            
-            .info-table, .calculation-table {
-                font-size: 10.5pt;
-            }
-            
-            .info-table td:first-child {
-                width: 42%;
-            }
-            
-            .qr-box img {
-                width: 195px;
-            }
-            
-            .download-btn {
-                min-width: 100%;
-                font-size: 13.5pt;
-                padding: 12px 20px;
-            }
-            
-            /* ✨ Small mobile: Ultra-compact natural signature */
-            .signature-img {
-                max-width: 138px;
-            }
-            
-            .signature-natural {
-                gap: 1px;
-            }
-            
-            .signature-name {
-                font-size: 11.5pt;
-                padding: 2px 6px 1px;
-            }
-            
-            .stamp {
-                width: 135px;
-            }
-        }
-
-        /* ========================================
-           ACCESSIBILITY & FOCUS STATES
-           ======================================== */
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
-            }
-        }
-
-        .download-btn:focus-visible,
-        .signature-box:focus-within,
-        .qr-box:focus-visible,
-        .expedisi-logo:focus-visible,
-        .legalization-badge:focus-visible {
-            outline: 3px solid var(--accent-gold);
-            outline-offset: 3px;
-            border-radius: var(--radius-md);
-        }
-
-        /* ========================================
-           LOADING & PROGRESS INDICATORS
-           ======================================== */
-        .pdf-progress {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            height: 4px;
-            background: rgba(0,51,102,0.12);
-            z-index: 1000;
-            display: none;
-            border-radius: 0 0 2px 2px;
-        }
-
-        .pdf-progress.active {
-            display: block;
-        }
-
-        .pdf-progress-bar {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, var(--primary-blue), var(--accent-gold), var(--accent-gold-light));
-            background-size: 200% 100%;
-            animation: progressShine 1.5s ease-in-out infinite;
-            transition: width 0.3s ease;
-            border-radius: 0 2px 2px 0;
-            box-shadow: 0 2px 10px rgba(0,71,144,0.35);
-        }
-
-        @keyframes progressShine {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
-
-        /* ✨ Toast Notification – Premium Style */
-        .toast {
-            position: fixed;
-            bottom: 28px;
-            right: 28px;
-            background: white;
-            color: var(--text-dark);
-            padding: 18px 26px;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-xl);
-            border-left: 5px solid var(--primary-blue);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            font-size: 11.5pt;
-            transform: translateX(420px);
-            transition: transform var(--transition-normal), opacity var(--transition-normal);
-            opacity: 0;
-            max-width: 400px;
-            font-weight: 500;
-        }
-
-        .toast.show {
-            transform: translateX(0);
-            opacity: 1;
-        }
-
-        .toast.success {
-            border-left-color: #10b981;
-            background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
-        }
-
-        .toast.error {
-            border-left-color: #ef4444;
-            background: linear-gradient(135deg, #ffffff 0%, #fef2f2 100%);
-        }
-
-        .toast-icon {
-            font-size: 20pt;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: var(--primary-blue);
-            color: white;
-            flex-shrink: 0;
-        }
-
-        .toast.success .toast-icon { 
-            background: linear-gradient(135deg, #10b981, #059669); 
-        }
-        .toast.error .toast-icon { 
-            background: linear-gradient(135deg, #ef4444, #dc2626); 
-        }
-
-        /* ✨ Floating Particles for Premium Feel */
-        .particles {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--accent-gold);
-            border-radius: 50%;
-            opacity: 0.15;
-            animation: float 15s infinite linear;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.2;
-            }
-            90% {
-                opacity: 0.2;
-            }
-            100% {
-                transform: translateY(-20vh) rotate(720deg);
-                opacity: 0;
-            }
+            #pdfContent { padding: 20px; }
+            .header { flex-direction: column; text-align: center; gap: 15px; }
+            .kop-surat h1 { font-size: 12pt; }
+            .kop-surat h2 { font-size: 14pt; }
+            .verification-wrapper { flex-direction: column; }
+            .signature-section { flex-direction: column; align-items: center; gap: 30px; text-align: center; }
+            .signature-block { text-align: center; }
+            .layer-materai { right: 50%; transform: translateX(20px); }
+            .layer-stempel { right: 50%; transform: translateX(50px) rotate(-3deg); }
+            .layer-ttd { right: 50%; transform: translateX(80px); }
         }
     </style>
 </head>
 <body>
-    <!-- ✨ Floating Particles Background -->
-    <div class="particles" id="particles"></div>
 
-    <!-- PDF Generation Progress Bar -->
-    <div class="pdf-progress" id="pdfProgress">
-        <div class="pdf-progress-bar" id="progressBar"></div>
-    </div>
-
-    <!-- ✨ Toast Notification Container -->
-    <div class="toast" id="toast">
-        <span class="toast-icon">✓</span>
-        <span id="toastMessage">PDF berhasil diunduh!</span>
-    </div>
-
-    <!-- UI Controls - Top -->
+    <!-- Top Controls -->
     <div class="ui-controls">
-        <button id="downloadPdfBtn" class="download-btn">
+        <button id="downloadPdfBtn" class="btn">
             <span class="spinner"></span>
-            <span>📥 Download PDF Resmi (Ber-Watermark)</span>
+            <span>📥 Download PDF Resmi</span>
         </button>
-        <button id="previewPrintBtn" class="download-btn" style="background: linear-gradient(135deg, #4b5563 0%, #374151 100%);">
+        <button id="previewPrintBtn" class="btn btn-secondary">
             👁️ Preview Cetak
         </button>
     </div>
 
-    <!-- Main PDF Content Container -->
+    <!-- MAIN DOCUMENT -->
     <div id="pdfContent">
-        <!-- Watermark Layer -->
+        <!-- Watermark -->
         <div class="watermark">
-            <img src="https://i.ibb.co/p6PVKLdj/IMG-20251209-083323.jpg" alt="Watermark Bea Cukai" />
+            <img src="https://i.ibb.co/p6PVKLdj/IMG-20251209-083323.jpg" alt="Watermark Bea Cukai" crossorigin="anonymous" />
         </div>
 
-        <!-- Content Layer -->
         <div class="content-layer">
-            <!-- Official Header -->
-            <div class="header">
-                <img src="https://i.ibb.co.com/bSJFXvQ/ministry-of-finance-of-republic-of-indonesia-logo-calon-pegawai-negeri-sipil-a1de6d8e03d95475d2ef1a2.png" 
-                     alt="Logo Kementerian Keuangan" 
-                     class="logo-left" 
-                     loading="lazy" />
-                <div class="header-center">
+            
+            <!-- HEADER / KOP SURAT -->
+            <header class="header">
+                <img src="https://i.ibb.co.com/bSJFXvQ/ministry-of-finance-of-republic-of-indonesia-logo-calon-pegawai-negeri-sipil-a1de6d8e03d95475d2ef1a2.png" alt="Logo Kemenkeu" class="logo" crossorigin="anonymous"/>
+                <div class="kop-surat">
                     <h1>KEMENTERIAN KEUANGAN REPUBLIK INDONESIA</h1>
-                    <h1>DIREKTORAT JENDERAL BEA DAN CUKAI</h1>
-                    <p>KANTOR BEA CUKAI PURWAKARTA.</p>
-                    <p>KPPBC Tipe Madya Pabean A Purwakarta</p>
-                    <p>Jl. Bukit Akasia II, Kota Bukit Indah, Dangdeur, Kec. Bungursari,<br>Kabupaten Purwakarta, Jawa Barat 41181.</p>
-                    <p>Telepon: (0264) 351-634 / (0264) 350-307 | Email: plipurwakarta@kemenkeu.go.id</p>
+                    <h2>DIREKTORAT JENDERAL BEA DAN CUKAI</h2>
+                    <p><strong>KPPBC TIPE MADYA PABEAN A PURWAKARTA</strong></p>
+                    <p class="contact">Jl. Bukit Akasia II, Kota Bukit Indah, Kec. Bungursari, Kab. Purwakarta 41181<br>
+                    Telepon: (0264) 351-634 | Email: plipurwakarta@kemenkeu.go.id</p>
                 </div>
-                <img src="https://i.ibb.co.com/0Vt61D06/directorate-general-of-customs-and-excise-kantor-bea-cukai-sintete-bea-masuk-logo-others-ca145763d3d.png" 
-                     alt="Logo Direktorat Jenderal Bea dan Cukai" 
-                     class="logo-right" 
-                     loading="lazy" />
+                <img src="https://i.ibb.co.com/0Vt61D06/directorate-general-of-customs-and-excise-kantor-bea-cukai-sintete-bea-masuk-logo-others-ca145763d3d.png" alt="Logo Bea Cukai" class="logo" crossorigin="anonymous"/>
+            </header>
+
+            <!-- JUDUL DOKUMEN -->
+            <div class="doc-title-container">
+                <div class="doc-title">BERITA ACARA JAMINAN LEGALITAS SEMENTARA</div>
+                <div class="doc-meta">Nomor: BC.PKP/BA-031/2026</div>
             </div>
 
-            <!-- Document Title -->
-            <div class="doc-type fade-in">BERITA ACARA<br>JAMINAN LEGALITAS SEMENTARA</div>
-
-            <!-- Document Metadata -->
-            <div class="doc-meta fade-in">
-                <p><strong>Nomor</strong> &nbsp;&nbsp;: BC.PKP/BA-031/2026</p>
-                <p><strong>Tanggal</strong> : 13 April 2026</p>
-            </div>
-
-            <!-- Recipient Information -->
-            <div class="recipient fade-in">
+            <!-- TUJUAN SURAT -->
+            <div class="recipient-box">
                 <p><strong>Kepada Yth.,</strong></p>
-                <p><strong>Nama</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span class="highlight-on-hover">Rizqi</span></p>
-                <p><strong>Alamat</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Jl. Bunut Kertayasa, Kontrakan Ibu Sapnah, Kp. Poponcol Kaler RT 01/RW 04,<br>Kec. Karawang Barat, Kab. Karawang, Jawa Barat 41311.</p>
-                <p><strong>Telepon</strong> &nbsp;&nbsp;&nbsp;&nbsp;: <span class="highlight-on-hover">(+62)889-0284-8410</span></p>
-            </div>
-
-            <!-- Greeting & Legal Basis -->
-            <div class="greeting fade-in">
-                <p>Dengan hormat,</p>
-                <p>Berdasarkan hasil pemeriksaan fisik dan administrasi barang kiriman pada fasilitas bongkar muat wilayah kerja KPPBC Tipe Madya Pabean A Purwakarta, serta sesuai dengan ketentuan perundang-undangan:</p>
-                <ul>
-                    <li>Peraturan Direktur Jenderal Bea dan Cukai Nomor PER-12/BC/2024 tentang Tata Cara Penanganan Barang Temuan;</li>
-                    <li>Peraturan Menteri Keuangan Nomor PMK-199/PMK.04/2023 tentang Penetapan Tarif Cukai Hasil Tembakau;</li>
-                </ul>
-                <p>bersama ini disampaikan Berita Acara Jaminan Legalitas Sementara untuk barang temuan sebagai berikut:</p>
-            </div>
-
-            <!-- Section I: Data Barang -->
-            <div class="section fade-in">
-                <div class="section-title">I. DATA BARANG DAN PENERIMA</div>
-                <table class="info-table">
-                    <tr><td width="30%">Nomor Resi</td><td>: 001776548999</td></tr>
-                    <tr>
-                        <td>Ekspedisi</td>
-                        <td>
-                            <img src="https://i.ibb.co/s09pph3/perusahaan-layanan-pengiriman-barang-sicepat-di-mana-disebut-karyawan-220907074827-264.jpg" 
-                                 alt="Sicepat" 
-                                 class="expedisi-logo" 
-                                 loading="lazy" 
-                                 tabindex="0" />
-                            Sicepat Express
-                        </td>
-                    </tr>
-                    <tr><td>Nama Penerima</td><td>: Rizqi</td></tr>
-                    <tr><td>Nomor Telepon</td><td>: 088902848410</td></tr>
-                    <tr><td>Alamat</td><td>: Jl. Bunut Kertayasa, Kontrakan Ibu Sapnah, Kp. Poponcol Kaler RT 01/RW 04, Kec. Karawang Barat, Kab. Karawang, Jawa Barat 41311.</td></tr>
-                    <tr><td>Jenis Barang</td><td>: Rokok (tanpa dokumen cukai lengkap)</td></tr>
-                    <tr><td>Jumlah Kemasan</td><td>: 2 (Dua) slop</td></tr>
-                    <tr><td>Jumlah Batang</td><td>: 400 (Empat Ratus) batang</td></tr>
-                    <tr><td>Status</td><td>: Barang dalam proses verifikasi legalitas; diberikan kesempatan penyelesaian melalui jaminan sementara.</td></tr>
+                <table>
+                    <tr><td>Nama</td><td>: <strong>Rizqi</strong></td></tr>
+                    <tr><td>Alamat</td><td>: Jl. Bunut Kertayasa, Kontrakan Ibu Sapnah, Kp. Poponcol Kaler RT 01/RW 04,<br>Kec. Karawang Barat, Kab. Karawang, Jawa Barat 41311.</td></tr>
+                    <tr><td>Telepon</td><td>: (+62) 889-0284-8410</td></tr>
                 </table>
             </div>
 
-            <!-- Section II: Calculation Basis -->
-            <div class="section fade-in">
-                <div class="section-title">II. DASAR PERHITUNGAN JAMINAN LEGALITAS SEMENTARA</div>
-                <p>Perhitungan mengacu pada:</p>
-                <ul>
-                    <li>Tarif jaminan cukai sementara: <strong class="highlight-on-hover">Rp 2.000,00 per batang</strong> (sesuai Lampiran I PER-12/BC/2024);</li>
-                    <li>Biaya administrasi penanganan: <strong class="highlight-on-hover">25% dari total jaminan</strong> (biaya tetap untuk proses verifikasi internal).</li>
-                </ul>
-                <table class="calculation-table">
-                    <tr>
-                        <th>Komponen</th>
-                        <th>Perhitungan</th>
-                        <th>Nilai (Rp)</th>
-                    </tr>
-                    <tr>
-                        <td class="label">Jaminan Cukai Sementara</td>
-                        <td>400 batang × Rp 2.000,00</td>
-                        <td class="bold">IDR Rp 800.000,00</td>
-                    </tr>
-                    <tr>
-                        <td class="label">Biaya Administrasi Penanganan</td>
-                        <td>Biaya tetap</td>
-                        <td class="bold">Rp 200.000,00</td>
-                    </tr>
-                    <tr>
-                        <td class="label"><strong>TOTAL JAMINAN YANG HARUS DIBAYAR</strong></td>
-                        <td><strong>—</strong></td>
-                        <td class="bold"><u>Rp 800.000,00</u></td>
-                    </tr>
-                </table>
-            </div>
+            <!-- PEMBUKA & DASAR HUKUM -->
+            <p>Dengan hormat,</p>
+            <p>Berdasarkan hasil pemeriksaan fisik dan administrasi barang kiriman pada fasilitas bongkar muat wilayah kerja KPPBC Tipe Madya Pabean A Purwakarta, serta sesuai dengan ketentuan perundang-undangan:</p>
+            <ul>
+                <li>Peraturan Direktur Jenderal Bea dan Cukai Nomor PER-12/BC/2024 tentang Tata Cara Penanganan Barang Temuan;</li>
+                <li>Peraturan Menteri Keuangan Nomor PMK-199/PMK.04/2023 tentang Penetapan Tarif Cukai Hasil Tembakau;</li>
+            </ul>
+            <p>bersama ini disampaikan Berita Acara Jaminan Legalitas Sementara untuk barang temuan sebagai berikut:</p>
 
-            <!-- Section III: Settlement Procedure -->
-            <div class="section fade-in">
-                <div class="section-title">III. TATA CARA PENYELESAIAN</div>
-                <ol>
-                    <li>Penerima menerima Berita Acara ini sebagai dasar penyelesaian;</li>
-                    <li>Menyetorkan jaminan sebesar <strong class="highlight-on-hover">Rp 800.000,00 (delapan ratus ribu rupiah)</strong> melalui <strong class="highlight-on-hover">Qris Account (VA) resmi DJBC</strong> yang akan dikirimkan melalui Link Website terverifikasi;</li>
-                    <li>Mengirimkan bukti transfer petugas administrasi <strong class="highlight-on-hover">atau konfirmasi ke petugas yang menghubungi</strong> dengan subjek: <em>"Penyelesaian BA-031/2026 – Rizqi"</em>;</li>
-                    <li>Verifikasi pembayaran dilakukan maksimal dalam <strong class="highlight-on-hover">1 × 24 jam kerja</strong> sejak bukti diterima;</li>
-                    <li>Setelah diverifikasi, barang akan dikirimkan ke alamat penerima;</li>
-                    <li>Restitusi sebesar <strong class="highlight-on-hover">80% (Rp 600.000,00)</strong> akan diberikan setelah kelengkapan dokumen pendukung (seperti NIB, NPWP, izin edar, atau keterangan tertulis) diverifikasi dan disetujui.</li>
-                </ol>
-                <p><em>Catatan: Restitusi bukan kewajiban otomatis; tunduk pada hasil verifikasi administrasi dan kepatuhan terhadap ketentuan perundang-undangan.</em></p>
-            </div>
+            <!-- BAGIAN I: DATA BARANG -->
+            <div class="section-title">I. DATA BARANG DAN PENERIMA</div>
+            <table class="data-table">
+                <tr><td>Nomor Resi</td><td>001776548999</td></tr>
+                <tr>
+                    <td>Ekspedisi</td>
+                    <td>
+                        <img src="https://i.ibb.co/s09pph3/perusahaan-layanan-pengiriman-barang-sicepat-di-mana-disebut-karyawan-220907074827-264.jpg" alt="Sicepat" class="expedisi-logo" crossorigin="anonymous"/>
+                        Sicepat Express
+                    </td>
+                </tr>
+                <tr><td>Jenis Barang</td><td>Rokok (tanpa dokumen cukai lengkap)</td></tr>
+                <tr><td>Jumlah</td><td>2 (Dua) slop / 400 (Empat Ratus) batang</td></tr>
+                <tr><td>Status</td><td>Barang dalam proses verifikasi legalitas; diberikan kesempatan penyelesaian melalui jaminan sementara.</td></tr>
+            </table>
 
-            <!-- Section IV: Official Warning -->
-            <div class="section fade-in">
-                <div class="section-title">IV. PERINGATAN RESMI</div>
-                <p class="bold underline">Apabila tidak diselesaikan dalam waktu 1 (satu) hari kerja terhitung sejak tanggal penerbitan Berita Acara ini (12 April 2026), maka:</p>
-                <ul>
-                    <li>Barang akan dinyatakan sebagai <strong class="highlight-on-hover">Barang Temuan</strong>;</li>
-                    <li>Dilakukan <strong class="highlight-on-hover">penyitaan</strong> dan dimasukkan ke dalam Daftar Inventaris Barang Temuan;</li>
-                    <li>Diproses lebih lanjut sesuai ketentuan <strong class="highlight-on-hover">Undang-Undang Cukai No. 39 Tahun 2007</strong> dan peraturan pelaksananya, termasuk kemungkinan pemusnahan atau lelang negara.</li>
-                </ul>
-            </div>
+            <!-- BAGIAN II: PERHITUNGAN -->
+            <div class="section-title">II. DASAR PERHITUNGAN JAMINAN</div>
+            <table class="data-table">
+                <tr>
+                    <th>Komponen</th>
+                    <th>Perhitungan</th>
+                    <th>Nilai (Rp)</th>
+                </tr>
+                <tr>
+                    <td>Jaminan Cukai Sementara</td>
+                    <td>400 batang × Rp 2.000,00</td>
+                    <td>Rp 800.000,00</td>
+                </tr>
+                <tr>
+                    <td>Biaya Administrasi Penanganan</td>
+                    <td>Biaya tetap administrasi</td>
+                    <td>Rp 200.000,00</td>
+                </tr>
+                <tr class="table-total">
+                    <td colspan="2" style="text-align: right;">TOTAL JAMINAN YANG HARUS DIBAYAR:</td>
+                    <td>Rp 800.000,00</td>
+                </tr>
+            </table>
 
-            <!-- Section V: Contact & Badge -->
-            <div class="content-with-badge fade-in">
-                <div class="content-main">
-                    <div class="section-title">V. KONFIRMASI & LAYANAN INFORMASI</div>
-                    <p>Untuk bantuan penyelesaian, silakan hubungi:</p>
-                    <p><strong>KPPBC Tipe Madya Pabean A Purwakarta</strong><br>
-                    Kantor Bea Cukai Purwakarta.<br>
-                    ☎ (0411) 3615688 | 📧 plipurwakarta@kemenkeu.go.id<br>
-                    Layanan: Senin–Minggu, pukul 08.00–20.00 WIB</p>
+            <!-- BAGIAN III & IV: TATA CARA & PERINGATAN -->
+            <div class="section-title">III. TATA CARA PENYELESAIAN</div>
+            <ol>
+                <li>Menyetorkan jaminan sebesar <span class="highlight">Rp 800.000,00</span> melalui Qris Account (VA) resmi DJBC yang dikirimkan petugas.</li>
+                <li>Verifikasi pembayaran dilakukan maksimal dalam 1 × 24 jam kerja. Setelah diverifikasi, barang akan dikirimkan ke alamat penerima.</li>
+                <li>Restitusi sebesar 80% (Rp 600.000,00) dapat diberikan apabila kelengkapan dokumen pendukung (NIB, NPWP, izin edar) telah disetujui.</li>
+            </ol>
+
+            <div class="section-title">IV. PERINGATAN RESMI</div>
+            <p>Apabila tidak diselesaikan dalam waktu 1 (satu) hari kerja terhitung sejak tanggal penerbitan, maka barang akan dinyatakan sebagai <strong>Barang Temuan</strong>, dilakukan penyitaan, dan diproses lebih lanjut sesuai Undang-Undang Cukai No. 39 Tahun 2007 (Pemusnahan/Lelang).</p>
+
+            <!-- VERIFIKASI BOX -->
+            <div class="verification-wrapper">
+                <div class="qr-box">
+                    <p>SCAN BARCODE UNTUK PROSES VERIFIKASI LEGALITAS</p>
+                    <img src="https://i.ibb.co.com/PvmdJcFT/IMG-20260412-191519.jpg" alt="Barcode Verifikasi" crossorigin="anonymous"/>
                 </div>
-                <img src="https://i.ibb.co/FktbK1YC/IMG-20251215-214800.jpg" 
-                     alt="Wajib Legalisasi" 
-                     class="legalization-badge" 
-                     loading="lazy"
-                     tabindex="0" />
-            </div>
-
-            <!-- QR Verification Box -->
-            <div class="qr-box fade-in" tabindex="0">
-                <p>SCAN BARCODE BERIKUT UNTUK PROSES<br>VERIFIKASI LEGALITAS JAMINAN SEMENTARA <span class="checkmark">✓</span></p>
-                <img src="https://i.ibb.co.com/PvmdJcFT/IMG-20260412-191519.jpg" 
-                     alt="Barcode Verifikasi" 
-                     loading="lazy" />
-            </div>
-
-            <!-- Closing Statement -->
-            <div class="section fade-in">
-                <p><strong>Demikian Berita Acara ini dibuat untuk digunakan sebagaimana mestinya sebagai dasar administrasi penyelesaian barang temuan di lingkungan Direktorat Jenderal Bea dan Cukai.</strong></p>
-                <p><strong>Hormat kami,</strong></p>
-            </div>
-
-            <!-- Tanda Tangan -->
-                <div class="mt-16 flex justify-between items-end">
-                    <div class="opacity-40 text-center space-y-1">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=VALIDATED-BC-2026-MKS" class="w-20 mx-auto border-2 border-slate-100 p-1" alt="QR">
-                        <p class="text-[8px] font-black uppercase tracking-widest">Verify Authenticity</p>
-                    </div>
-                    <div class="text-right w-[300px]">
-                        <p class="text-[12px] font-medium text-slate-600 mb-1">Makassar, 25 Februari 2026</p>
-                        <p class="text-[13px] font-bold uppercase mb-2">Kepala Kantor Wilayah,</p>
-                        
-                        <!-- Layered Auth -->
-                        <div class="auth-container no-print">
-                            <img src="https://i.ibb.co.com/39k0MRDM/IMG-20260211-183600.jpg" class="auth-layer layer-materai" alt="Materai">
-                            <img src="https://i.ibb.co.com/HpRTTpzZ/IMG-20260211-185240.jpg" class="auth-layer layer-ttd" alt="TTD">
-                            <img src="https://i.ibb.co.com/6Rt28Yjh/pm-1766605891575-cmp.jpg" class="auth-layer layer-stempel" alt="Stempel">
-                        </div>
-
-                        <!-- Blank Space for Print -->
-                        <div class="hidden print:block h-28"></div>
-
-                        <div class="relative z-10 space-y-0.5">
-                            <p class="text-[15px] font-black underline uppercase tracking-tight">DR. AGUS SULISTYO, S.H., M.H.</p>
-                            <p class="text-[11px] font-bold text-slate-500 uppercase">NIP. 19780322 200312 1 002</p>
-                        </div>
-                    </div>
+                <div>
+                    <img src="https://i.ibb.co/FktbK1YC/IMG-20251215-214800.jpg" alt="Wajib Legalisasi" class="legalization-badge" crossorigin="anonymous"/>
                 </div>
             </div>
-        </div>
 
-            <!-- Footer Logo -->
-            <div class="footer-logo fade-in">
-                <img src="https://i.ibb.co/1Jf993mY/IMG-20251209-084035.jpg" 
-                     alt="Logo DJBC" 
-                     loading="lazy"
-                     tabindex="0" />
+            <p>Demikian Berita Acara ini dibuat untuk digunakan sebagaimana mestinya sebagai dasar administrasi penyelesaian barang temuan di lingkungan Direktorat Jenderal Bea dan Cukai.</p>
+
+            <!-- ✨ LAYERED SIGNATURE SECTION ✨ -->
+            <div class="signature-section">
+                <!-- QR Kiri -->
+                <div class="auth-qr">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=VALIDATED-BC-2026-PWK" alt="QR Validasi" crossorigin="anonymous">
+                    <p>VERIFIED AUTHENTICITY</p>
+                </div>
+                
+                <!-- Tanda Tangan Kanan -->
+                <div class="signature-block">
+                    <p class="signature-date">Purwakarta, 13 April 2026</p>
+                    <p class="signature-role">Kepala Kantor,</p>
+                    
+                    <!-- Layer Tumpukan Materai, Stempel, TTD -->
+                    <div class="auth-canvas">
+                        <img src="https://i.ibb.co.com/39k0MRDM/IMG-20260211-183600.jpg" class="layer layer-materai" alt="Materai" crossorigin="anonymous">
+                        <img src="https://i.ibb.co.com/6Rt28Yjh/pm-1766605891575-cmp.jpg" class="layer layer-stempel" alt="Stempel" crossorigin="anonymous">
+                        <img src="https://i.ibb.co.com/HpRTTpzZ/IMG-20260211-185240.jpg" class="layer layer-ttd" alt="TTD" crossorigin="anonymous">
+                    </div>
+
+                    <p class="signature-name">DR. AGUS SULISTYO, S.H., M.H.</p>
+                    <p class="signature-nip">NIP. 19780322 200312 1 002</p>
+                </div>
             </div>
 
-            <!-- Copyright Notice -->
-            <div class="copyright fade-in">
-                <p>© 2026 Direktorat Jenderal Bea dan Cukai — Kementerian Keuangan RI</p>
-                <p>Kode Naskah Dinas: BC.PKP/BA-031/2026 | Arsip: BA-2026-MKS-031</p>
-                <p>Dokumen ini sah secara administratif dan dapat digunakan sebagai dasar penyelesaian internal.</p>
-            </div>
+            <!-- FOOTER BAWAH -->
+            <footer class="footer">
+                <img src="https://i.ibb.co/1Jf993mY/IMG-20251209-084035.jpg" alt="Logo DJBC" class="footer-logo" crossorigin="anonymous"/>
+                <p><strong>© 2026 Direktorat Jenderal Bea dan Cukai — Kementerian Keuangan RI</strong></p>
+                <p>Kode Naskah: BC.PKP/BA-031/2026 | Dokumen ini sah secara administratif.</p>
+            </footer>
+
         </div>
     </div>
 
-    <!-- UI Controls - Bottom -->
-    <div class="ui-controls">
-        <button id="downloadPdfBtnBottom" class="download-btn">
+    <!-- Bottom Controls -->
+    <div class="ui-controls" style="margin-top: 30px;">
+        <button id="downloadPdfBtnBottom" class="btn">
             <span class="spinner"></span>
             <span>📥 Unduh PDF Resmi Sekarang</span>
         </button>
     </div>
 
-    <!-- JavaScript: Premium PDF Generation + Rich Interactions -->
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span class="toast-icon">✓</span>
+        <span id="toastMessage">PDF berhasil diunduh!</span>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // ✨ Create Floating Particles
-            function createParticles() {
-                const particlesContainer = document.getElementById('particles');
-                const particleCount = 12;
-                
-                for (let i = 0; i < particleCount; i++) {
-                    const particle = document.createElement('div');
-                    particle.className = 'particle';
-                    particle.style.left = Math.random() * 100 + '%';
-                    particle.style.animationDelay = Math.random() * 15 + 's';
-                    particle.style.animationDuration = (15 + Math.random() * 10) + 's';
-                    particle.style.width = (3 + Math.random() * 3) + 'px';
-                    particle.style.height = particle.style.width;
-                    particle.style.background = Math.random() > 0.5 ? 'var(--accent-gold)' : 'var(--primary-blue)';
-                    particle.style.opacity = (0.1 + Math.random() * 0.15).toFixed(2);
-                    particlesContainer.appendChild(particle);
-                }
-            }
-            createParticles();
-
-            // ✨ Button Ripple Effect
-            function createRipple(event, button) {
-                const ripple = document.createElement('span');
-                ripple.className = 'ripple';
-                
-                const rect = button.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = event.clientX - rect.left - size / 2;
-                const y = event.clientY - rect.top - size / 2;
-                
-                ripple.style.width = ripple.style.height = `${size}px`;
-                ripple.style.left = `${x}px`;
-                ripple.style.top = `${y}px`;
-                
-                button.appendChild(ripple);
-                
-                setTimeout(() => ripple.remove(), 600);
-            }
-
-            // DOM Elements
-            const btnTop = document.getElementById('downloadPdfBtn');
-            const btnBottom = document.getElementById('downloadPdfBtnBottom');
+            const btns = [document.getElementById('downloadPdfBtn'), document.getElementById('downloadPdfBtnBottom')];
             const previewBtn = document.getElementById('previewPrintBtn');
             const element = document.getElementById('pdfContent');
-            const progressBar = document.getElementById('progressBar');
-            const pdfProgress = document.getElementById('pdfProgress');
             const toast = document.getElementById('toast');
-            const toastMessage = document.getElementById('toastMessage');
 
-            // Add ripple to buttons
-            [btnTop, btnBottom, previewBtn].forEach(btn => {
-                if (btn) {
-                    btn.addEventListener('click', (e) => createRipple(e, btn));
-                }
-            });
-
-            // Smooth scroll for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                });
-            });
-
-            // ✨ Toast Notification System with Auto-dismiss
-            function showToast(message, type = 'success', duration = 4500) {
-                toastMessage.textContent = message;
-                toast.className = `toast ${type} show`;
-                
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                }, duration);
+            function showToast(msg) {
+                document.getElementById('toastMessage').textContent = msg;
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 4000);
             }
 
-            // ✨ Premium PDF Generation with Enhanced Progress
             function generatePDF() {
-                // Disable buttons and show loading state
-                [btnTop, btnBottom].forEach(btn => {
-                    if (btn) {
-                        btn.disabled = true;
-                        btn.classList.add('loading');
-                        btn.querySelector('span:last-child').textContent = '⏳ Memproses PDF...';
-                    }
-                });
+                btns.forEach(b => { b.disabled = true; b.classList.add('loading'); });
 
-                // Show progress bar with animation
-                pdfProgress.classList.add('active');
-                progressBar.style.width = '10%';
-
-                // Simulate realistic progress with easing
-                let progress = 10;
-                const progressInterval = setInterval(() => {
-                    // Easing function for natural progress feel
-                    const ease = (t) => t < 0.5 ? 2*t*t : -1 + (4 - 2*t)*t;
-                    const target = 90;
-                    progress += (target - progress) * 0.08 + Math.random() * 3;
-                    if (progress > 90) progress = 90;
-                    progressBar.style.width = `${Math.min(progress, 90)}%`;
-                }, 180);
-
-                // PDF Configuration - Ultra Premium Quality
                 const opt = {
-                    margin: [12, 10, 12, 10],
-                    filename: `Berita_Acara_Jaminan_Legalitas_Sementara_BC_Purwakarta_2026.pdf`,
-                    image: { type: 'jpeg', quality: 0.97 },
+                    margin: 0,
+                    filename: 'Berita_Acara_Bea_Cukai_2026.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
                     html2canvas: {
-                        scale: 3.2, // Ultra HD rendering
-                        useCORS: true,
-                        logging: false,
-                        letterRendering: true,
-                        allowTaint: false,
-                        backgroundColor: '#ffffff',
-                        scrollY: -window.scrollY,
-                        windowWidth: 210 * 3.78,
+                        scale: 2, 
+                        useCORS: true, 
+                        scrollY: 0,
                         onclone: (doc) => {
-                            // Optimize cloned document for PDF output
-                            const cloned = doc.getElementById('pdfContent');
-                            if (cloned) {
-                                cloned.style.boxShadow = 'none';
-                                cloned.style.border = 'none';
-                                cloned.style.borderRadius = '0';
-                                cloned.style.transform = 'none';
-                            }
-                            // Disable animations in PDF
-                            doc.querySelectorAll('*').forEach(el => {
-                                el.style.animation = 'none';
-                                el.style.transition = 'none';
-                            });
+                            // Menghilangkan efek blend-mode agar tidak menjadi kotak hitam saat render PDF
+                            const stempel = doc.querySelector('.layer-stempel');
+                            const ttd = doc.querySelector('.layer-ttd');
+                            if(stempel) stempel.style.mixBlendMode = 'normal';
+                            if(ttd) ttd.style.mixBlendMode = 'normal';
                         }
                     },
-                    jsPDF: {
-                        unit: 'mm',
-                        format: 'a4',
-                        orientation: 'portrait',
-                        compress: true
-                    }
+                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
                 };
 
-                // Generate PDF
-                html2pdf()
-                    .set(opt)
-                    .from(element)
-                    .save()
-                    .then(() => {
-                        clearInterval(progressInterval);
-                        progressBar.style.width = '100%';
-                        
-                        setTimeout(() => {
-                            pdfProgress.classList.remove('active');
-                            progressBar.style.width = '0%';
-                            
-                            // Reset buttons with success animation
-                            [btnTop, btnBottom].forEach(btn => {
-                                if (btn) {
-                                    btn.disabled = false;
-                                    btn.classList.remove('loading');
-                                    btn.querySelector('span:last-child').textContent = 
-                                        btn.id === 'downloadPdfBtn' ? 
-                                        '📥 Download PDF Resmi (Ber-Watermark)' : 
-                                        '📥 Unduh PDF Resmi Sekarang';
-                                }
-                            });
-                            
-                            // Show success toast with celebration effect
-                            showToast('✅ Dokumen PDF berhasil diunduh dan siap digunakan! 🎉', 'success', 5000);
-                            
-                        }, 400);
-                    })
-                    .catch(err => {
-                        console.error('PDF Generation Error:', err);
-                        clearInterval(progressInterval);
-                        pdfProgress.classList.remove('active');
-                        progressBar.style.width = '0%';
-                        
-                        // Reset buttons with error state
-                        [btnTop, btnBottom].forEach(btn => {
-                            if (btn) {
-                                btn.disabled = false;
-                                btn.classList.remove('loading');
-                                btn.querySelector('span:last-child').textContent = 
-                                    btn.id === 'downloadPdfBtn' ? 
-                                    '⚠️ Coba Lagi' : 
-                                    '⚠️ Coba Lagi';
-                            }
-                        });
-                        
-                        showToast('⚠️ Gagal membuat PDF. Pastikan koneksi stabil dan gunakan Chrome/Edge terbaru.', 'error');
-                    });
-            }
-
-            // Preview Print Function with feedback
-            function previewPrint() {
-                showToast('🖨️ Membuka dialog cetak browser...', 'success', 2000);
-                setTimeout(() => {
-                    window.print();
-                }, 900);
-            }
-
-            // Event Listeners
-            if (btnTop) btnTop.addEventListener('click', generatePDF);
-            if (btnBottom) btnBottom.addEventListener('click', generatePDF);
-            if (previewBtn) previewBtn.addEventListener('click', previewPrint);
-
-            // Keyboard shortcuts
-            document.addEventListener('keydown', (e) => {
-                if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
-                    e.preventDefault();
-                    previewPrint();
-                }
-                if ((e.ctrlKey || e.metaKey) && e.key === 's') {
-                    e.preventDefault();
-                    generatePDF();
-                }
-            });
-
-            // ✨ Intersection Observer for staggered fade-in on scroll
-            const observerOptions = {
-                threshold: 0.12,
-                rootMargin: '0px 0px -40px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // Trigger animation
-                        entry.target.style.animationPlayState = 'running';
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            // Observe fade-in elements
-            document.querySelectorAll('.fade-in').forEach(el => {
-                el.style.animationPlayState = 'paused';
-                observer.observe(el);
-            });
-
-            // ✨ Interactive hover enhancements
-            document.querySelectorAll('.highlight-on-hover, .signature-img, .stamp, .legalization-badge, .expedisi-logo').forEach(el => {
-                el.addEventListener('mouseenter', function() {
-                    this.style.transition = 'all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1)';
-                });
-            });
-
-            // ✨ QR Box click simulation feedback
-            const qrBox = document.querySelector('.qr-box');
-            if (qrBox) {
-                qrBox.addEventListener('click', function(e) {
-                    if (!e.target.closest('img')) {
-                        showToast('📱 Scan QR Code untuk verifikasi legalitas', 'success', 3000);
-                    }
+                html2pdf().set(opt).from(element).save().then(() => {
+                    btns.forEach(b => { b.disabled = false; b.classList.remove('loading'); });
+                    showToast('✅ Dokumen PDF resmi berhasil diunduh!');
+                }).catch(err => {
+                    console.error(err);
+                    btns.forEach(b => { b.disabled = false; b.classList.remove('loading'); });
+                    showToast('⚠️ Gagal memproses PDF.');
                 });
             }
 
-            // ✨ Initialize: Ensure elements visible for PDF generation
-            setTimeout(() => {
-                document.querySelectorAll('.fade-in').forEach(el => {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                    el.style.animationPlayState = 'running';
-                });
-            }, 900);
-
-            // ✨ Log initialization
-            console.log('✨ Premium Interactive Document Initialized');
-            console.log('📄 Document: Berita Acara Jaminan Legalitas Sementara');
-            console.log('🏢 Issuer: KPPBC Tipe Madya Pabean A Purwakarta');
-            console.log('🎨 Features: Natural Signature Integration • Rich Animations • Interactive Elements');
-            console.log('🔐 Security: Watermarked & High-Quality PDF Output');
+            btns.forEach(btn => btn.addEventListener('click', generatePDF));
+            if(previewBtn) previewBtn.addEventListener('click', () => window.print());
         });
     </script>
 </body>
 </html>
-
