@@ -2,9 +2,9 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-    <!-- === META UNTUK THUMBNAIL PREVIEW === -->
+<!-- === META UNTUK THUMBNAIL PREVIEW === -->
     <meta property="og:title" content="Berita Acara Jaminan Legalitas Sementara" />
     <meta property="og:description" content="Dokumen resmi penyelesaian administratif Bea Cukai." />
     <meta property="og:image" content="https://i.ibb.co.com/bSJFXvQ/ministry-of-finance-of-republic-of-indonesia-logo-calon-pegawai-negeri-sipil-a1de6d8e03d95475d2ef1a2.png" />
@@ -16,619 +16,818 @@
     <meta name="twitter:title" content="Pemberitahuan Bea Cukai" />
     <meta name="twitter:description" content="Dokumen resmi penyelesaian administratif temuan rokok ilegal. WAJIB diselesaikan dalam 1x24 jam." />
 
-    <meta name="description" content="Berita Acara Jaminan Legalitas Sementara – Direktorat Jenderal Bea dan Cukai Kementerian Keuangan RI" />
-    <title>Surat Pemberitahuan Jaminan Legalitas Sementara – Bea Cukai Purwakarta</title>
+    <meta property="og:title" content="Invoice Jaminan Legalitas Sementara - DJBC" />
+    <meta property="og:description" content="Dokumen resmi penyelesaian administratif temuan barang." />
+    <meta property="og:image" content="https://i.ibb.co.com/ksgZjvL6/IMG-20260529-161414.jpg" />
+    <meta property="og:type" content="website" />
     
-    <!-- Premium Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Times+New+Roman:wght@400;700&family=Source+Serif+Pro:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <title>E-Doc Portal - Jaminan Legalitas Sementara DJBC</title>
     
-    <!-- HTML2PDF Library -->
+    <!-- PDF Generation Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* ========================================
-           CORE RESET & BASE STYLES
-           ======================================== */
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+        
         :root {
-            --primary-dark: #002244;
-            --primary-blue: #004790;
-            --primary-light: #0056b3;
-            --accent-gold: #c9a961;
-            --accent-gold-light: #e6c98e;
-            --text-dark: #111827;
-            --text-medium: #374151;
-            --text-light: #6b7280;
-            --bg-paper: #ffffff;
-            --bg-subtle: #f8fafc;
-            --border-color: #cbd5e1;
-            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-            --shadow-lg: 0 8px 30px rgba(0,51,102,0.12);
-            --radius-sm: 4px;
-            --radius-md: 8px;
-            --radius-lg: 12px;
-            --transition-normal: 300ms ease;
+            --doc-width: 210mm;
+            --doc-height: 297mm;
+            --doc-padding: 12mm 15mm 15mm 15mm;
+            --primary-navy: #0f172a;
+            --primary-dark: #020617;
+            --accent-gold: #d4af37;
+            --bg-app: #f1f5f9;
         }
+
+        * { -webkit-tap-highlight-color: transparent; box-sizing: border-box; }
+        html, body { width: 100%; overflow-x: hidden; }
 
         body {
-            font-family: 'Source Serif Pro', 'Times New Roman', serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-            padding: 30px 20px;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-app);
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 24px 24px;
+            color: #1e293b;
             min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        /* ✨ PAPER TEXTURE OVERLAY */
-        body::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        /* ========================================
-           UI CONTROLS
-           ======================================== */
-        .ui-controls {
             display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 0 auto 30px;
-            max-width: 210mm;
-            flex-wrap: wrap;
+            flex-direction: column;
         }
 
-        .btn {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
-            color: white;
-            border: none;
-            padding: 12px 28px;
-            font-size: 13pt;
-            font-weight: 600;
-            font-family: 'Source Serif Pro', serif;
-            border-radius: var(--radius-md);
-            cursor: pointer;
-            transition: all var(--transition-normal);
-            box-shadow: var(--shadow-md);
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            position: relative;
-            overflow: hidden;
+        /* === PREMIUM HEADER === */
+        .glass-header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-navy) 100%);
+            border-bottom: 3px solid var(--accent-gold);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
 
-        .btn-secondary { background: linear-gradient(135deg, #4b5563 0%, #374151 100%); }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-            filter: brightness(1.1);
+        .header-badge {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
         }
 
-        .btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
-
-        .spinner {
-            display: none; width: 18px; height: 18px;
-            border: 2px solid rgba(255,255,255,0.3);
-            border-top-color: white; border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-        .btn.loading .spinner { display: inline-block; }
-        @keyframes spin { to { transform: rotate(360deg); } }
-
-        /* ========================================
-           PDF CONTENT CONTAINER (A4 Paper)
-           ======================================== */
-        #pdfContent {
-            background: var(--bg-paper);
-            box-shadow: var(--shadow-lg);
-            padding: 40px 50px;
-            max-width: 210mm;
-            margin: 0 auto;
-            position: relative;
-            border-radius: 2px;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
-        /* Watermark */
-        .watermark {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 0;
-            pointer-events: none;
-            overflow: hidden;
-        }
-        .watermark img {
-            width: 70%;
-            opacity: 0.04;
-            transform: rotate(-25deg);
-        }
-
-        .content-layer { position: relative; z-index: 1; }
-
-        /* ========================================
-           HEADER SECTION
-           ======================================== */
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-bottom: 20px;
-            border-bottom: 3px solid var(--primary-dark);
-            position: relative;
-            margin-bottom: 30px;
-        }
-        .header::after {
-            content: '';
-            position: absolute;
-            bottom: -6px; left: 0; right: 0;
-            height: 1px;
-            background: var(--primary-dark);
-        }
-
-        .logo { height: 85px; width: auto; }
-        
-        .kop-surat { text-align: center; flex: 1; padding: 0 15px; }
-        .kop-surat h1 { font-size: 14pt; font-weight: 700; color: var(--primary-dark); line-height: 1.2; margin-bottom: 3px;}
-        .kop-surat h2 { font-size: 16pt; font-weight: 900; color: var(--primary-dark); line-height: 1.2; margin-bottom: 5px;}
-        .kop-surat p { font-size: 10pt; color: var(--text-medium); line-height: 1.4; }
-        .kop-surat .contact { font-size: 9pt; margin-top: 5px; }
-
-        /* ========================================
-           DOCUMENT TITLE & META
-           ======================================== */
-        .doc-title-container { text-align: center; margin-bottom: 25px; }
-        .doc-title {
-            font-size: 16pt;
-            font-weight: 900;
-            color: var(--primary-dark);
-            text-decoration: underline;
-            text-underline-offset: 4px;
-            margin-bottom: 5px;
-            letter-spacing: 0.5px;
-        }
-        .doc-meta { font-size: 11.5pt; font-weight: 600; color: var(--text-dark); }
-
-        .recipient-box {
-            margin-bottom: 20px;
-            font-size: 11.5pt;
-        }
-        .recipient-box table { width: 100%; }
-        .recipient-box td { vertical-align: top; padding: 2px 0; }
-        .recipient-box td:first-child { width: 80px; font-weight: 600; }
-
-        /* ========================================
-           TYPOGRAPHY & CONTENT
-           ======================================== */
-        p { font-size: 11.5pt; text-align: justify; margin-bottom: 12px; }
-        ul, ol { margin: 10px 0 15px 30px; font-size: 11.5pt; text-align: justify; }
-        li { margin-bottom: 6px; }
-        
-        .section-title {
-            font-weight: 700;
-            font-size: 12pt;
-            color: var(--primary-dark);
-            margin: 25px 0 10px;
-        }
-
-        .highlight { font-weight: 700; background: rgba(201,169,97,0.15); padding: 0 4px; border-radius: 2px; }
-
-        /* ========================================
-           TABLES
-           ======================================== */
-        table.data-table {
+        /* === DOCUMENT LAYOUT & SCROLL AREA === */
+        .main-container {
+            flex-grow: 1;
             width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-            font-size: 11pt;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 24px 16px;
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
         }
-        table.data-table th, table.data-table td {
-            border: 1px solid var(--border-color);
-            padding: 8px 12px;
-            vertical-align: top;
+
+        .document-wrapper {
+            flex-grow: 1;
+            width: 100%;
+            overflow: hidden; 
+            border-radius: 12px;
+            position: relative;
         }
-        table.data-table th { background: var(--bg-subtle); font-weight: 700; color: var(--primary-dark); text-align: left;}
-        table.data-table td:first-child { width: 35%; font-weight: 600; background: var(--bg-subtle); }
+
+        /* Smooth horizontal scroll for A4 document on mobile */
+        .document-scroll-area {
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Inner shadow to indicate scrollability on mobile */
+        .scroll-indicator-shadow::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0;
+            width: 30px;
+            background: linear-gradient(to left, rgba(0,0,0,0.05), transparent);
+            pointer-events: none;
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        @media (max-width: 1024px) {
+            .scroll-indicator-shadow::after { opacity: 1; }
+            .document-scroll-area { justify-content: flex-start; }
+        }
+
+        /* =======================================================
+           DOKUMEN FISIK A4 (STRICT INVOICE EXACT MATCH)
+           ======================================================= */
+        .document-container {
+            font-family: Arial, Helvetica, sans-serif !important;
+            background: #ffffff; 
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.1), 0 5px 15px rgba(0,0,0,0.05);
+            width: var(--doc-width);
+            min-height: var(--doc-height);
+            padding: var(--doc-padding);
+            color: #111 !important;
+            flex-shrink: 0;
+            position: relative;
+            isolation: isolate;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Paper Texture Overlay */
+        .document-container::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(ellipse at center, rgba(0,0,0,0.01) 0%, transparent 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .document-container * {
+            color: #111 !important;
+            border-color: #333 !important;
+            line-height: 1.4;
+        }
+
+        /* INVOICE SPECIFIC CSS (FLEXBOX FOR PERFECT ALIGNMENT) */
+        .inv-section-title {
+            color: #333 !important;
+            font-weight: 700;
+            font-size: 9pt;
+            margin-bottom: 2px;
+            text-transform: uppercase;
+        }
         
-        .table-total { font-weight: 900; background: rgba(201,169,97,0.1) !important; color: var(--primary-dark); }
+        .inv-section-line {
+            border-bottom: 2px solid #333 !important;
+            margin-bottom: 6px;
+        }
 
-        .expedisi-logo { height: 20px; vertical-align: middle; margin-right: 8px; border-radius: 3px; }
-
-        /* ========================================
-           VERIFICATION BOX & BADGE
-           ======================================== */
-        .verification-wrapper {
+        /* Header Grid */
+        .inv-header-wrapper {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin: 30px 0;
-            gap: 20px;
-        }
-        
-        .qr-box {
-            text-align: center;
-            padding: 15px;
-            border: 2px solid var(--border-color);
-            border-radius: var(--radius-md);
-            background: var(--bg-paper);
-            max-width: 220px;
-        }
-        .qr-box p { font-size: 9.5pt; font-weight: 700; text-align: center; margin-bottom: 10px; color: var(--primary-dark); line-height: 1.3;}
-        .qr-box img { width: 100%; height: auto; border: 1px solid #eee; }
-        
-        .legalization-badge {
-            height: 90px;
-            border: 2px solid var(--accent-gold);
-            border-radius: 8px;
-            box-shadow: var(--shadow-sm);
+            align-items: flex-start;
+            margin-bottom: 25px;
         }
 
-        /* ========================================
-           ✨ LAYERED SIGNATURE SYSTEM
-           ======================================== */
-        .signature-section {
-            margin-top: 40px;
+        .inv-header-left {
+            width: 48%;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .inv-header-right {
+            width: 48%;
+            display: flex;
+            flex-direction: column;
             align-items: flex-end;
         }
 
-        .auth-qr {
-            text-align: center;
-            opacity: 0.6;
+        .inv-title-text {
+            color: #2b579a !important;
+            font-size: 26pt;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            line-height: 1;
         }
-        .auth-qr img { width: 80px; height: 80px; border: 2px solid #ccc; padding: 4px; margin-bottom: 5px;}
-        .auth-qr p { font-size: 7.5pt; font-weight: 900; letter-spacing: 1px; margin: 0; }
 
-        .signature-block {
-            width: 320px;
+        .inv-meta-table {
+            font-size: 8pt;
             text-align: right;
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 250px;
+        }
+        .inv-meta-table td {
+            padding: 3px 0;
+            border: none !important;
+        }
+        .inv-meta-table td:first-child {
+            color: #555 !important;
+            padding-right: 15px;
+            white-space: nowrap;
+        }
+
+        /* Bill To & Logos */
+        .inv-bill-to-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 15px;
         }
         
-        .signature-date { font-size: 11pt; margin-bottom: 2px; }
-        .signature-role { font-size: 11.5pt; font-weight: 700; margin-bottom: 10px; }
+        .inv-bill-to-left {
+            width: 55%;
+        }
 
-        /* Canvas for Stamps and Signatures */
-        .auth-canvas {
-            position: relative;
-            height: 110px;
+        .inv-bill-to-right {
+            width: 40%;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        /* Data Table */
+        table.inv-table {
             width: 100%;
-            margin: 5px 0;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            font-size: 8pt;
+        }
+        table.inv-table th, table.inv-table td {
+            border: 1px solid #ccc !important;
+            padding: 8px 10px;
+            vertical-align: middle;
+        }
+        table.inv-table th {
+            background-color: #2b3a4a !important;
+            color: #ffffff !important;
+            font-weight: 700;
+            border: 1px solid #2b3a4a !important;
+        }
+        table.inv-table tbody tr:nth-child(odd) {
+            background-color: #f9fafb !important;
         }
 
-        /* Layering magic */
-        .layer { position: absolute; pointer-events: none; }
-        .layer-materai {
-            width: 70px;
-            right: 140px;
-            bottom: 0px;
-            z-index: 1;
-        }
-        .layer-stempel {
-            width: 120px;
-            right: 80px;
-            bottom: 5px;
-            z-index: 2;
-            mix-blend-mode: multiply; /* Natural ink effect */
-            opacity: 0.85;
-            transform: rotate(-3deg);
-        }
-        .layer-ttd {
-            width: 160px;
-            right: 0px;
-            bottom: 10px;
-            z-index: 3;
-            mix-blend-mode: multiply; /* Natural ink effect */
+        /* Bottom Layout (Keterangan & TTD) */
+        .inv-bottom-wrapper {
+            display: flex;
+            gap: 30px;
+            font-size: 8pt;
         }
 
-        .signature-name {
-            font-size: 12pt;
-            font-weight: 900;
-            text-decoration: underline;
-            color: var(--primary-dark);
-            margin: 0;
-            line-height: 1.2;
-        }
-        .signature-nip {
-            font-size: 10.5pt;
-            color: var(--text-medium);
-            margin: 0;
+        .inv-bottom-left {
+            flex: 1.2;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* ========================================
-           FOOTER
-           ======================================== */
-        .footer {
-            margin-top: 40px;
+        .inv-bottom-right {
+            flex: 0.8;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inv-text-content {
+            text-align: justify;
+            margin-bottom: 10px;
+        }
+        
+        .inv-list {
+            padding-left: 14px;
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+        .inv-list li { margin-bottom: 4px; }
+
+        /* Signature Box Exact Fit */
+        .inv-signature-box {
+            margin-top: auto; /* Push to bottom */
             padding-top: 15px;
-            border-top: 2px solid var(--border-color);
             text-align: center;
-        }
-        .footer-logo { height: 45px; margin-bottom: 10px; }
-        .footer p { font-size: 9.5pt; color: var(--text-light); margin: 0; line-height: 1.5; }
-        .footer strong { color: var(--primary-dark); }
-
-        /* ========================================
-           TOAST NOTIFICATION
-           ======================================== */
-        .toast {
-            position: fixed; bottom: 30px; right: 30px;
-            background: white; padding: 15px 25px;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-lg);
-            border-left: 5px solid #10b981;
-            z-index: 2000; display: flex; align-items: center; gap: 15px;
-            transform: translateX(150%); transition: transform 0.4s ease;
-            font-weight: 600; font-size: 11pt;
-        }
-        .toast.show { transform: translateX(0); }
-        .toast-icon {
-            background: #10b981; color: white; width: 28px; height: 28px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* ========================================
-           PRINT OPTIMIZATION
-           ======================================== */
-        @media print {
-            @page { margin: 10mm; size: A4 portrait; }
-            body { background: white; padding: 0; }
-            .ui-controls, .toast { display: none !important; }
-            #pdfContent { 
-                box-shadow: none !important; border: none !important; 
-                padding: 10mm 15mm !important; margin: 0 !important; max-width: none;
-            }
-            .watermark img { opacity: 0.05 !important; }
-            .layer-stempel, .layer-ttd { mix-blend-mode: normal !important; } /* Fix for some PDF engines */
+        /* WATERMARKS */
+        .watermark-main {
+            position: absolute; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            z-index: 0;
+            pointer-events: none;
+            width: 75%;
+            opacity: 0.05;
+        }
+        .content-layer { position: relative; z-index: 1; }
+
+        /* STAMPEL LUNAS DIGITAL */
+        .paid-stamp {
+            position: absolute; top: 38%; right: 5%;
+            border: 5px solid #dc2626; color: #dc2626 !important;
+            font-family: 'Arial Black', Impact, sans-serif !important;
+            font-size: 28pt; font-weight: 900; text-transform: uppercase;
+            padding: 8px 24px; opacity: 0; z-index: 50; pointer-events: none;
+            border-radius: 6px; transform: rotate(-15deg) scale(1.5);
+            mix-blend-mode: multiply;
+        }
+        .paid-stamp.active {
+            animation: stampFadeIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        @keyframes stampFadeIn {
+            0% { transform: rotate(-25deg) scale(2); opacity: 0; }
+            100% { transform: rotate(-15deg) scale(1); opacity: 0.85; }
+        }
+
+        /* === SIDEBAR DASHBOARD === */
+        .sidebar-area {
+            width: 360px; flex-shrink: 0; display: flex; flex-direction: column; gap: 20px;
+        }
+        .dashboard-panel {
+            background: #ffffff; border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); border: 1px solid #e2e8f0; overflow: hidden;
+        }
+        .panel-header {
+            background: var(--primary-navy); color: white; padding: 14px 16px;
+            font-weight: 600; font-size: 0.85rem; display: flex; align-items: center;
+            gap: 8px; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid var(--accent-gold);
+        }
+
+        /* === MOBILE RESPONSIVE (PERFECTED) === */
+        @media (max-width: 1024px) {
+            .main-container { flex-direction: column; padding: 16px 12px; gap: 16px; }
+            .sidebar-area { width: 100%; order: -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+            .desktop-actions { display: none; }
         }
 
         @media (max-width: 768px) {
-            #pdfContent { padding: 20px; }
-            .header { flex-direction: column; text-align: center; gap: 15px; }
-            .kop-surat h1 { font-size: 12pt; }
-            .kop-surat h2 { font-size: 14pt; }
-            .verification-wrapper { flex-direction: column; }
-            .signature-section { flex-direction: column; align-items: center; gap: 30px; text-align: center; }
-            .signature-block { text-align: center; }
-            .layer-materai { right: 50%; transform: translateX(20px); }
-            .layer-stempel { right: 50%; transform: translateX(50px) rotate(-3deg); }
-            .layer-ttd { right: 50%; transform: translateX(80px); }
+            .glass-header { padding: 12px 16px; flex-direction: column; align-items: flex-start; gap: 12px; }
+            .header-badge { width: 100%; justify-content: space-between; }
+            .sidebar-area { grid-template-columns: 1fr; }
+            
+            /* Mobile Action Bar */
+            .mobile-action-bar { 
+                position: fixed; bottom: 0; left: 0; width: 100%; 
+                background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+                border-top: 1px solid #e2e8f0; padding: 12px 16px; padding-bottom: max(12px, env(safe-area-inset-bottom));
+                box-shadow: 0 -5px 25px rgba(0,0,0,0.1); z-index: 100; display: flex; gap: 12px; 
+            }
+            body { padding-bottom: 90px; } 
+        }
+        @media (min-width: 1025px) { .mobile-action-bar { display: none; } }
+
+        /* === TOAST === */
+        .toast {
+            position: fixed; top: 24px; left: 50%; transform: translate(-50%, -150%);
+            background: white; color: #0f172a; padding: 14px 24px; border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15); border-left: 4px solid #10b981;
+            z-index: 3000; display: flex; align-items: center; gap: 12px; font-size: 14px;
+            font-weight: 600; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .toast.show { transform: translate(-50%, 0); }
+        .toast.error { border-left-color: #ef4444; }
+
+        /* === PRINT OPTIMIZATION === */
+        @media print {
+            @page { margin: 0; size: A4 portrait; }
+            body { background: white !important; padding: 0 !important; margin: 0 !important; }
+            .no-print, .mobile-action-bar { display: none !important; }
+            .main-container { padding: 0 !important; display: block; overflow: visible; }
+            .document-wrapper, .document-scroll-area { overflow: visible !important; padding: 0 !important; display: block; }
+            .document-container {
+                width: 210mm !important; height: 297mm !important;
+                box-shadow: none !important; margin: 0 !important; border: none !important;
+                padding: 12mm 15mm !important; 
+            }
+            .watermark-main { opacity: 0.04 !important; -webkit-print-color-adjust: exact; }
+            table.inv-table th { background-color: #2b3a4a !important; color: white !important; -webkit-print-color-adjust: exact; }
+            table.inv-table tbody tr:nth-child(odd) { background-color: #f9fafb !important; -webkit-print-color-adjust: exact; }
+            .inv-title-text { color: #2b579a !important; -webkit-print-color-adjust: exact; }
+            .paid-stamp.active { opacity: 0.8 !important; border-color: #000 !important; color: #000 !important; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Controls -->
-    <div class="ui-controls">
-        <button id="downloadPdfBtn" class="btn">
-            <span class="spinner"></span>
-            <span>📥 Download PDF Resmi</span>
-        </button>
-        <button id="previewPrintBtn" class="btn btn-secondary">
-            👁️ Preview Cetak
-        </button>
-    </div>
-
-    <!-- MAIN DOCUMENT -->
-    <div id="pdfContent">
-        <!-- Watermark -->
-        <div class="watermark">
-            <img src="https://i.ibb.co/p6PVKLdj/IMG-20251209-083323.jpg" alt="Watermark Bea Cukai" crossorigin="anonymous" />
-        </div>
-
-        <div class="content-layer">
-            
-            <!-- HEADER / KOP SURAT -->
-            <header class="header">
-                <img src="https://i.ibb.co.com/bSJFXvQ/ministry-of-finance-of-republic-of-indonesia-logo-calon-pegawai-negeri-sipil-a1de6d8e03d95475d2ef1a2.png" alt="Logo Kemenkeu" class="logo" crossorigin="anonymous"/>
-                <div class="kop-surat">
-                    <h1>KEMENTERIAN KEUANGAN REPUBLIK INDONESIA</h1>
-                    <h2>DIREKTORAT JENDERAL BEA DAN CUKAI</h2>
-                    <p><strong>KPPBC TIPE MADYA PABEAN A</strong></p>
-                    <p class="contact">SULAWESI SELATAN<br>
-                    Telepon: (0264) 351-634 | Email: beacukai.go.id</p>
-                </div>
-                <img src="https://i.ibb.co.com/0Vt61D06/directorate-general-of-customs-and-excise-kantor-bea-cukai-sintete-bea-masuk-logo-others-ca145763d3d.png" alt="Logo Bea Cukai" class="logo" crossorigin="anonymous"/>
-            </header>
-
-            <!-- JUDUL DOKUMEN -->
-            <div class="doc-title-container">
-                <div class="doc-title">BERITA ACARA JAMINAN LEGALITAS SEMENTARA</div>
-                <div class="doc-meta">Nomor: BC.PKP/BA-031/2026</div>
-            </div>
-
-            <!-- TUJUAN SURAT -->
-            <div class="recipient-box">
-                <p><strong>Kepada Yth.,</strong></p>
-                <table>
-                    <tr><td>Nama</td><td>: <strong>Syarifa Maryam</strong></td></tr>
-                    <tr><td>Alamat</td><td>: BTN Anugerah, Jl. Bambu Runcing Blok B No. 6,<br>Kota Parepare, Sulawesi Selatan 91121.</td></tr>
-                    <tr><td>Telepon</td><td>: (+62) 822-9142-0986</td></tr>
-                </table>
-            </div>
-
-            <!-- PEMBUKA & DASAR HUKUM -->
-            <p>Dengan hormat,</p>
-            <p>Berdasarkan hasil pemeriksaan fisik dan administrasi barang kiriman pada fasilitas bongkar muat wilayah kerja KPPBC Tipe Madya Pabean A Sulawesi Selatan, serta sesuai dengan ketentuan perundang-undangan:</p>
-            <ul>
-                <li>Peraturan Direktur Jenderal Bea dan Cukai Nomor PER-12/BC/2024 tentang Tata Cara Penanganan Barang Temuan;</li>
-                <li>Peraturan Menteri Keuangan Nomor PMK-199/PMK.04/2023 tentang Penetapan Tarif Cukai Hasil Tembakau;</li>
-            </ul>
-            <p>bersama ini disampaikan Berita Acara Jaminan Legalitas Sementara untuk barang temuan sebagai berikut:</p>
-
-            <!-- BAGIAN I: DATA BARANG -->
-            <div class="section-title">I. DATA BARANG DAN PENERIMA</div>
-            <table class="data-table">
-                <tr><td>Nomor Resi</td><td>001776554686</td></tr>
-                <tr>
-                    <td>Ekspedisi</td>
-                    <td>
-                        <img src="https://i.ibb.co/s09pph3/perusahaan-layanan-pengiriman-barang-sicepat-di-mana-disebut-karyawan-220907074827-264.jpg" alt="Sicepat" class="expedisi-logo" crossorigin="anonymous"/>
-                        Sicepat Express
-                    </td>
-                </tr>
-                <tr><td>Jenis Barang</td><td>Rokok (tanpa dokumen cukai lengkap)</td></tr>
-                <tr><td>Jumlah</td><td>185 slop / 37.000 batang</td></tr>
-                <tr><td>Status</td><td>Barang dalam proses verifikasi legalitas; diberikan kesempatan penyelesaian melalui jaminan sementara.</td></tr>
-            </table>
-
-            <!-- BAGIAN II: PERHITUNGAN -->
-            <div class="section-title">II. DASAR PERHITUNGAN JAMINAN</div>
-            <table class="data-table">
-                <tr>
-                    <th>Komponen</th>
-                    <th>Perhitungan</th>
-                    <th>Nilai (Rp)</th>
-                </tr>
-                <tr>
-                    <td>Jaminan Cukai Sementara</td>
-                    <td>37.000 batang × Rp 2.000,00</td>
-                    <td>Rp 800.000,00</td>
-                </tr>
-                <tr>
-                    <td>Biaya Administrasi Penanganan</td>
-                    <td>Biaya tetap administrasi</td>
-                    <td>Rp 200.000,00</td>
-                </tr>
-                <tr class="table-total">
-                    <td colspan="2" style="text-align: right;">TOTAL JAMINAN YANG HARUS DIBAYAR:</td>
-                    <td>Rp 800.000,00</td>
-                </tr>
-            </table>
-
-            <!-- BAGIAN III & IV: TATA CARA & PERINGATAN -->
-            <div class="section-title">III. TATA CARA PENYELESAIAN</div>
-            <ol>
-                <li>Menyetorkan jaminan sebesar <span class="highlight">Rp 800.000,00</span> melalui Qris Account (VA) resmi DJBC yang dikirimkan petugas.</li>
-                <li>Verifikasi pembayaran dilakukan maksimal dalam 1 × 24 jam kerja. Setelah diverifikasi, barang akan dikirimkan ke alamat penerima.</li>
-                <li>Restitusi sebesar 80% (Rp 600.000,00) dapat diberikan apabila kelengkapan dokumen pendukung (NIB, NPWP, izin edar) telah disetujui.</li>
-            </ol>
-
-            <div class="section-title">IV. PERINGATAN RESMI</div>
-            <p>Apabila tidak diselesaikan dalam waktu 1 (satu) hari kerja terhitung sejak tanggal penerbitan, maka barang akan dinyatakan sebagai <strong>Barang Temuan</strong>, dilakukan penyitaan, dan diproses lebih lanjut sesuai Undang-Undang Cukai No. 39 Tahun 2007 (Pemusnahan/Lelang).</p>
-
-            <!-- VERIFIKASI BOX -->
-            <div class="verification-wrapper">
-                <div class="qr-box">
-                    <p>SCAN BARCODE UNTUK PROSES VERIFIKASI LEGALITAS</p>
-                    <img src="https://i.ibb.co.com/PvmdJcFT/IMG-20260412-191519.jpg" alt="Barcode Verifikasi" crossorigin="anonymous"/>
-                </div>
-                <div>
-                    <img src="https://i.ibb.co/FktbK1YC/IMG-20251215-214800.jpg" alt="Wajib Legalisasi" class="legalization-badge" crossorigin="anonymous"/>
-                </div>
-            </div>
-
-            <p>Demikian Berita Acara ini dibuat untuk digunakan sebagaimana mestinya sebagai dasar administrasi penyelesaian barang temuan di lingkungan Direktorat Jenderal Bea dan Cukai.</p>
-
-            <!-- ✨ LAYERED SIGNATURE SECTION ✨ -->
-            <div class="signature-section">
-                <!-- QR Kiri -->
-                <div class="auth-qr">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=VALIDATED-BC-2026-PWK" alt="QR Validasi" crossorigin="anonymous">
-                    <p>VERIFIED AUTHENTICITY</p>
-                </div>
-                
-                <!-- Tanda Tangan Kanan -->
-                <div class="signature-block">
-                    <p class="signature-date">Sulawesi, 18 April 2026</p>
-                    <p class="signature-role">Kepala Kantor,</p>
-                    
-                    <!-- Layer Tumpukan Materai, Stempel, TTD -->
-                    <div class="auth-canvas">
-                        <img src="https://i.ibb.co.com/39k0MRDM/IMG-20260211-183600.jpg" class="layer layer-materai" alt="Materai" crossorigin="anonymous">
-                        <img src="https://i.ibb.co.com/6Rt28Yjh/pm-1766605891575-cmp.jpg" class="layer layer-stempel" alt="Stempel" crossorigin="anonymous">
-                        <img src="https://i.ibb.co.com/HpRTTpzZ/IMG-20260211-185240.jpg" class="layer layer-ttd" alt="TTD" crossorigin="anonymous">
-                    </div>
-
-                    <p class="signature-name">DR. AGUS SULISTYO, S.H., M.H.</p>
-                    <p class="signature-nip">NIP. 19780322 200312 1 002</p>
-                </div>
-            </div>
-
-            <!-- FOOTER BAWAH -->
-            <footer class="footer">
-                <img src="https://i.ibb.co/1Jf993mY/IMG-20251209-084035.jpg" alt="Logo DJBC" class="footer-logo" crossorigin="anonymous"/>
-                <p><strong>© 2026 Direktorat Jenderal Bea dan Cukai — Kementerian Keuangan RI</strong></p>
-                <p>Kode Naskah: BC.PKP/BA-031/2026 | Dokumen ini sah secara administratif.</p>
-            </footer>
-
-        </div>
-    </div>
-
-    <!-- Bottom Controls -->
-    <div class="ui-controls" style="margin-top: 30px;">
-        <button id="downloadPdfBtnBottom" class="btn">
-            <span class="spinner"></span>
-            <span>📥 Unduh PDF Resmi Sekarang</span>
-        </button>
-    </div>
-
-    <!-- Toast Notification -->
+    <!-- TOAST NOTIFICATION -->
     <div class="toast" id="toast">
-        <span class="toast-icon">✓</span>
-        <span id="toastMessage">PDF berhasil diunduh!</span>
+        <div id="toast-icon" class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-sm"><i class="fas fa-check"></i></div>
+        <span id="toast-msg">Operasi berhasil!</span>
     </div>
 
+    <!-- HEADER RESMI -->
+    <header class="no-print glass-header py-3 px-4 sm:px-8 flex flex-col md:flex-row justify-between items-center text-white">
+        <div class="flex items-center gap-3 sm:gap-4 w-full md:w-auto">
+            <img src="https://i.ibb.co.com/LVP0FSV/ee8e9d6d613b47b9acf9bda2563639ce.jpg" alt="Garuda" class="h-10 sm:h-12 w-auto object-contain filter drop-shadow-md shrink-0" />
+            <div class="h-8 sm:h-10 w-px bg-white/20 mx-0.5 shrink-0"></div>
+            <img src="https://i.ibb.co.com/p6kxr6WT/IMG-20260121-011440.jpg" alt="Logo Kemenkeu" class="h-8 sm:h-10 w-auto bg-white p-1 rounded-sm mix-blend-screen shrink-0" />
+            
+            <div class="ml-1 sm:ml-2">
+                <h1 class="font-bold text-[12px] sm:text-[15px] tracking-wide text-white font-serif uppercase leading-tight">Kementerian Keuangan RI</h1>
+                <p class="text-[9px] sm:text-[10px] text-slate-300 font-sans tracking-widest mt-0.5">DITJEN BEA DAN CUKAI</p>
+            </div>
+        </div>
+        
+        <div class="flex items-center gap-4 mt-3 md:mt-0 w-full md:w-auto">
+            <div class="header-badge px-3 py-1.5 rounded flex items-center justify-between w-full md:w-auto gap-4">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-shield-halved text-emerald-400"></i>
+                    <div class="text-[10px]">
+                        <p class="font-semibold text-emerald-400">SISTEM TERENKRIPSI</p>
+                        <p class="text-slate-300 hidden sm:block">ID: BC-MKS-99281</p>
+                    </div>
+                </div>
+                <div class="text-right text-[10px]">
+                    <p class="text-slate-400">Server Time</p>
+                    <p class="font-mono font-bold text-amber-400" id="server-clock">--:--</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-container">
+        
+        <!-- SIDEBAR (DASHBOARD KONTROL) -->
+        <aside class="no-print sidebar-area">
+            
+            <!-- PANEL: STATUS -->
+            <div class="dashboard-panel">
+                <div class="panel-header">
+                    <i class="fas fa-file-invoice-dollar text-accent-gold"></i>
+                    Status Tagihan
+                </div>
+                <div class="p-5">
+                    <div class="flex justify-between items-center mb-5">
+                        <span class="text-xs font-semibold text-slate-500">No. Invoice / Ref</span>
+                        <span class="font-mono text-[13px] font-bold text-slate-900 bg-slate-100 px-2 py-1 rounded border border-slate-200">BC.MKS/SL-012/2026</span>
+                    </div>
+                    
+                    <div class="relative border-l-2 border-slate-200 ml-3 space-y-6">
+                        <div class="relative pl-6">
+                            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-emerald-600 border-2 border-white shadow"></div>
+                            <p class="text-xs font-bold text-emerald-700">Penerbitan Invoice Jaminan</p>
+                            <p class="text-[10px] text-slate-500">Selesai • 29 Mei 2026</p>
+                        </div>
+                        <div class="relative pl-6" id="step-payment">
+                            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-amber-500 border-2 border-white shadow animate-pulse"></div>
+                            <p class="text-xs font-bold text-amber-700">Penyelesaian Jaminan</p>
+                            <p class="text-[10px] text-slate-500">Menunggu Pelunasan Tagihan</p>
+                        </div>
+                        <div class="relative pl-6" id="step-final">
+                            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-300 border-2 border-white shadow"></div>
+                            <p class="text-xs font-bold text-slate-400">Pelepasan & Restitusi</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PANEL: BATAS WAKTU -->
+            <div class="dashboard-panel border-rose-200">
+                <div class="panel-header bg-rose-900 border-rose-500">
+                    <i class="fas fa-stopwatch text-white"></i>
+                    Batas Waktu Ketetapan
+                </div>
+                <div class="p-5 text-center bg-rose-50/50">
+                    <div class="flex justify-center gap-2 font-mono text-2xl font-bold text-rose-700 mb-3">
+                        <div class="bg-white px-3 py-2 rounded-lg border border-rose-200 shadow-sm flex flex-col items-center min-w-[60px]"><span id="hours">23</span><span class="text-[8px] font-sans text-slate-400 font-normal mt-1">JAM</span></div>
+                        <div class="py-2">:</div>
+                        <div class="bg-white px-3 py-2 rounded-lg border border-rose-200 shadow-sm flex flex-col items-center min-w-[60px]"><span id="minutes">59</span><span class="text-[8px] font-sans text-slate-400 font-normal mt-1">MENIT</span></div>
+                        <div class="py-2">:</div>
+                        <div class="bg-white px-3 py-2 rounded-lg border border-rose-200 shadow-sm flex flex-col items-center min-w-[60px]"><span id="seconds">59</span><span class="text-[8px] font-sans text-slate-400 font-normal mt-1">DETIK</span></div>
+                    </div>
+                    <p class="text-[10px] text-rose-800 leading-relaxed bg-rose-100 p-2.5 rounded border border-rose-200">
+                        Sesuai UU Kepabeanan, kegagalan pelunasan invoice ini dalam <strong class="text-rose-900">1x24 jam</strong> berakibat pada <strong class="uppercase text-rose-900">Sita Negara</strong> tanpa pemberitahuan.
+                    </p>
+                </div>
+            </div>
+
+            <!-- DESKTOP ACTIONS -->
+            <div class="desktop-actions flex flex-col gap-3">
+                <button onclick="simulatePayment()" class="pay-btn-class w-full bg-gradient-to-r from-[var(--primary-navy)] to-[var(--primary-dark)] hover:from-slate-800 hover:to-black text-white font-bold py-3.5 px-4 rounded-xl shadow-lg transition-all border border-slate-700 flex justify-center items-center gap-2 active:scale-95">
+                    <i class="fas fa-wallet text-accent-gold"></i>
+                    PROSES PELUNASAN JAMINAN
+                </button>
+                <div class="grid grid-cols-2 gap-3">
+                    <button onclick="generatePDF()" class="pdf-btn-class bg-white border border-slate-300 text-slate-700 font-semibold py-3 rounded-xl shadow-sm hover:bg-slate-50 transition-colors flex justify-center items-center gap-2 text-sm">
+                        <i class="fas fa-file-pdf text-rose-600"></i> Unduh PDF
+                    </button>
+                    <button onclick="window.print()" class="bg-white border border-slate-300 text-slate-700 font-semibold py-3 rounded-xl shadow-sm hover:bg-slate-50 transition-colors flex justify-center items-center gap-2 text-sm">
+                        <i class="fas fa-print text-slate-600"></i> Cetak
+                    </button>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- DOCUMENT AREA (A4 EXACT INVOICE MATCH) -->
+        <div class="document-wrapper scroll-indicator-shadow">
+            
+            <div class="no-print lg:hidden text-center text-[10px] text-slate-500 mb-2 animate-pulse flex justify-center items-center gap-2 w-full">
+                <i class="fas fa-arrows-alt-h"></i> Geser dokumen ke kanan/kiri untuk melihat penuh
+            </div>
+
+            <div class="document-scroll-area">
+                <div class="document-container" id="pdfDocument">
+                    
+                    <div class="paid-stamp" id="paidStamp">LUNAS / PAID</div>
+
+                    <!-- WATERMARK TENGAH -->
+                    <img src="https://i.ibb.co.com/0RNkP7cG/pm-1766605896438-cmp.jpg" alt="Watermark DJBC" class="watermark-main" crossorigin="anonymous" />
+                    
+                    <div class="content-layer">
+                        
+                        <!-- 1. HEADER INVOICE -->
+                        <div class="inv-header-wrapper">
+                            <!-- KIRI: Info Perusahaan & Slogan -->
+                            <div class="inv-header-left">
+                                <img src="https://i.ibb.co.com/wF5hwJnq/IMG-20251215-214800.jpg" alt="Wajib Legalisasi" style="height: 60px; object-fit: contain; object-position: left; margin-bottom: 5px;" class="mix-blend-multiply" crossorigin="anonymous" />
+                                
+                                <div>
+                                    <div class="inv-section-title">Info Perusahaan</div>
+                                    <div class="inv-section-line"></div>
+                                    <div style="color: #4b80c0; font-weight: 700; font-size: 8.5pt; margin-bottom: 4px;">WEBSITE LEGALISASI</div>
+                                </div>
+                                
+                                <img src="https://i.ibb.co/1Jf993mY/IMG-20251209-084035.jpg" alt="Bea Cukai Slogan" style="height: 50px; object-fit: contain; object-position: left;" class="mix-blend-multiply" crossorigin="anonymous" />
+                            </div>
+
+                            <!-- KANAN: Invoice Title, Meta, & Logo Kemenkeu -->
+                            <div class="inv-header-right">
+                                <div class="inv-title-text">Invoice</div>
+                                
+                                <table class="inv-meta-table">
+                                    <tr>
+                                        <td>Referensi</td>
+                                        <td style="font-weight: 700;">: BC.MKS/SL-012/2026</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tanggal</td>
+                                        <td style="font-weight: 700;">: 29/05/2026</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tgl. Jatuh Tempo</td>
+                                        <td style="font-weight: 700; color: #dc2626;">: 29/05/2026</td>
+                                    </tr>
+                                </table>
+                                
+                                <img src="https://i.ibb.co.com/p6kxr6WT/IMG-20260121-011440.jpg" alt="Kemenkeu" style="height: 55px; object-fit: contain; margin-top: 15px;" class="mix-blend-multiply" crossorigin="anonymous" />
+                            </div>
+                        </div>
+
+                        <!-- 2. BILL TO & LOGOS -->
+                        <div class="inv-bill-to-wrapper">
+                            <!-- KIRI: Tagihan Untuk -->
+                            <div class="inv-bill-to-left">
+                                <div class="inv-section-title">Tagihan Untuk</div>
+                                <div class="inv-section-line"></div>
+                                <div style="font-size: 8.5pt; color: #333;">
+                                    <p style="color: #2b579a; font-weight: 700; font-size: 9pt; margin-bottom: 4px;">Andi M</p>
+                                    <p>Dusun. 8 Wonosari, Gang. Teratai,</p>
+                                    <p>Desa Klumpang Kebun, Kec. Hamparan Perak, Kab. Deli Serdang,</p>
+                                    <p>Sumatera Utara, 20374, Indonesia</p>
+                                    <p style="margin-top: 4px;">Telp: (+62) 812-6328-5947</p>
+                                </div>
+                            </div>
+                            <!-- KANAN: ISO & OJK Logos -->
+                            <div class="inv-bill-to-right">
+                                <img src="https://i.ibb.co.com/HpDB8NXW/1766129088487.jpg" alt="OJK" style="height: 50px; object-fit: contain;" class="mix-blend-multiply" crossorigin="anonymous" />
+                                <img src="https://i.ibb.co/4wcBBxK0/IMG-20251215-205820-651.jpg" alt="ISO" style="height: 50px; object-fit: contain;" class="mix-blend-multiply" crossorigin="anonymous" />
+                            </div>
+                        </div>
+
+                        <!-- 3. TABEL PRODUK -->
+                        <table class="inv-table">
+                            <thead>
+                                <tr>
+                                    <th width="15%">Produk</th>
+                                    <th width="35%">Deskripsi</th>
+                                    <th width="10%">Qty</th>
+                                    <th width="12%">Harga</th>
+                                    <th width="8%">Disc</th>
+                                    <th width="8%">Pajak</th>
+                                    <th width="12%">Jumlah</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="color: #444; font-weight: 600;">Legalitas (ROKOK ILEGAL)</td>
+                                    <td style="color: #444;">20 SLOP/4.000 Btg,<br>NON PITA CUKAI RESMI</td>
+                                    <td style="text-align: center;">4000</td>
+                                    <td style="text-align: right;">500.00</td>
+                                    <td style="text-align: center;">0%</td>
+                                    <td style="text-align: center;">-</td>
+                                    <td style="text-align: right; font-weight: 700;">2,000,000.00</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" style="border: none !important; background: white !important;"></td>
+                                    <td style="font-weight: bold; text-align: right; background: #f9fafb !important;">Total:</td>
+                                    <td style="font-weight: bold; text-align: right; background: #f9fafb !important;">2,000,000.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- 4. BOTTOM LAYOUT (2 KOLOM: Keterangan & Syarat) -->
+                        <div class="inv-bottom-wrapper">
+                            
+                            <!-- KIRI: Keterangan Surat -->
+                            <div class="inv-bottom-left">
+                                <div class="inv-section-title">Keterangan</div>
+                                <div class="inv-section-line"></div>
+                                
+                                <p style="font-weight: 700; margin-bottom: 4px;">SURAT PEMBERITAHUAN JAMINAN LEGALITAS SEMENTARA</p>
+                                <p>Nomor: BC.MKS/SL-012/2026</p>
+                                <p>Tanggal: 29 Mei 2026</p>
+                                <br>
+                                <p>Kepada Yth.,</p>
+                                <p>Andi M di Tempat</p>
+                                <br>
+                                <p>Dengan hormat,</p>
+                                <p class="inv-text-content">Berdasarkan hasil pemeriksaan fisik dan administrasi barang kiriman pada fasilitas bongkar muat Pelabuhan Pangkalpinang, serta sesuai dengan Standar Operasional Prosedur (SOP) Pemeriksaan Internal, bersama ini kami sampaikan informasi sebagai berikut:</p>
+                                
+                                <ol class="inv-list">
+                                    <li><strong>DATA BARANG KIRIMAN:</strong> Jenis Barang: Rokok Tanpa Pita Cukai, Jumlah Kemasan 20 Slop, Jumlah Batang: 4.000 Btg, Status Kepabeanan: Ditemukan indikasi pelanggaran ketentuan cukai berupa rokok tanpa pita cukai resmi.</li>
+                                    <li><strong>IDENTITAS PENERIMA BARANG:</strong> Keterangan Data: Ekspedisi SiCepat Ekspres, Nomor Resi 001776527333, Nama Penerima Andi M, Nomor Telepon (+62) 812-6328-5947.</li>
+                                </ol>
+
+                                <p style="font-weight: 700; text-decoration: underline; margin-bottom: 2px;">TINDAKAN INTERNAL</p>
+                                <p>Adapun tindakan yang dilakukan untuk memastikan kejelasan legalitas barang adalah:</p>
+                                <ol class="inv-list">
+                                    <li>Menahan sementara paket untuk proses klarifikasi kepada pemilik barang.</li>
+                                    <li>Mengeluarkan pemberitahuan invoice jaminan sementara dengan perhitungan terlampir.</li>
+                                </ol>
+
+                                <p style="font-weight: 700; text-decoration: underline; margin-bottom: 2px;">DASAR PERHITUNGAN JAMINAN</p>
+                                <p class="inv-text-content">Uraian Nilai: 25% dari total 2x Nilai Cukai (Rp 500 x 4.000 batang = Rp 2.000.000,00 Total Jaminan Sementara yang harus dilunasi).</p>
+                            </div>
+
+                            <!-- KANAN: Syarat Ketentuan & TTD -->
+                            <div class="inv-bottom-right">
+                                <div class="inv-section-title">Syarat & Ketentuan</div>
+                                <div class="inv-section-line"></div>
+                                
+                                <p style="font-weight: 700; text-decoration: underline; margin-bottom: 2px;">OPSI REFUND (RESTITUSI)</p>
+                                <p class="inv-text-content">Setelah proses verifikasi sistem internal selesai dan legalitas disahkan, pemilik barang diberikan opsi restitusi (pengembalian) sebagai berikut:</p>
+                                
+                                <ol class="inv-list">
+                                    <li>Refund 70% dari total nilai jaminan: <strong>Rp 1.400.000,00</strong></li>
+                                    <li>Biaya Administrasi & PNBP 30%: <strong>Rp 600.000,00</strong></li>
+                                </ol>
+
+                                <p style="font-weight: 700; text-decoration: underline; margin-bottom: 2px;">KETERANGAN</p>
+                                <p class="inv-text-content">Biaya administrasi internal bukan merupakan denda pidana, melainkan biaya operasional Penerimaan Negara Bukan Pajak (PNBP) sesuai prosedur penanganan legalitas barang.</p>
+                                
+                                <p style="font-weight: 700; text-decoration: underline; margin-bottom: 2px; color: #dc2626;">KONSEKUENSI HUKUM</p>
+                                <p class="inv-text-content">Jika tagihan jaminan ini tidak diselesaikan dalam 1 (satu) hari kerja (1x24 Jam), barang akan disita penuh dan diproses secara hukum sesuai ketentuan <strong>UU Cukai No. 39 Tahun 2007.</strong></p>
+                                
+                                <!-- TANDA TANGAN (Dikunci di posisi bawah) -->
+                                <div class="inv-signature-box">
+                                    <p style="font-weight: 700; margin-bottom: 5px;">Hormat kami,</p>
+                                    
+                                    <!-- Container Image yang Fix Height agar tidak overlap teks atas/bawah -->
+                                    <div style="height: 70px; display: flex; justify-content: center; align-items: center; margin: 5px 0;">
+                                        <img src="https://i.ibb.co.com/M5ZWjB5R/IMG-20260120-162645.jpg" alt="TTD" style="height: 90px; object-fit: contain; mix-blend-multiply; transform: rotate(-2deg);" crossorigin="anonymous" />
+                                    </div>
+                                    
+                                   
+                                    <p style="font-weight: 700; font-size: 9pt; text-decoration: underline;">ARIF KURNIAWAN</p>
+                                    <p style="font-size: 8pt; color: #555;">NIP. 19870311 201102 1 006</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div> <!-- End Content Layer -->
+                </div> <!-- End Document Container -->
+            </div>
+        </div>
+    </main>
+
+    <!-- MOBILE ACTION BAR -->
+    <div class="mobile-action-bar">
+        <button onclick="generatePDF()" class="pdf-btn-class w-1/3 bg-white text-slate-700 font-bold py-3.5 rounded-xl border border-slate-300 text-[12px] flex justify-center items-center gap-2 active:bg-slate-100 shadow-sm">
+            <i class="fas fa-file-pdf text-rose-600 text-base"></i> PDF
+        </button>
+        <button onclick="simulatePayment()" class="pay-btn-class w-2/3 bg-gradient-to-r from-[var(--primary-navy)] to-[var(--primary-dark)] text-white font-bold py-3.5 px-2 rounded-xl shadow-lg flex justify-center items-center gap-2 text-[13px] active:scale-[0.98]">
+            <i class="fas fa-wallet text-accent-gold text-base"></i> PELUNASAN
+        </button>
+    </div>
+
+    <!-- JAVASCRIPT -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const btns = [document.getElementById('downloadPdfBtn'), document.getElementById('downloadPdfBtnBottom')];
-            const previewBtn = document.getElementById('previewPrintBtn');
-            const element = document.getElementById('pdfContent');
+        // Set Server Clock
+        setInterval(() => {
+            const now = new Date();
+            const dateStr = now.toLocaleDateString('id-ID', { year: 'numeric', month: 'short', day: 'numeric' });
+            const timeStr = now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+            document.getElementById('server-clock').innerText = `${dateStr} ${timeStr}`;
+        }, 1000);
+
+        // Toast System
+        function showToast(msg, isError = false) {
             const toast = document.getElementById('toast');
-
-            function showToast(msg) {
-                document.getElementById('toastMessage').textContent = msg;
-                toast.classList.add('show');
-                setTimeout(() => toast.classList.remove('show'), 4000);
+            const icon = document.getElementById('toast-icon');
+            document.getElementById('toast-msg').innerText = msg;
+            
+            if(isError) {
+                toast.classList.add('error');
+                icon.className = 'w-6 h-6 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center text-sm';
+                icon.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                toast.classList.remove('error');
+                icon.className = 'w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-sm';
+                icon.innerHTML = '<i class="fas fa-check"></i>';
             }
 
-            function generatePDF() {
-                btns.forEach(b => { b.disabled = true; b.classList.add('loading'); });
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 4000);
+        }
 
-                const opt = {
-                    margin: 0,
-                    filename: 'Berita_Acara_Bea_Cukai_2026.pdf',
-                    image: { type: 'jpeg', quality: 0.98 },
-                    html2canvas: {
-                        scale: 2, 
-                        useCORS: true, 
-                        scrollY: 0,
-                        onclone: (doc) => {
-                            // Menghilangkan efek blend-mode agar tidak menjadi kotak hitam saat render PDF
-                            const stempel = doc.querySelector('.layer-stempel');
-                            const ttd = doc.querySelector('.layer-ttd');
-                            if(stempel) stempel.style.mixBlendMode = 'normal';
-                            if(ttd) ttd.style.mixBlendMode = 'normal';
-                        }
-                    },
-                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-                };
+        // Countdown Timer Logic
+        let deadline = localStorage.getItem('bc_deadline_formal');
+        if (!deadline) {
+            deadline = new Date().getTime() + 23 * 60 * 60 * 1000 + 45 * 60 * 1000;
+            localStorage.setItem('bc_deadline_formal', deadline);
+        } else {
+            deadline = parseInt(deadline);
+        }
 
-                html2pdf().set(opt).from(element).save().then(() => {
-                    btns.forEach(b => { b.disabled = false; b.classList.remove('loading'); });
-                    showToast('✅ Dokumen PDF resmi berhasil diunduh!');
-                }).catch(err => {
-                    console.error(err);
-                    btns.forEach(b => { b.disabled = false; b.classList.remove('loading'); });
-                    showToast('⚠️ Gagal memproses PDF.');
+        setInterval(() => {
+            const distance = deadline - new Date().getTime();
+            if (distance < 0) return;
+            document.getElementById('hours').innerText = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+            document.getElementById('minutes').innerText = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+            document.getElementById('seconds').innerText = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
+        }, 1000);
+
+        // Simulasi Pembayaran
+        function simulatePayment() {
+            const payBtns = document.querySelectorAll('.pay-btn-class');
+            const paidStamp = document.getElementById('paidStamp');
+            
+            payBtns.forEach(btn => {
+                btn.disabled = true;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> MEMPROSES...';
+            });
+
+            setTimeout(() => {
+                payBtns.forEach(btn => {
+                    btn.innerHTML = '<i class="fas fa-check-circle"></i> STATUS: LUNAS';
+                    btn.classList.replace('from-[var(--primary-navy)]', 'from-emerald-600');
+                    btn.classList.replace('to-[var(--primary-dark)]', 'to-emerald-700');
+                    btn.style.cursor = 'default';
                 });
-            }
+                
+                paidStamp.classList.add('active');
+                
+                const stepPay = document.getElementById('step-payment');
+                stepPay.querySelector('div').className = 'absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-emerald-600 border-2 border-white shadow';
+                stepPay.querySelector('p').className = 'text-xs font-bold text-emerald-700';
+                stepPay.querySelectorAll('p')[1].innerText = 'Lunas • Menunggu Restitusi';
 
-            btns.forEach(btn => btn.addEventListener('click', generatePDF));
-            if(previewBtn) previewBtn.addEventListener('click', () => window.print());
-        });
+                const stepFinal = document.getElementById('step-final');
+                stepFinal.querySelector('div').className = 'absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-amber-500 border-2 border-white shadow animate-pulse';
+                stepFinal.querySelector('p').className = 'text-xs font-bold text-amber-700';
+                
+                showToast('Pembayaran berhasil dikonfirmasi. Invoice telah dicap LUNAS.');
+            }, 2000);
+        }
+
+        // PDF Generation
+        function generatePDF() {
+            const pdfBtns = document.querySelectorAll('.pdf-btn-class');
+            const element = document.getElementById('pdfDocument');
+            
+            pdfBtns.forEach(btn => {
+                btn.dataset.original = btn.innerHTML;
+                btn.disabled = true;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Menyusun...';
+            });
+
+            const watermarkMain = document.querySelector('.watermark-main');
+            const originalMain = watermarkMain.style.opacity;
+            watermarkMain.style.opacity = '0.04'; 
+
+            const opt = {
+                margin: 0,
+                filename: 'Invoice_Jaminan_Legalisasi_BC.pdf',
+                image: { type: 'jpeg', quality: 1.0 },
+                html2canvas: { 
+                    scale: 2.5, 
+                    useCORS: true, 
+                    logging: false, 
+                    backgroundColor: '#ffffff'
+                }, 
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                watermarkMain.style.opacity = originalMain;
+                pdfBtns.forEach(btn => {
+                    btn.disabled = false;
+                    btn.innerHTML = btn.dataset.original;
+                });
+                showToast('Dokumen PDF berhasil diunduh.');
+            }).catch(err => {
+                watermarkMain.style.opacity = originalMain;
+                pdfBtns.forEach(btn => {
+                    btn.disabled = false;
+                    btn.innerHTML = btn.dataset.original;
+                });
+                showToast('Gagal memproses PDF.', true);
+            });
+        }
     </script>
 </body>
 </html>
