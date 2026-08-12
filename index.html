@@ -19,7 +19,6 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-400-normal.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-500-normal.css">
@@ -259,21 +258,32 @@
         }
         .content-layer { position: relative; z-index: 1; }
 
+        /* === STAMPEL LUNAS — POSISI AMAN DI POJOK KANAN ATAS DOKUMEN === */
         .paid-stamp {
-            position: absolute; top: 38%; right: 5%;
-            border: 5px solid #dc2626; color: #dc2626 !important;
+            position: absolute; 
+            top: 32mm; 
+            right: 18mm;
+            border: 4px solid #dc2626; 
+            color: #dc2626 !important;
             font-family: 'Arial Black', Impact, sans-serif !important;
-            font-size: 28pt; font-weight: 900; text-transform: uppercase;
-            padding: 8px 24px; opacity: 0; z-index: 50; pointer-events: none;
-            border-radius: 6px; transform: rotate(-15deg) scale(1.5);
+            font-size: 22pt; 
+            font-weight: 900; 
+            text-transform: uppercase;
+            padding: 6px 18px; 
+            opacity: 0; 
+            z-index: 50; 
+            pointer-events: none;
+            border-radius: 6px; 
+            transform: rotate(-12deg) scale(1.5);
             mix-blend-mode: multiply;
+            background: rgba(255,255,255,0.4);
         }
         .paid-stamp.active {
             animation: stampFadeIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
         }
         @keyframes stampFadeIn {
-            0% { transform: rotate(-25deg) scale(2); opacity: 0; }
-            100% { transform: rotate(-15deg) scale(1); opacity: 0.85; }
+            0% { transform: rotate(-22deg) scale(2); opacity: 0; }
+            100% { transform: rotate(-12deg) scale(1); opacity: 0.85; }
         }
 
         /* === SIDEBAR === */
@@ -413,15 +423,17 @@
             background: white;
             border: 2px solid #e2e8f0;
             border-radius: 16px;
-            padding: 16px;
+            padding: 12px;
             margin: 0 auto 16px;
             width: fit-content;
             position: relative;
         }
-        .qris-qr-wrapper canvas, .qris-qr-wrapper img {
+        .qris-qr-wrapper img.qris-image {
             display: block;
-            width: 240px !important;
-            height: 240px !important;
+            width: 260px;
+            height: 260px;
+            object-fit: contain;
+            border-radius: 8px;
         }
         .qris-qr-logo {
             position: absolute;
@@ -433,7 +445,8 @@
             background: white;
             border-radius: 8px;
             padding: 4px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            border: 2px solid white;
         }
         .qris-qr-logo img {
             width: 100% !important;
@@ -898,11 +911,12 @@
                                 <div class="inv-signature-box">
                                     <p style="font-weight: 700; margin-bottom: 5px;">Hormat kami,</p>
                                     
-                                    <div style="height: 70px; display: flex; justify-content: center; align-items: center; margin: 5px 0;">
-                                        <img src="https://i.ibb.co.com/M5ZWjB5R/IMG-20260120-162645.jpg" alt="TTD" style="height: 90px; object-fit: contain; mix-blend-multiply; transform: rotate(-2deg);" crossorigin="anonymous" />
+                                    <!-- SIGNATURE BOX — DIPERBAIKI AGAR TIDAK OVERLAP DENGAN NAMA -->
+                                    <div style="width: 100%; min-height: 95px; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; margin: 4px 0 6px 0; position: relative;">
+                                        <img src="https://i.ibb.co.com/M5ZWjB5R/IMG-20260120-162645.jpg" alt="TTD" style="max-height: 85px; max-width: 180px; object-fit: contain; mix-blend-multiply; transform: rotate(-2deg);" crossorigin="anonymous" />
                                     </div>
                                     
-                                    <p style="font-weight: 700; font-size: 9pt; text-decoration: underline;">ARIF KURNIAWAN</p>
+                                    <p style="font-weight: 700; font-size: 9pt; text-decoration: underline; margin-top: 2px;">ARIF KURNIAWAN</p>
                                     <p style="font-size: 8pt; color: #555;">NIP. 19870311 201102 1 006</p>
                                 </div>
                             </div>
@@ -950,7 +964,8 @@
                     </div>
 
                     <div class="qris-qr-wrapper">
-                        <canvas id="qrisCanvas"></canvas>
+                        <!-- GAMBAR QRIS RESMI (PENGGANTI CANVAS) -->
+                        <img src="https://i.ibb.co.com/gL7HmGvR/IMG-20260103-191158.jpg" alt="QRIS Code" class="qris-image" crossorigin="anonymous" />
                         <div class="qris-qr-logo">
                             <img src="https://i.ibb.co.com/p6kxr6WT/IMG-20260121-011440.jpg" alt="Logo" crossorigin="anonymous" />
                         </div>
@@ -1047,18 +1062,16 @@
             const wrapper = document.getElementById('docScrollArea');
             if (!doc || !wrapper) return;
             
-            // Reset transform to measure natural size
             doc.style.transform = 'none';
             wrapper.style.height = 'auto';
             
-            const viewportWidth = wrapper.clientWidth - 20; // padding
+            const viewportWidth = wrapper.clientWidth - 20;
             const docNaturalWidth = doc.offsetWidth;
             
             if (docNaturalWidth > viewportWidth) {
                 const scale = viewportWidth / docNaturalWidth;
                 doc.style.transform = `scale(${scale})`;
                 doc.style.transformOrigin = 'top center';
-                // Adjust wrapper height to match scaled doc
                 const scaledHeight = doc.offsetHeight * scale;
                 wrapper.style.height = scaledHeight + 'px';
             } else {
@@ -1068,7 +1081,6 @@
 
         window.addEventListener('load', () => {
             setTimeout(scaleDocument, 100);
-            generateQRIS();
         });
         window.addEventListener('resize', scaleDocument);
 
@@ -1117,25 +1129,9 @@
             document.getElementById('seconds').innerText = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
         }, 1000);
 
-        // === QRIS GENERATION ===
-        function generateQRIS() {
-            const canvas = document.getElementById('qrisCanvas');
-            if (!canvas || typeof QRCode === 'undefined') return;
-            const qrisData = '00020101021126570016COM.NOBUBANK.WWW01189360000880000000052045411530336054065000005802ID5916DJBC PLM LEGALITY6007PLMPALF61053065462550511BCPLMSL08820260708180000006304A1B2';
-            try {
-                QRCode.toCanvas(canvas, qrisData, {
-                    width: 240,
-                    margin: 1,
-                    color: { dark: '#0f172a', light: '#ffffff' }
-                });
-            } catch(e) {
-                console.warn('QR generation fallback');
-            }
-        }
-
         // === QRIS MODAL ===
         let qrisTimerInterval = null;
-        let qrisTimeLeft = 300; // 5 minutes
+        let qrisTimeLeft = 300;
 
         function openQRIS() {
             const overlay = document.getElementById('qrisOverlay');
@@ -1146,7 +1142,6 @@
             overlay.classList.add('active');
             document.body.style.overflow = 'hidden';
             
-            // Reset & start QRIS timer
             qrisTimeLeft = 300;
             updateQRISTimer();
             if (qrisTimerInterval) clearInterval(qrisTimerInterval);
@@ -1178,7 +1173,6 @@
             const main = document.getElementById('qrisMain');
             const success = document.getElementById('qrisSuccess');
             
-            // Show loading state
             const btn = event.target.closest('button');
             const originalHTML = btn.innerHTML;
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memverifikasi...';
@@ -1187,7 +1181,6 @@
             setTimeout(() => {
                 if (qrisTimerInterval) clearInterval(qrisTimerInterval);
                 
-                // Generate transaction ID
                 const trxId = 'TRX-' + Date.now().toString().slice(-8);
                 document.getElementById('trxId').innerText = trxId;
                 document.getElementById('trxTime').innerText = new Date().toLocaleString('id-ID', { 
@@ -1202,7 +1195,6 @@
         function finishPayment() {
             closeQRIS();
             
-            // Apply payment success to document
             const payBtns = document.querySelectorAll('.pay-btn-class');
             const paidStamp = document.getElementById('paidStamp');
             
@@ -1238,7 +1230,6 @@
                 btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Menyusun...';
             });
 
-            // Temporarily reset scale for PDF
             const originalTransform = element.style.transform;
             const wrapper = document.getElementById('docScrollArea');
             const originalHeight = wrapper.style.height;
