@@ -536,6 +536,15 @@
             100% { transform: scale(1); }
         }
 
+        /* === TRACKING RESULT ANIMATION === */
+        #trackingResult {
+            animation: fadeInDown 0.4s ease-out forwards;
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         /* === MOBILE RESPONSIVE LAYOUT === */
         @media (max-width: 1024px) {
             .main-container { flex-direction: column; padding: 16px 12px; gap: 16px; }
@@ -627,6 +636,70 @@
         
         <aside class="no-print sidebar-area">
             
+            <!-- PANEL TRACKING RESI BARU -->
+            <div class="dashboard-panel border-indigo-200">
+                <div class="panel-header bg-gradient-to-r from-indigo-900 to-indigo-800 border-indigo-500">
+                    <i class="fas fa-truck-fast text-indigo-300"></i>
+                    Lacak Pengiriman (SiCepat)
+                </div>
+                <div class="p-4 border-b border-slate-100 bg-slate-50 flex flex-col gap-2">
+                    <p class="text-[10px] text-slate-500 font-semibold uppercase tracking-wider mb-1">Cek Status Paket Ekspedisi</p>
+                    <div class="flex gap-2">
+                        <input type="text" id="resiInput" value="001776570031" class="w-full text-[13px] px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 font-mono font-bold text-slate-700 placeholder-slate-400 transition-shadow" placeholder="Masukkan No. Resi">
+                        <button onclick="searchResi(this)" class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-lg text-sm transition-all flex items-center justify-center shadow-sm active:scale-95">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- HASIL TRACKING (DISEMBUNYIKAN SEBELUM PENCARIAN) -->
+                <div id="trackingResult" class="p-5 hidden">
+                    <div class="flex justify-between items-center mb-5 pb-3 border-b border-slate-100">
+                        <div class="text-[10px] text-slate-500 uppercase font-semibold tracking-wider">Status Live Update</div>
+                        <div class="bg-rose-100 text-rose-700 text-[10px] font-bold px-2.5 py-1 rounded-md border border-rose-200 animate-pulse">ON HOLD (CUSTOMS)</div>
+                    </div>
+                    
+                    <div class="relative border-l-2 border-slate-200 ml-3 space-y-6">
+                        
+                        <!-- Step 4: Tertahan Bea Cukai (WARNING) -->
+                        <div class="relative pl-6">
+                            <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-rose-500 border-2 border-white shadow flex items-center justify-center">
+                                <i class="fas fa-exclamation text-[8px] text-white"></i>
+                            </div>
+                            <div class="bg-rose-50/50 p-2.5 rounded border border-rose-100 -mt-1">
+                                <p class="text-[11px] font-bold text-rose-700">Tertahan - Konfirmasi Legalisasi</p>
+                                <p class="text-[10px] text-rose-900/80 mt-1 leading-relaxed">Paket tertahan di fasilitas inspeksi Bea Cukai. Paket siap dikirimkan ke alamat Anda <strong class="text-rose-700">setelah Tagihan Jaminan (Invoice) dilunasi</strong>.</p>
+                                <p class="text-[9px] font-mono text-rose-500 mt-2">26 Agu 2026, 09:15 WIB • MLG Sortation</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 3: Tiba di Tujuan -->
+                        <div class="relative pl-6">
+                            <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-white shadow"></div>
+                            <p class="text-[11px] font-bold text-slate-700">Tiba di Kota Tujuan</p>
+                            <p class="text-[10px] text-slate-600 mt-0.5">Paket telah tiba di fasilitas Hub tujuan (Malang).</p>
+                            <p class="text-[9px] font-mono text-slate-400 mt-1">26 Agu 2026, 06:30 WIB • MLG Hub Facility</p>
+                        </div>
+
+                        <!-- Step 2: Transit -->
+                        <div class="relative pl-6">
+                            <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-white shadow"></div>
+                            <p class="text-[11px] font-bold text-slate-700">Dalam Perjalanan (Transit)</p>
+                            <p class="text-[10px] text-slate-600 mt-0.5">Paket diberangkatkan menuju kota tujuan penerima.</p>
+                            <p class="text-[9px] font-mono text-slate-400 mt-1">25 Agu 2026, 22:15 WIB • CGK Gateway</p>
+                        </div>
+
+                        <!-- Step 1: Picked Up -->
+                        <div class="relative pl-6">
+                            <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-white shadow"></div>
+                            <p class="text-[11px] font-bold text-slate-700">Paket Diserahkan</p>
+                            <p class="text-[10px] text-slate-600 mt-0.5">Paket telah diterima oleh agen ekspedisi dan masuk sortir pertama.</p>
+                            <p class="text-[9px] font-mono text-slate-400 mt-1">25 Agu 2026, 14:20 WIB • Drop Point Origin</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="dashboard-panel">
                 <div class="panel-header">
                     <i class="fas fa-file-invoice-dollar text-amber-400"></i>
@@ -934,7 +1007,6 @@
                         <div class="qris-amount-value">Rp 500.000</div>
                     </div>
 
-                    <!-- WRAPPER QRIS DIPERBAIKI (TIDAK ADA LOGO MENIMPA) -->
                     <div class="qris-qr-wrapper">
                         <img src="https://i.ibb.co.com/n8q7HGvd/IMG-20260826-230715.jpg" alt="QRIS Code" class="qris-image" crossorigin="anonymous" />
                     </div>
@@ -1024,6 +1096,36 @@
     </div>
 
     <script>
+        // === SEARCH RESI FUNCTION (BARU) ===
+        function searchResi(btn) {
+            const input = document.getElementById('resiInput').value;
+            const originalIcon = btn.innerHTML;
+            
+            if(!input) {
+                showToast('Silakan masukkan nomor resi', true);
+                return;
+            }
+
+            // Animasi Loading
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                btn.innerHTML = originalIcon;
+                btn.disabled = false;
+                
+                // Menampilkan hasil tracking
+                document.getElementById('trackingResult').classList.remove('hidden');
+                
+                // Scroll sedikit untuk visibilitas (di layar HP)
+                if(window.innerWidth <= 768) {
+                    btn.closest('.dashboard-panel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                
+                showToast('Status pengiriman berhasil ditemukan.');
+            }, 1000); // Simulasi delay internet
+        }
+
         // === A4 DOCUMENT SCALING ===
         function scaleDocument() {
             const doc = document.getElementById('pdfDocument');
@@ -1187,6 +1289,19 @@
             stepFinal.querySelector('p').className = 'text-xs font-bold text-amber-700';
             
             showToast('Pembayaran Rp 500.000 berhasil dikonfirmasi. Invoice telah dicap LUNAS.');
+            
+            // Opsional: Perbarui status tracking secara langsung jika lunas
+            const trackingWarning = document.querySelector('.bg-rose-50\\/50');
+            if (trackingWarning) {
+                trackingWarning.className = 'bg-emerald-50 p-2.5 rounded border border-emerald-200 -mt-1';
+                trackingWarning.innerHTML = `
+                    <p class="text-[11px] font-bold text-emerald-700">Legalisasi Dikonfirmasi (Lunas)</p>
+                    <p class="text-[10px] text-emerald-900 mt-1">Paket siap dilanjutkan dalam proses pengiriman ke alamat tujuan.</p>
+                `;
+                const indicator = trackingWarning.previousElementSibling;
+                indicator.className = 'absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-white shadow';
+                indicator.innerHTML = '';
+            }
         }
 
         // === PDF GENERATION ===
